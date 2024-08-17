@@ -149,7 +149,7 @@ Transform:
   m_GameObject: {fileID: 108175330}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -30, y: 0, z: -10}
-  m_LocalScale: {x: 30, y: 30, z: 0}
+  m_LocalScale: {x: 30, y: 60, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 177450204}
@@ -310,7 +310,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
   m_Color: {r: 0.93530995, g: 0.62707955, b: 0.11470771, a: 1}
   m_FlipX: 0
@@ -379,6 +379,14 @@ MonoBehaviour:
   fish: {fileID: 118657946}
   timerMultiplicator: 3
   smoothMotion: 1
+  hook: {fileID: 108175331}
+  hookSize: 0.1
+  hookPower: 0.5
+  hookPullPower: 0.1
+  hookGravityPower: 0.05
+  hookProgressDegradationPower: 0.05
+  hookSpriteRenderer: {fileID: 108175332}
+  progressBarContainer: {fileID: 313314763}
 --- !u!1 &313314762
 GameObject:
   m_ObjectHideFlags: 0
@@ -403,8 +411,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 313314762}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 30, y: -70, z: -5}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 30, y: -70, z: -10}
+  m_LocalScale: {x: 1, y: 0.91, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1173552194}
@@ -603,7 +611,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 959664665}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: 0, y: 0, z: -20}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
