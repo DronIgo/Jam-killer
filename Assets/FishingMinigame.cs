@@ -105,7 +105,7 @@ public class FishingMinigame : MonoBehaviour
 
     private void Hook()
     {
-        if (Input.GetMouseButton(0))//todo use input manager
+        if (InputManager.instance.hookUp)
         {
             hookPullVelocity += hookPullPower * Time.deltaTime;
         }

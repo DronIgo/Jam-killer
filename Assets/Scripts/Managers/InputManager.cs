@@ -99,8 +99,10 @@ public class InputManager : MonoBehaviour
     public float horizontalLookAxis;
     [Tooltip("The vertical mouse input of the player.")]
     public float verticalLookAxis;
-    [Tooltip("Wheter there was shoot in action on this frame.")]
+    [Tooltip("Whether there was shoot in action on this frame.")]
     public bool hookThrown = false;
+    [Tooltip("Command to rise hook area in fishing minigame.")]
+    public bool hookUp = false;
 
     /// <summary>
     /// Description:
@@ -122,6 +124,11 @@ public class InputManager : MonoBehaviour
     {
         hookThrown = callbackContex.ReadValueAsButton();
         StartCoroutine("ResetHookThrownStart");
+    }
+
+    public void GetHookUpInput(InputAction.CallbackContext callbackContex)
+    {
+        hookUp = callbackContex.ReadValueAsButton();
     }
 
     private IEnumerator ResetHookThrownStart()

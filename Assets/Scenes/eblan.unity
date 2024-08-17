@@ -123,6 +123,103 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &401167
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4096678800551362017, guid: 2e72e1e73f95f484cb7312d58e687443, type: 3}
+      propertyPath: m_Name
+      value: InputManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 4096678800551362019, guid: 2e72e1e73f95f484cb7312d58e687443, type: 3}
+      propertyPath: m_ActionEvents.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4096678800551362019, guid: 2e72e1e73f95f484cb7312d58e687443, type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_ActionId
+      value: 7f5dbac0-f2d5-4c42-913c-d676081be2b7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4096678800551362019, guid: 2e72e1e73f95f484cb7312d58e687443, type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_ActionName
+      value: Player/HookUp[/Keyboard/space,/Mouse/leftButton]
+      objectReference: {fileID: 0}
+    - target: {fileID: 4096678800551362019, guid: 2e72e1e73f95f484cb7312d58e687443, type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4096678800551362019, guid: 2e72e1e73f95f484cb7312d58e687443, type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4096678800551362019, guid: 2e72e1e73f95f484cb7312d58e687443, type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1163256436}
+    - target: {fileID: 4096678800551362019, guid: 2e72e1e73f95f484cb7312d58e687443, type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4096678800551362019, guid: 2e72e1e73f95f484cb7312d58e687443, type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: GetHookUpInput
+      objectReference: {fileID: 0}
+    - target: {fileID: 4096678800551362019, guid: 2e72e1e73f95f484cb7312d58e687443, type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: InputManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4096678800551362019, guid: 2e72e1e73f95f484cb7312d58e687443, type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 4096678800551362044, guid: 2e72e1e73f95f484cb7312d58e687443, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4096678800551362044, guid: 2e72e1e73f95f484cb7312d58e687443, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4096678800551362044, guid: 2e72e1e73f95f484cb7312d58e687443, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4096678800551362044, guid: 2e72e1e73f95f484cb7312d58e687443, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4096678800551362044, guid: 2e72e1e73f95f484cb7312d58e687443, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4096678800551362044, guid: 2e72e1e73f95f484cb7312d58e687443, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4096678800551362044, guid: 2e72e1e73f95f484cb7312d58e687443, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4096678800551362044, guid: 2e72e1e73f95f484cb7312d58e687443, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4096678800551362044, guid: 2e72e1e73f95f484cb7312d58e687443, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4096678800551362044, guid: 2e72e1e73f95f484cb7312d58e687443, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4096678800551362044, guid: 2e72e1e73f95f484cb7312d58e687443, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2e72e1e73f95f484cb7312d58e687443, type: 3}
 --- !u!1 &108175330
 GameObject:
   m_ObjectHideFlags: 0
@@ -387,6 +484,7 @@ MonoBehaviour:
   hookProgressDegradationPower: 0.05
   hookSpriteRenderer: {fileID: 108175332}
   progressBarContainer: {fileID: 313314763}
+  failTime: 10
 --- !u!1 &313314762
 GameObject:
   m_ObjectHideFlags: 0
@@ -618,6 +716,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1163256436 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4096678800551362018, guid: 2e72e1e73f95f484cb7312d58e687443, type: 3}
+  m_PrefabInstance: {fileID: 401167}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65b0a17e6a1908c42af2f1dfbb20db69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1173552193
 GameObject:
   m_ObjectHideFlags: 0
