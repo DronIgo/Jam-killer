@@ -90,6 +90,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 43af8346-070f-41cd-9fee-2e431058bcdd
     m_ActionName: Player/Hook[/Keyboard/h,/Mouse/leftButton]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4096678800551362018}
+        m_TargetAssemblyTypeName: InputManager, Assembly-CSharp
+        m_MethodName: GetHookUpInput
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 7f5dbac0-f2d5-4c42-913c-d676081be2b7
+    m_ActionName: Player/HookUp[/Keyboard/space,/Mouse/leftButton]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -114,3 +130,4 @@ MonoBehaviour:
   horizontalLookAxis: 0
   verticalLookAxis: 0
   hookThrown: 0
+  hookUp: 0
