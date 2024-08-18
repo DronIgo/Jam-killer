@@ -5,7 +5,7 @@ using UnityEngine.Events;
 
 public class FishAI : MonoBehaviour
 {
-    public enum FishState { HOSTILE, SCARED, NEUTRAL, CURIOUS };
+    public enum FishState { HOSTILE, SCARED, NEUTRAL, CURIOUS, FUCKING_DONE };
     public IFishGoal currentGoal;
     public bool hasAGoal = false;
     public FishState currentState;
@@ -65,7 +65,9 @@ public class FishAI : MonoBehaviour
 
     private void SetGoalAccordingToState()
     {
-        if (currentState == FishState.HOSTILE && distanceToPlayer < behaviourType.distanceChase)
+        if (hasAGoal)
+            return;
+        if (CheckAgroCondition())
         {
             SetGoal(new FishGoalChase(this));
         } else if (CheckBaitCondition())
@@ -78,13 +80,20 @@ public class FishAI : MonoBehaviour
         hasAGoal = true;
     }
 
+    private bool CheckAgroCondition()
+    {
+        return currentState == FishState.HOSTILE && distanceToPlayer < behaviourType.distanceChase;
+    }
+
     private bool CheckBaitCondition()
     {
         if (currentState != FishState.CURIOUS)
             return false;
-        if (distanceToPlayer < 10f)
-            return true;
-        return false;
+        if (distanceToPlayer >= 10f)
+            return false;
+        if (!FishingRod.rodActive)
+            return false;
+        return true;
     }
 
     public void StartMinigame()
@@ -94,6 +103,8 @@ public class FishAI : MonoBehaviour
 
     public void ResetBehaviour()
     {
+        if (currentState == FishState.FUCKING_DONE)
+            return;
         if (behaviourType == null)
             return;
         currentState = behaviourType.defaultState;
@@ -102,5 +113,6 @@ public class FishAI : MonoBehaviour
     public void SetGoal(IFishGoal goal)
     {
         currentGoal = goal;
+        hasAGoal = true;
     }
 }

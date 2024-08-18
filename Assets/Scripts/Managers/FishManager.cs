@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class FishManager : MonoBehaviour
 {
+    //public class 
     public List<FishType> fishTypes;
-    public List<GameObject> fishAlive = new();
-    public List<FishAI> fishAliveAI = new();
+
+    public List<System.Tuple<GameObject, FishAI>> fishAlive_go_ai = new();
 
     private int totalProbability = 0;
 
@@ -38,9 +39,9 @@ public class FishManager : MonoBehaviour
     void Update()
     {
         CheckFishDespawn();
-        if (fishAlive.Count < desiredNumOfFish)
+        if (fishAlive_go_ai.Count < desiredNumOfFish)
         {
-            SummonFish(desiredNumOfFish - fishAlive.Count);
+            SummonFish(desiredNumOfFish - fishAlive_go_ai.Count);
         }
     }
 
@@ -61,36 +62,41 @@ public class FishManager : MonoBehaviour
 
     void SummonFish(int amount)
     {
-        Debug.Log("SummonFish: " + amount);
+        //Debug.Log("SummonFish: " + amount);
         for (int i = 0; i < amount; ++i)
         {
             SpawnRandomFish();
         }
     }
 
-
-    void DeleteFish(GameObject fish)
+    int FindFishIndex(GameObject fish)
     {
-        int index = fishAlive.FindIndex((GameObject a) => { return a == fish; });
+        return fishAlive_go_ai.FindIndex((System.Tuple<GameObject, FishAI> a) => { return a.Item1 == fish; });
+    }
+    public void DeleteFish(GameObject fish, bool instantDestroy = false)
+    {
+        int index = FindFishIndex(fish);
         if (index != -1)
             DeleteFish(index);
     }
 
-    void DeleteFish(int index)
+    void DeleteFish(int index, bool instantDestroy = false)
     {
         if (index < currentCheckIndex)
             currentCheckIndex -= 1;
-        fishAlive[index].GetComponent<Fish>().Destroy();
-        fishAlive.RemoveAt(index);
-        fishAliveAI.RemoveAt(index);
+        if (instantDestroy)
+            Destroy(fishAlive_go_ai[index].Item1);
+        else
+            fishAlive_go_ai[index].Item1.GetComponent<Fish>().Destroy();
+        fishAlive_go_ai.RemoveAt(index);
     }
     void CheckFishDespawn()
     {
         for (int i = 0; i < maxNumberOfChecksInFrame; ++i)
         {
-            if (fishAlive.Count == 0)
+            if (fishAlive_go_ai.Count == 0)
                 return;
-            if (currentCheckIndex >= fishAlive.Count)
+            if (currentCheckIndex >= fishAlive_go_ai.Count)
                 currentCheckIndex = 0;
    
             if (CheckFishDespawnByIndex(currentCheckIndex))
@@ -102,7 +108,7 @@ public class FishManager : MonoBehaviour
 
     bool CheckFishDespawnByIndex(int index)
     {
-        return Vector3.Distance(fishAlive[index].transform.position, player.position) > distDispawn;
+        return fishAlive_go_ai[index].Item2.distanceToPlayer > distDispawn;
     }
 
     void SpawnFish(FishType type)
@@ -114,7 +120,7 @@ public class FishManager : MonoBehaviour
 
     void SpawnFish(Vector3 position, FishType type)
     {
-        if (fishAlive.Count >= maxTotalNumOfFish)
+        if (fishAlive_go_ai.Count >= maxTotalNumOfFish)
             return;
         GameObject fish = Instantiate(type.fishPrefab, position, Quaternion.identity);
         //set FishAI
@@ -156,21 +162,51 @@ public class FishManager : MonoBehaviour
             fishComponent.type = type;
         }
         fish.transform.parent = this.transform;
-        fishAlive.Add(fish);
-        fishAliveAI.Add(fishAI);
+        fishAlive_go_ai.Add(new System.Tuple<GameObject, FishAI>(fish, fishAI));
     }
 
     #endregion
 
     public bool minigameActive = true;
+    public GameObject currentFishInMinigameGO;
+    public FishAI currentFishInMinigameAI;
     public void InitiateMinigame(Fish fish) 
     {
-        foreach (FishAI fishAI in fishAliveAI)
+        if (minigameActive)
+            return;
+        
+        int index = FindFishIndex(fish.gameObject);
+        currentFishInMinigameGO = fishAlive_go_ai[index].Item1;
+        currentFishInMinigameAI = fishAlive_go_ai[index].Item2;
+        foreach (var f in fishAlive_go_ai)
         {
-            fishAI.ForceSetState(FishAI.FishState.NEUTRAL);
-            fishAI.SetGoal(new FishGoalRandomPoint(fishAI));
+            FishAI fishAI = f.Item2;
+
+            if (fishAI == currentFishInMinigameAI)
+            {
+                fishAI.SetGoal(new FishDoNothingGoal(currentFishInMinigameAI));
+            }
+            else
+            {
+                fishAI.ForceSetState(FishAI.FishState.NEUTRAL);
+                fishAI.SetGoal(new FishGoalRandomPoint(fishAI));
+            }
         }
         minigameManager.InitMinigame(fish);
+        minigameActive = true;
+    }
+
+    public void ResetFishBehaviour()
+    {
+        foreach (var f in fishAlive_go_ai)
+        {
+            if (f.Item2 == currentFishInMinigameAI)
+            {
+                continue;
+            }
+            FishAI fishAI = f.Item2;
+            fishAI.ResetBehaviour();
+        }
     }
 
     public void InitateLoadLevel(Fish fish)

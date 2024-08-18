@@ -37,7 +37,8 @@ public class FishingMinigame : MonoBehaviour
     public bool win { get; private set; }
     public bool lose { get; private set; }
 
-    [SerializeField] float failTime = 10f;
+    [SerializeField] float defaultFailTime = 20f;
+    float failTime = 10f;
 
     private void Start()
     {
@@ -60,9 +61,13 @@ public class FishingMinigame : MonoBehaviour
     public void InitiateGame()
     {
         pause = false;
+        failTime = defaultFailTime;
+        hookProgress = 0.0f;
         fishPosition = 0.5f;
         hookPosition = 0.5f;
         hookPullVelocity = 0.0f;
+        win = false;
+        lose = false;
     }
 
     private void Update()

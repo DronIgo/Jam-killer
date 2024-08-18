@@ -12,26 +12,42 @@ public class FishMover : MonoBehaviour
 
     void Awake()
     {
-        rigidbody = gameObject.GetComponent<Rigidbody2D>();
+        currentSpeed = new Vector3(0, 0, 0);
+        //rigidbody = gameObject.GetComponent<Rigidbody2D>();
     }
 
     private void Update()
     {
-        
+        transform.position += currentSpeed * Time.deltaTime;
+        if (currentSpeed.sqrMagnitude > 0)
+        {
+            transform.up = currentSpeed.normalized;
+            //transform.forward = Vector3.forward;
+        }
     }
 
     public void SetDirection(Vector3 dir)
     {
-        Vector3 desiredSpeed = dir.normalized * maxSpeed;
+        dir.z = 0;
+        Vector3 desiredSpeed;
+        if (dir.sqrMagnitude < 0.2f)
+        {
+            desiredSpeed = dir;
+        } else 
+            desiredSpeed = dir.normalized * maxSpeed;
         Vector3 diff = desiredSpeed - currentSpeed;
         Vector3 speedMod = diff * accelaration * Time.deltaTime;
         if (speedMod.sqrMagnitude > diff.sqrMagnitude)
             speedMod = diff;
         currentSpeed += speedMod;
-        rigidbody.velocity = currentSpeed;
-        rigidbody.SetRotation(Quaternion.FromToRotation(Vector3.right, currentSpeed));
+        currentSpeed.z = 0;
     }
-    
+
+    public void Stop()
+    {
+        currentSpeed = new Vector3(0, 0, 0);
+    }
+
     //private void RotateTowardsDir(Vector3 dir)
     //{
     //    currentSpeed += 

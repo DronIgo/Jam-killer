@@ -49,8 +49,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 072ce695ee843c44497ccea04ab6778b, type: 2}
   - {fileID: 11400000, guid: 0ba3c64e85336024fbcdc89923ba89c0, type: 2}
   - {fileID: 11400000, guid: 9ebd583f40629fa45bb232c45d9e7e81, type: 2}
-  fishAlive: []
-  fishAliveAI: []
   maxNumberOfChecksInFrame: 10
   maxTotalNumOfFish: 30
   desiredNumOfFish: 8
@@ -74,3 +72,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minigameObject: {fileID: 0}
   minigame: {fileID: 0}
+  fishManager: {fileID: 4346221122796100500}
