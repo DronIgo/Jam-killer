@@ -43,6 +43,7 @@ public class UIManager : MonoBehaviour
     private bool isPaused = false;
 
     // A list of all UI element classes
+    // [SerializeField]
     private List<UIelement> UIelements;
 
     // The event system handling UI navigation
@@ -237,8 +238,10 @@ public class UIManager : MonoBehaviour
     /// </summary>
     public void UpdateUI()
     {
+        // Debug.Log("!!! UpdateUI called");
         foreach(UIelement uiElement in UIelements)
         {
+            // Debug.Log("Update " + uiElement.name);
             uiElement.UpdateUI();
         }
     }
