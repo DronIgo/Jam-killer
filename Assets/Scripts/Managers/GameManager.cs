@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -27,6 +28,7 @@ public class GameManager : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
+        LoadState();
     }
 
     // Update is called once per frame
@@ -58,6 +60,7 @@ public class GameManager : MonoBehaviour
             saver.caughtFish = defaultValues.caughtFish;
             saver.score = defaultValues.score;
         }
+        EditorUtility.SetDirty(saver);
     }
 
     public void SaveStateBetweenSails()
@@ -70,6 +73,7 @@ public class GameManager : MonoBehaviour
         {
             saver.caughtFish = new List<FishType>();
         }
+        EditorUtility.SetDirty(saver);
     }
 
     public void LoadState()
