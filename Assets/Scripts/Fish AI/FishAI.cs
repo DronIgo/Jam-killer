@@ -11,8 +11,7 @@ public class FishAI : MonoBehaviour
     public FishState currentState;
     public GameObject playerShip;
     public FishMover fishMover;
-    public float chaseDistance = 60.0f;
-
+    public FishBehaviourType behaviourType;
     public float distanceToPlayer
     {
         get
@@ -58,7 +57,7 @@ public class FishAI : MonoBehaviour
 
     private void SetGoalAccordingToState()
     {
-        if (currentState == FishState.HOSTILE && distanceToPlayer < chaseDistance)
+        if (currentState == FishState.HOSTILE && distanceToPlayer < behaviourType.distanceChase)
         {
             SetGoal(new FishGoalChase(this));
         } else
@@ -66,6 +65,13 @@ public class FishAI : MonoBehaviour
             SetGoal(new FishGoalRandomPoint(this));
         }
         hasAGoal = true;
+    }
+
+    public void ResetBehaviour()
+    {
+        if (behaviourType == null)
+            return;
+        currentState = behaviourType.defaultState;
     }
 
     public void SetGoal(IFishGoal goal)
