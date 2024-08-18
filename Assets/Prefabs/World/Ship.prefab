@@ -367,11 +367,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7930537506278786848, guid: e3fee3cb286e9f646a1a1de46d2533cb, type: 3}
       propertyPath: progressSpeed
-      value: 0.1
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7930537506278786848, guid: e3fee3cb286e9f646a1a1de46d2533cb, type: 3}
+      propertyPath: defaultFailTime
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7930537506278786848, guid: e3fee3cb286e9f646a1a1de46d2533cb, type: 3}
       propertyPath: hookGravityPower
       value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 7930537506278786848, guid: e3fee3cb286e9f646a1a1de46d2533cb, type: 3}
+      propertyPath: progressDegradationSpeed
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 7930537506278786848, guid: e3fee3cb286e9f646a1a1de46d2533cb, type: 3}
       propertyPath: hookProgressDegradationPower

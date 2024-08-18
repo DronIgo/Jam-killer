@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-
     public static GameManager instance;
     public UIManager uiManager;
     public static int score = 10;
