@@ -62,7 +62,7 @@ public class FishManager : MonoBehaviour
 
     void SummonFish(int amount)
     {
-        Debug.Log("SummonFish: " + amount);
+        //Debug.Log("SummonFish: " + amount);
         for (int i = 0; i < amount; ++i)
         {
             SpawnRandomFish();

@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] Saver saver;
     [SerializeField] Saver defaultValues;
-    [SerializeField] public static bool isInOcean;
+    public bool isInOcean;
 
     public GameObject player;
 
@@ -78,6 +78,7 @@ public class GameManager : MonoBehaviour
 
     public void LoadState()
     {
+        Debug.Log(saver.lives);
         instance.player.GetComponent<Health>().currentLives = saver.lives;
         caughtFish = saver.caughtFish;
         baitNum = saver.baitNum;
