@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Aggressive
   m_EditorClassIdentifier: 
   defaultState: 0
-  distanceChase: 0
-  numOfAttacks: 0
+  distanceChase: 60
+  numOfAttacks: 5

@@ -5,15 +5,13 @@ using UnityEngine;
 public class FishGoalChase : IFishGoal
 {
     public Transform playerTransform;
-    public Transform fishTransform;
     public FishMover fishMover;
     public float goalDist = 0.1f;
     public FishGoalChase(FishAI fish) : base(fish)
     {
         playerTransform = fish.playerShip.transform;
-        fishTransform = fish.gameObject.transform;
         fishMover = fish.fishMover;
-}
+    }
     public override void ActionOnGoalReached()
     {
         fishAI.Attack();
@@ -22,7 +20,7 @@ public class FishGoalChase : IFishGoal
 
     public override bool CheckGoalStatus()
     {
-        return Vector3.Distance(playerTransform.position, fishTransform.position) < goalDist;
+        return Vector2.Distance(playerTransform.position, fishTransform.position) < goalDist;
     }
 
     public override void SwimAccordingToGoal()
@@ -32,7 +30,5 @@ public class FishGoalChase : IFishGoal
         Vector3 goal = (goalPoint - fishTransform.position);
         goal.Normalize();
         fishMover.SetDirection(goal);
-        //fishTransform.up = goal;
-        //fishTransform.position += goal * fishAI.speed * Time.deltaTime;
     }
 }

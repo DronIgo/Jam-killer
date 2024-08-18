@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "FishType", menuName = "ScriptableObjects/FishSType", order = 1)]
+[CreateAssetMenu(fileName = "FishType", menuName = "ScriptableObjects/FishType", order = 1)]
 public class FishType : ScriptableObject
 {
     public enum FISH_SIZE { BIG, MEDIUM, SMALL };

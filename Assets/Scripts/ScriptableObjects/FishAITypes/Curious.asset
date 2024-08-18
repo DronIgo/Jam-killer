@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f0662a36559197d45ac822fc31a7edfd, type: 3}
-  m_Name: Scared
+  m_Name: Curious
   m_EditorClassIdentifier: 
-  defaultState: 1
+  defaultState: 3
   distanceChase: 10
   numOfAttacks: 1

@@ -6,8 +6,8 @@ public class FishManager : MonoBehaviour
 {
     public List<FishType> fishTypes;
     public List<GameObject> fishAlive = new();
+    public List<FishAI> fishAliveAI = new();
 
-    [SerializeField]
     private int totalProbability = 0;
 
     public int maxNumberOfChecksInFrame = 5;
@@ -21,7 +21,9 @@ public class FishManager : MonoBehaviour
     public float distDispawn = 40.0f;
     public float minSpawnDist = 4f;
     public float maxSpawnDist = 10f;
-    
+
+    public FishingMinigameManager minigameManager;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -42,7 +44,7 @@ public class FishManager : MonoBehaviour
         }
     }
 
-
+    #region Fish population managment
     void SpawnRandomFish()
     {
         int prob = Random.Range(0, totalProbability);
@@ -67,7 +69,6 @@ public class FishManager : MonoBehaviour
     }
 
 
-
     void DeleteFish(GameObject fish)
     {
         int index = fishAlive.FindIndex((GameObject a) => { return a == fish; });
@@ -79,8 +80,9 @@ public class FishManager : MonoBehaviour
     {
         if (index < currentCheckIndex)
             currentCheckIndex -= 1;
-        Destroy(fishAlive[index]);
+        fishAlive[index].GetComponent<Fish>().Destroy();
         fishAlive.RemoveAt(index);
+        fishAliveAI.RemoveAt(index);
     }
     void CheckFishDespawn()
     {
@@ -116,8 +118,8 @@ public class FishManager : MonoBehaviour
             return;
         GameObject fish = Instantiate(type.fishPrefab, position, Quaternion.identity);
         //set FishAI
+        FishAI fishAI;
         {
-            FishAI fishAI;
             try
             {
                 fishAI = fish.GetComponentInChildren<FishAI>();
@@ -147,7 +149,32 @@ public class FishManager : MonoBehaviour
                 fish.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
                 break;
         }
+        //Configurate Fish component
+        {
+            Fish fishComponent = fish.GetComponent<Fish>();
+            fishComponent.fishManager = this;
+            fishComponent.type = type;
+        }
         fish.transform.parent = this.transform;
         fishAlive.Add(fish);
+        fishAliveAI.Add(fishAI);
+    }
+
+    #endregion
+
+    public bool minigameActive = true;
+    public void InitiateMinigame(Fish fish) 
+    {
+        foreach (FishAI fishAI in fishAliveAI)
+        {
+            fishAI.ForceSetState(FishAI.FishState.NEUTRAL);
+            fishAI.SetGoal(new FishGoalRandomPoint(fishAI));
+        }
+        minigameManager.InitMinigame(fish);
+    }
+
+    public void InitateLoadLevel(Fish fish)
+    {
+
     }
 }

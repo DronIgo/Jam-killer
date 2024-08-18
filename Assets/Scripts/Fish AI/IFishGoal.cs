@@ -5,8 +5,10 @@ using UnityEngine;
 public abstract class IFishGoal
 {
     public FishAI fishAI;
+    public Transform fishTransform;
     public IFishGoal(FishAI fish)
     {
+        fishTransform = fish.fishTransform;
         fishAI = fish;
     }
     public abstract bool CheckGoalStatus();

@@ -19,4 +19,4 @@ MonoBehaviour:
   fishPrefab: {fileID: 8422349493398879725, guid: 6b8746441037252479c2675b8c9d2f0f, type: 3}
   probability: 4
   lifeTime: 20
-  behaviourType: {fileID: 11400000, guid: 9bd69675ad9bdf04fb107fe3f7edb463, type: 2}
+  behaviourType: {fileID: 11400000, guid: 23a8ebee37aa5b7469d431c8e23ffacb, type: 2}

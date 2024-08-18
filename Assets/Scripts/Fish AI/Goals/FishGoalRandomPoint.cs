@@ -5,14 +5,12 @@ using UnityEngine;
 public class FishGoalRandomPoint : IFishGoal
 {
     public Vector3 goalPoint;
-    public Transform fishTransform;
     public float maxDistance = 20.0f;
     public float minDistance = 3.0f;
     public float goalDist = 0.1f;
     public FishMover fishMover;
     public FishGoalRandomPoint(FishAI fish) : base(fish)
     {
-        fishTransform = fish.gameObject.transform;
         fishMover = fish.fishMover;
         goalPoint = Utils.GetRandomPointInArea(fishTransform.position, minDistance, maxDistance);
     }
@@ -24,7 +22,7 @@ public class FishGoalRandomPoint : IFishGoal
 
     public override bool CheckGoalStatus()
     {
-        return Vector3.Distance(goalPoint, fishTransform.position) < goalDist;
+        return Vector2.Distance(goalPoint, fishTransform.position) < goalDist;
     }
 
     public override void SwimAccordingToGoal()

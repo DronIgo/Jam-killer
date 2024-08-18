@@ -23,18 +23,20 @@ public class FishingMinigame : MonoBehaviour
     [SerializeField] Transform hook;
     float hookPosition;
     [SerializeField] float hookSize = 0.1f;
-    [SerializeField] float hookPower = 0.5f;
+    [SerializeField] float progressSpeed = 0.5f;
     float hookProgress;
     float hookPullVelocity;
     [SerializeField] float hookPullPower = 0.01f;
     [SerializeField] float hookGravityPower = 0.005f;
-    [SerializeField] float hookProgressDegradationPower = 0.01f;
+    [SerializeField] float progressDegradationSpeed = 0.01f;
 
     [SerializeField] SpriteRenderer hookSpriteRenderer;
 
     [SerializeField] Transform progressBarContainer;
 
     bool pause = false;
+    public bool win { get; private set; }
+    public bool lose { get; private set; }
 
     [SerializeField] float failTime = 10f;
 
@@ -43,38 +45,59 @@ public class FishingMinigame : MonoBehaviour
         Resize();
     }
 
+    public void SetParamsFromFish(Fish fish)
+    {
+        //TO DO:
+    }
+        
     private void Resize()
     {
         Vector3 ls = hook.localScale;
-        float distance = Vector3.Distance(topPivot.position, bottomPivot.position);
-        ls.y = (distance * hookSize);
+        float totalScale = Vector3.Distance(topPivot.position, bottomPivot.position);
+        ls.y = (totalScale * hookSize);
         hook.localScale = ls;
+    }
+
+    public void InitiateGame()
+    {
+        pause = false;
+        fishPosition = 0.5f;
+        hookPosition = 0.5f;
+        hookPullVelocity = 0.0f;
     }
 
     private void Update()
     {
         if (pause) return;
-        Fish();
-        Hook();
+        UpdateFishPosition();
+        UpdateHookPositionAndSpeed();
+        UpdateModel();
         ProgressCheck();
+    }
+
+    private void UpdateModel()
+    {
+        fish.position = Vector3.Lerp(bottomPivot.position, topPivot.position, fishPosition);
+
+        hook.position = Vector3.Lerp(bottomPivot.position, topPivot.position, hookPosition);
+
+        Vector3 ls = progressBarContainer.localScale;
+        ls.y = hookProgress;
+        progressBarContainer.localScale = ls;
     }
 
     private void ProgressCheck()
     {
-        Vector3 ls = progressBarContainer.localScale;
-        ls.y = hookProgress;
-        progressBarContainer.localScale = ls;
-
         float min = hookPosition - hookSize / 2;
         float max = hookPosition + hookSize / 2;
 
         if (min < fishPosition && max > fishPosition)
         {
-            hookProgress += hookPower * Time.deltaTime;
+            hookProgress += progressSpeed * Time.deltaTime;
         }
         else
         {
-            hookProgress -= hookProgressDegradationPower * Time.deltaTime;
+            hookProgress -= progressDegradationSpeed * Time.deltaTime;
 
             failTime -= Time.deltaTime;
             if (failTime < 0f)
@@ -94,22 +117,27 @@ public class FishingMinigame : MonoBehaviour
     private void Lose()
     {
         pause = true;
+        lose = true;
         Debug.Log("fuck off eat shit and die (lose)");
     }
 
     private void Win()
     {
         pause = true;
+        win = true;
         Debug.Log("fuck off eat shit and die (win)");
     }
 
-    private void Hook()
+    private void UpdateHookPositionAndSpeed()
     {
         if (InputManager.instance.hookUp)
         {
             hookPullVelocity += hookPullPower * Time.deltaTime;
         }
-        hookPullVelocity -= hookGravityPower * Time.deltaTime;
+        else
+        {
+            hookPullVelocity -= hookGravityPower * Time.deltaTime;
+        }
         hookPosition += hookPullVelocity;
 
         if (hookPosition - hookSize / 2 <= 0f && hookPullVelocity < 0f)
@@ -122,11 +150,9 @@ public class FishingMinigame : MonoBehaviour
         }
 
         hookPosition = Mathf.Clamp(hookPosition, hookSize / 2, 1 - hookSize / 2);
-
-        hook.position = Vector3.Lerp(bottomPivot.position, topPivot.position, hookPosition);
     }
 
-    private void Fish()
+    private void UpdateFishPosition()
     {
         fishTimer -= Time.deltaTime;
         if (fishTimer < 0f)
@@ -136,6 +162,5 @@ public class FishingMinigame : MonoBehaviour
         }
 
         fishPosition = Mathf.SmoothDamp(fishPosition, fishDestination, ref fishSpeed, smoothMotion);
-        fish.position = Vector3.Lerp(bottomPivot.position, topPivot.position, fishPosition);
     }
 }

@@ -10,9 +10,9 @@ public class FishMover : MonoBehaviour
     public float accelaration = 4f;
     public Vector3 currentSpeed = new Vector3(0, 0, 0);
 
-    void Start()
+    void Awake()
     {
-        rigidbody = gameObject.transform.Find("Head").GetComponent<Rigidbody2D>();
+        rigidbody = gameObject.GetComponent<Rigidbody2D>();
     }
 
     private void Update()
