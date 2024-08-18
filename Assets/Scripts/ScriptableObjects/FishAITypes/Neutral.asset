@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0662a36559197d45ac822fc31a7edfd, type: 3}
   m_Name: Neutral
   m_EditorClassIdentifier: 
-  defaultState: 0
-  distanceChase: 0
-  numOfAttacks: 0
+  defaultState: 2
+  distanceChase: 30
+  numOfAttacks: 2

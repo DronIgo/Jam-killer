@@ -5,23 +5,26 @@ using UnityEngine.Events;
 
 public class FishAI : MonoBehaviour
 {
-    public enum FishState { HOSTILE, SCARED, NEUTRAL };
+    public enum FishState { HOSTILE, SCARED, NEUTRAL, CURIOUS };
     public IFishGoal currentGoal;
     public bool hasAGoal = false;
     public FishState currentState;
     public GameObject playerShip;
     public FishMover fishMover;
+    public Transform fishTransform;
+    public Fish fishComponent;
     public FishBehaviourType behaviourType;
     public float distanceToPlayer
     {
         get
         {
-            return Vector3.Distance(playerShip.transform.position, transform.position);
+            return Vector3.Distance(playerShip.transform.position, fishTransform.position);
         }
     }
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
+        fishTransform = fishMover.gameObject.transform;
         SetGoal(new FishGoalRandomPoint(this));
     }
 
@@ -50,6 +53,11 @@ public class FishAI : MonoBehaviour
         Debug.Log("ATTACK!");
     }
 
+    public void ForceSetState(FishState state)
+    {
+        currentState = state;
+    }
+
     private void UpdateState()
     {
 
@@ -60,11 +68,28 @@ public class FishAI : MonoBehaviour
         if (currentState == FishState.HOSTILE && distanceToPlayer < behaviourType.distanceChase)
         {
             SetGoal(new FishGoalChase(this));
-        } else
+        } else if (CheckBaitCondition())
+        {
+            SetGoal(new FishGoalBait(this));
+        } else 
         {
             SetGoal(new FishGoalRandomPoint(this));
         }
         hasAGoal = true;
+    }
+
+    private bool CheckBaitCondition()
+    {
+        if (currentState != FishState.CURIOUS)
+            return false;
+        if (distanceToPlayer < 10f)
+            return true;
+        return false;
+    }
+
+    public void StartMinigame()
+    {
+        fishComponent.StartMinigame();
     }
 
     public void ResetBehaviour()

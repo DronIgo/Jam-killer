@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4346221122796100503}
   - component: {fileID: 4346221122796100500}
+  - component: {fileID: 2085238734}
   m_Layer: 0
   m_Name: FishManager
   m_TagString: Untagged
@@ -49,7 +50,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 0ba3c64e85336024fbcdc89923ba89c0, type: 2}
   - {fileID: 11400000, guid: 9ebd583f40629fa45bb232c45d9e7e81, type: 2}
   fishAlive: []
-  totalProbability: 0
+  fishAliveAI: []
   maxNumberOfChecksInFrame: 10
   maxTotalNumOfFish: 30
   desiredNumOfFish: 8
@@ -57,3 +58,19 @@ MonoBehaviour:
   distDispawn: 50
   minSpawnDist: 15
   maxSpawnDist: 25
+  minigameManager: {fileID: 2085238734}
+  minigameActive: 0
+--- !u!114 &2085238734
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4346221122796100501}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4ab87f0341b41343aaea7ae5f467fd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minigameObject: {fileID: 0}
+  minigame: {fileID: 0}

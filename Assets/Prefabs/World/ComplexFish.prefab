@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8422349493163390698}
   - component: {fileID: 8422349493163390699}
+  - component: {fileID: 2174223887854124985}
   m_Layer: 0
   m_Name: FishComponents
   m_TagString: Untagged
@@ -31,7 +32,7 @@ Transform:
   m_Children:
   - {fileID: 8422349494602218602}
   m_Father: {fileID: 8422349493398879722}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8422349493163390699
 MonoBehaviour:
@@ -50,6 +51,27 @@ MonoBehaviour:
   maxRotationSpeed: 3.1415927
   accelaration: 4
   currentSpeed: {x: 0, y: 0, z: 0}
+--- !u!50 &2174223887854124985
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8422349493163390701}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.1
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &8422349493398879725
 GameObject:
   m_ObjectHideFlags: 0
@@ -59,6 +81,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8422349493398879722}
+  - component: {fileID: 736941261879835841}
   m_Layer: 0
   m_Name: ComplexFish
   m_TagString: Untagged
@@ -78,10 +101,25 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 8422349494996819080}
   - {fileID: 8422349493163390698}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &736941261879835841
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8422349493398879725}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b875e4107a010646aa441b0a9a25550, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: {fileID: 0}
+  fishManager: {fileID: 0}
 --- !u!1 &8422349494230624015
 GameObject:
   m_ObjectHideFlags: 0
@@ -112,7 +150,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8422349494602218602}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &8422349494230624011
 SpriteRenderer:
@@ -196,7 +234,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8422349494602218602}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &8422349494473602156
 SpriteRenderer:
@@ -260,7 +298,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8422349494602218602}
   - component: {fileID: 8422349494602218601}
-  - component: {fileID: 8422349494602218598}
   m_Layer: 0
   m_Name: Head
   m_TagString: Untagged
@@ -280,7 +317,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 8422349494996819080}
   - {fileID: 8422349494473602129}
   - {fileID: 8422349494230624012}
   m_Father: {fileID: 8422349493163390698}
@@ -338,33 +374,12 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!50 &8422349494602218598
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8422349494602218605}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.1
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!1001 &2852403512856129570
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 8422349494602218602}
+    m_TransformParent: {fileID: 8422349493398879722}
     m_Modifications:
     - target: {fileID: 6014548352256208040, guid: 2f7fc972a98a23d448a9950c02def990, type: 3}
       propertyPath: fishMover
@@ -374,6 +389,10 @@ PrefabInstance:
       propertyPath: playerShip
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 6014548352256208040, guid: 2f7fc972a98a23d448a9950c02def990, type: 3}
+      propertyPath: fishComponent
+      value: 
+      objectReference: {fileID: 736941261879835841}
     - target: {fileID: 6014548352256208041, guid: 2f7fc972a98a23d448a9950c02def990, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -426,7 +445,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: FishAI
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6014548352256208041, guid: 2f7fc972a98a23d448a9950c02def990, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 2f7fc972a98a23d448a9950c02def990, type: 3}
 --- !u!4 &8422349494996819080 stripped
 Transform:
