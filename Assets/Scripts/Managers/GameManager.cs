@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -82,5 +83,22 @@ public class GameManager : MonoBehaviour
         caughtFish = saver.caughtFish;
         baitNum = saver.baitNum;
         score = saver.score;
+    }
+
+    public void GoInsideFish()
+    {
+        SaveStateBetweenSails();
+        SaveStateInSail();
+
+        SceneManager.LoadScene("InsideFish");
+    }
+
+    public void ReturnToOcean()
+    {
+        SaveStateBetweenSails();
+        SaveStateInSail();
+
+        SceneManager.LoadScene("SailingScene");
+
     }
 }
