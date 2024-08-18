@@ -9,11 +9,12 @@ public class ClickableItem : MonoBehaviour, IPointerClickHandler
 {
 
     [SerializeField] private Transform inventory;
+    [SerializeField] private ShopChooser shopItemChoser;
 
     public void OnPointerClick(PointerEventData eventData)
     {
         var gameObject = inventory.Find("DescriptionImage").GetComponent<Image>().gameObject;
-        inventory.Find("DescriptionImage").GetComponent<Image>().gameObject.SetActive(!gameObject.activeSelf);
+        inventory.Find("DescriptionImage").GetComponent<Image>().sprite = shopItemChoser.shopItemImage;
     }
 
     // Start is called before the first frame update
