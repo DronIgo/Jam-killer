@@ -17,6 +17,7 @@ MonoBehaviour:
   fishCost: 12
   fishIcon: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
   fishPrefab: {fileID: 8422349493398879725, guid: 6b8746441037252479c2675b8c9d2f0f, type: 3}
+  attackPrefab: {fileID: 7354048608118152188, guid: 2bfa362adb527f148a25898b5bcc64ca, type: 3}
   probability: 2
   lifeTime: 20
   behaviourType: {fileID: 11400000, guid: 2f0ceecdf03bc104b87e5d4c33775f05, type: 2}

@@ -14,6 +14,7 @@ public class FishAI : MonoBehaviour
     public Transform fishTransform;
     public Fish fishComponent;
     public FishBehaviourType behaviourType;
+    public GameObject attackEffect;
     public float distanceToPlayer
     {
         get
@@ -50,7 +51,9 @@ public class FishAI : MonoBehaviour
 
     public void Attack()
     {
-        Debug.Log("ATTACK!");
+        TemporaryEffect attack = Instantiate(attackEffect, fishTransform.position, Quaternion.identity).GetComponent<TemporaryEffect>();
+        attack.parent = this.gameObject.transform.parent.gameObject;
+        transform.parent.gameObject.SetActive(false);
     }
 
     public void ForceSetState(FishState state)

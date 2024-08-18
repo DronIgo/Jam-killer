@@ -137,6 +137,7 @@ public class FishManager : MonoBehaviour
             }
             fishAI.playerShip = player.gameObject;
             fishAI.behaviourType = type.behaviourType;
+            fishAI.attackEffect = type.attackPrefab;
             fishAI.ResetBehaviour();
         }
         //set Size
