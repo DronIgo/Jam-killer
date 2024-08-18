@@ -51,4 +51,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d9583f4ad759f4c4485b6ef03b28824d, type: 2}
   - {fileID: 11400000, guid: 9a20e3d140179b64185010d0779cd982, type: 2}
   - {fileID: 11400000, guid: f7ab269c4d3475547ac92f2a76a05f2c, type: 2}
+  generationRadius: 2
+  garbageRadius: 3
   player: {fileID: 0}

@@ -127,12 +127,13 @@ public class WorldGenerator : MonoBehaviour
             if (generatedChunks.ContainsKey(chunk))
             {
                 // if it already placed continue...
-                if (existingGameObjects.ContainsKey(chunk))
-                    continue;
-
-                // otherwise place it with correct chunkPrefab
-                GameObject chunkObject = PlaceChunk(chunk, generatedChunks[chunk].chunkPrefab);
-                existingGameObjects.Add(chunk, chunkObject);
+                if (!existingGameObjects.ContainsKey(chunk))
+                {
+                    // otherwise place it with correct chunkPrefab
+                    GameObject chunkObject = PlaceChunk(chunk, generatedChunks[chunk].chunkPrefab);
+                    existingGameObjects.Add(chunk, chunkObject);
+                }
+                continue;
             }
 
             GenerateNewChunk(chunk);
