@@ -89,9 +89,11 @@ public class FishAI : MonoBehaviour
     {
         if (currentState != FishState.CURIOUS)
             return false;
-        if (distanceToPlayer < 10f)
-            return true;
-        return false;
+        if (distanceToPlayer >= 10f)
+            return false;
+        if (!FishingRod.rodActive)
+            return false;
+        return true;
     }
 
     public void StartMinigame()

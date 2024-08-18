@@ -26,9 +26,13 @@ public class FishingMinigameManager : MonoBehaviour
         minigame.InitiateGame();
         while (!minigame.win && !minigame.lose)
         {
+            if (!FishingRod.rodActive) {
+                minigameObject.SetActive(false);
+                break;
+            }
             yield return new WaitForEndOfFrame();
         }
-         if (minigame.win)
+        if (minigame.win)
         {
             if (fishManager.currentFishInMinigameGO != null)
                 fishManager.DeleteFish(fishManager.currentFishInMinigameGO, true);

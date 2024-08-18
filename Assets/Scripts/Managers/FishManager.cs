@@ -108,7 +108,7 @@ public class FishManager : MonoBehaviour
 
     bool CheckFishDespawnByIndex(int index)
     {
-        return Vector3.Distance(fishAlive_go_ai[index].Item1.transform.position, player.position) > distDispawn;
+        return fishAlive_go_ai[index].Item2.distanceToPlayer > distDispawn;
     }
 
     void SpawnFish(FishType type)

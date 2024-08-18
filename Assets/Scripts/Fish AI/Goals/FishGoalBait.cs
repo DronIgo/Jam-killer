@@ -11,18 +11,26 @@ public class FishGoalBait : IFishGoal
     public float timeToStartGame = 0.8f;
     public FishGoalBait(FishAI fish) : base(fish)
     {
-        playerBaitTransform = fish.playerShip.transform;
+        playerBaitTransform = fish.playerShip.GetComponent<ShipController>().fishingRod.bait;
         fishMover = fish.fishMover;
     }
 
     public override void ActionOnGoalReached()
     {
-        fishAI.StartMinigame();
         fishAI.hasAGoal = false;
+        if (!lostBait)
+            fishAI.StartMinigame();
     }
+
+    bool lostBait = false;
 
     public override bool CheckGoalStatus()
     {
+        if (!FishingRod.rodActive)
+        {
+            lostBait = true;
+            return true;
+        }
         if (Vector2.Distance(playerBaitTransform.position, fishTransform.position) < goalDist)
             timeSinceArrival += Time.deltaTime;
         else

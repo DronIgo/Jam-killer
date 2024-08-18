@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class FishDoNothingGoal : IFishGoal
 {
+    FishMover fishMover;
     public FishDoNothingGoal(FishAI fish) : base(fish)
-    { }
+    {
+        fishMover = fish.fishMover;
+    }
 
     public override void ActionOnGoalReached()
     {
@@ -19,6 +22,6 @@ public class FishDoNothingGoal : IFishGoal
 
     public override void SwimAccordingToGoal()
     {
-        return;
+        fishMover.Stop();
     }
 }

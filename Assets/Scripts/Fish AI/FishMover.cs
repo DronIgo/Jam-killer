@@ -29,7 +29,12 @@ public class FishMover : MonoBehaviour
     public void SetDirection(Vector3 dir)
     {
         dir.z = 0;
-        Vector3 desiredSpeed = dir.normalized * maxSpeed;
+        Vector3 desiredSpeed;
+        if (dir.sqrMagnitude < 0.2f)
+        {
+            desiredSpeed = dir;
+        } else 
+            desiredSpeed = dir.normalized * maxSpeed;
         Vector3 diff = desiredSpeed - currentSpeed;
         Vector3 speedMod = diff * accelaration * Time.deltaTime;
         if (speedMod.sqrMagnitude > diff.sqrMagnitude)
@@ -37,7 +42,12 @@ public class FishMover : MonoBehaviour
         currentSpeed += speedMod;
         currentSpeed.z = 0;
     }
-    
+
+    public void Stop()
+    {
+        currentSpeed = new Vector3(0, 0, 0);
+    }
+
     //private void RotateTowardsDir(Vector3 dir)
     //{
     //    currentSpeed += 

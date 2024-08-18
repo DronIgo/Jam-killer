@@ -14,6 +14,8 @@ public class ShipController : MonoBehaviour
     public float deceleration = 2f;
     public Vector2 currentVelocity = Vector2.zero;
 
+    public FishingRod fishingRod;
+
     // for debug
     public Vector2 move;
 
@@ -25,6 +27,8 @@ public class ShipController : MonoBehaviour
     {
         input = InputManager.instance;
         shipRenderer = GetComponent<SpriteRenderer>();
+        if (fishingRod == null)
+            fishingRod = GetComponentInChildren<FishingRod>();
     }
 
     void Update()
@@ -77,5 +81,16 @@ public class ShipController : MonoBehaviour
             shipRenderer.flipX = false;
         }
 
+
+        //check hook thrown
+        if (input.hookThrown)
+        {
+            if (!FishingRod.rodActive)
+            {
+                fishingRod.Throw(new Vector2(0f, -0.5f));
+            }
+            else
+                fishingRod.SetActive(false);
+        }
     }
 }
