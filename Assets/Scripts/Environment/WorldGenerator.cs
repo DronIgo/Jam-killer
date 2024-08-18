@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
-using UnityEditor.UI;
 using UnityEngine;
 
 public class WorldGenerator : MonoBehaviour
@@ -13,10 +12,11 @@ public class WorldGenerator : MonoBehaviour
 
     public Dictionary<Vector2Int, bool> generatedChunks;
 
+    public List<ChunkType> chunkTypes;
+
 
     // external components
     public Transform player;
-    public List<GameObject> chunkPrefabList;
 
     private void updateCurrentChunkPos()
     {
@@ -44,7 +44,7 @@ public class WorldGenerator : MonoBehaviour
         // generate start chunk
         Debug.Log("Creating start chunk...");
         updateCurrentChunkPos();
-        PlaceChunk(currentChunkPos, chunkPrefabList[1]);
+        PlaceChunk(currentChunkPos, chunkTypes[1].chunkPrefab);
 
         Debug.Log("Creating near chunks...");
         CheckChunkArea(currentChunkPos, 1);
@@ -55,22 +55,20 @@ public class WorldGenerator : MonoBehaviour
     {
         float total = 0;
 
-        float[] probabilities = { 0.2f, 0.5f, 0.3f }; // TODO: choose externally
-
-        foreach(float prob in probabilities)
-            total += prob;
+        foreach(var chunkType in chunkTypes)
+            total += chunkType.probability;
 
         float randomPoint = Random.value * total;
 
-        for (int i = 0; i < chunkPrefabList.Count; i++)
+        for (int i = 0; i < chunkTypes.Count; i++)
         {
-            if (randomPoint < probabilities[i])
-                return chunkPrefabList[i];
+            if (randomPoint < chunkTypes[i].probability)
+                return chunkTypes[i].chunkPrefab;
 
-            randomPoint -= probabilities[i];
+            randomPoint -= chunkTypes[i].probability;
         }
 
-        return chunkPrefabList[^1];
+        return chunkTypes[^1].chunkPrefab;
 
     }
 
