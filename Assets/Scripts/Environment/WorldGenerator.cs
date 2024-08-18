@@ -10,15 +10,18 @@ public class WorldGenerator : MonoBehaviour
     public float chunkHeight = 15f;
     public Vector2Int currentChunkPos;
 
-    public Dictionary<Vector2Int, bool> generatedChunks;
+    public Dictionary<Vector2Int, ChunkType> generatedChunks;
+    public Dictionary<Vector2Int, GameObject> existingGameObjects;
 
     public List<ChunkType> chunkTypes;
 
+    public int generationRadius = 2;
+    public int garbageRadius = 3;
 
     // external components
     public Transform player;
 
-    private void updateCurrentChunkPos()
+    private void UpdateCurrentChunkPos()
     {
         float x = player.position.x;
         float y = player.position.y;
@@ -39,19 +42,18 @@ public class WorldGenerator : MonoBehaviour
 
         currentChunkPos = new();
         generatedChunks = new();
-
+        existingGameObjects = new();
 
         // generate start chunk
-        Debug.Log("Creating start chunk...");
-        updateCurrentChunkPos();
-        PlaceChunk(currentChunkPos, chunkTypes[1].chunkPrefab);
+        Debug.Log("Creating first chunk...");
+        UpdateCurrentChunkPos();
+        GenerateNewChunk(currentChunkPos);
 
         Debug.Log("Creating near chunks...");
-        CheckChunkArea(currentChunkPos, 1);
-
+        GenerateChunkArea(currentChunkPos, generationRadius);
     }
 
-    private GameObject GetRandomChunkPrefab()
+    private ChunkType GetRandomChunkType()
     {
         float total = 0;
 
@@ -63,34 +65,47 @@ public class WorldGenerator : MonoBehaviour
         for (int i = 0; i < chunkTypes.Count; i++)
         {
             if (randomPoint < chunkTypes[i].probability)
-                return chunkTypes[i].chunkPrefab;
+                return chunkTypes[i];
 
             randomPoint -= chunkTypes[i].probability;
         }
 
-        return chunkTypes[^1].chunkPrefab;
+        return chunkTypes[^1];
 
     }
 
-    private void PlaceChunk(Vector2Int chunk, GameObject chunkPrefab)
+    private GameObject PlaceChunk(Vector2Int chunk, GameObject chunkPrefab)
     {
         int x = chunk.x;
         int y = chunk.y;
 
         Vector3 chunkPosition = new(x * chunkWidth, y * chunkHeight, 0);
 
-        GameObject go = Instantiate(chunkPrefab, chunkPosition, Quaternion.identity);
-        go.transform.parent = this.transform;
+        GameObject gameObject = Instantiate(chunkPrefab, chunkPosition, Quaternion.identity);
+
+        // to hide gameObject and avoid clogging up the stage
+        gameObject.transform.parent = this.transform;
+
         Debug.Log("Place chunk on " + "("+ chunkPosition.x + ", " + chunkPosition.y + ")");
+
+        return gameObject;
     }
 
-    private void CheckChunkArea(Vector2Int startChunk, int radius)
+    private void GenerateNewChunk(Vector2Int chunkPos)
+    {
+        ChunkType chunkType = GetRandomChunkType();
+        GameObject chunkGameObject = PlaceChunk(chunkPos, chunkType.chunkPrefab);
+        generatedChunks.Add(chunkPos, chunkType);
+        existingGameObjects.Add(chunkPos, chunkGameObject);
+    }
+
+    private void GenerateChunkArea(Vector2Int startChunk, int radius)
     {
         int startX = startChunk.x;
         int startY = startChunk.y;
-    
+
         // get chunk in "radius"
-        List<Vector2Int> chunks = new List<Vector2Int>();
+        List<Vector2Int> chunks = new();
         for (int i = -radius; i <= radius; i++)
         {
             for (int j = -radius; j <= radius; j++)
@@ -101,36 +116,71 @@ public class WorldGenerator : MonoBehaviour
 
                 Vector2Int nearChunk = new(startX + i, startY + j);
                 chunks.Add(nearChunk);
-        
+
                 // Debug.Log("Near chunk: (" + nearChunk.x +"," + nearChunk.y + ")");
             }
         }
 
         // create nonexisting chunks
-        foreach (var chunk in chunks) 
+        foreach (var chunk in chunks)
         {
             if (generatedChunks.ContainsKey(chunk))
+            {
+                // if it already placed continue...
+                if (!existingGameObjects.ContainsKey(chunk))
+                {
+                    // otherwise place it with correct chunkPrefab
+                    GameObject chunkObject = PlaceChunk(chunk, generatedChunks[chunk].chunkPrefab);
+                    existingGameObjects.Add(chunk, chunkObject);
+                }
                 continue;
-            
-            
-            GameObject chunkPrefab = GetRandomChunkPrefab();
-            PlaceChunk(chunk, chunkPrefab);    
-            generatedChunks.Add(chunk, true);
+            }
+
+            GenerateNewChunk(chunk);
         }
 
 
     }
 
+    private void CollectGarbage(Vector2Int startChunk, int radius)
+    {
+        // Debug.Log("Collecting garbage...");
+        int x = startChunk.x;
+        int y = startChunk.y;
+
+        for (int i = -radius; i <= radius; i++)
+        {
+            List<Vector2Int> chunkToDestroy = new()
+            {
+                new(x + radius, y + i),
+                new(x - radius, y + i),
+                new(x + i, y + radius),
+                new(x + i, y - radius)
+            };
+            // Debug.Log("Circle chunk1: (" + chunk1.x +"," + chunk1.y + ")");
+            // Debug.Log("Circle chunk2: (" + chunk2.x +"," + chunk2.y + ")");
+
+            foreach (var chunk in chunkToDestroy)
+            {
+                // if object is here continue...
+                if (!existingGameObjects.ContainsKey(chunk))
+                    continue;
+
+                Debug.Log("Cleaning chunk: (" + chunk.x +"," + chunk.y + ")");
+                Destroy(existingGameObjects[chunk]);
+                existingGameObjects.Remove(chunk);
+            }
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {
+        UpdateCurrentChunkPos();
 
-        updateCurrentChunkPos();
+        // Debug.Log("Chunk: (" + currentChunkPos.x +"," + currentChunkPos.y + ")");
+        GenerateChunkArea(currentChunkPos, generationRadius);
 
-
-        CheckChunkArea(currentChunkPos, 1);
-
-        // Debug.Log("Chunk: (" + chunkX +"," + chunkY + ")");
-
+        CollectGarbage(currentChunkPos, garbageRadius);
     }
 }

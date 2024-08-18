@@ -9,8 +9,7 @@ public class EnterShopScript : MonoBehaviour, IPointerClickHandler
 {
     public void OnPointerClick(PointerEventData eventData)
     {
-        //todo save new condition?
-        // change scene
+        GameManager.instance.SaveStateBetweenSails();
         SceneManager.LoadScene(1);
     }
 }
