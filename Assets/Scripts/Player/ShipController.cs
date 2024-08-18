@@ -39,8 +39,6 @@ public class ShipController : MonoBehaviour
         move = new Vector2(horizontal, vertical).normalized;
         Vector2 accelerationVector;
 
-        currentVelocity = rb.velocity;
-
         if (move != Vector2.zero)
         {
             Vector2 targetVelocity = move * maxSpeed;
@@ -55,15 +53,18 @@ public class ShipController : MonoBehaviour
         }
         else
         {
-            accelerationVector = -rb.velocity.normalized * (deceleration * Time.fixedDeltaTime);
-
-            if (Vector2.Dot(rb.velocity, accelerationVector) > 0f)
+            accelerationVector = -currentVelocity.normalized * (deceleration * Time.fixedDeltaTime);
+            if(accelerationVector.sqrMagnitude > currentVelocity.sqrMagnitude){
+                accelerationVector = -currentVelocity;
+            }
+            if (Vector2.Dot(currentVelocity, accelerationVector) > 0f)
             {
                 accelerationVector = Vector2.zero;
             }
         }
 
-        rb.velocity += accelerationVector;
+        currentVelocity += accelerationVector;
+        rb.MovePosition(rb.position + currentVelocity * Time.fixedDeltaTime);
 
 
         // mirror if necessary
