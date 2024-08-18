@@ -13,8 +13,11 @@ public class ClickableItem : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        var gameObject = inventory.Find("DescriptionImage").GetComponent<Image>().gameObject;
-        inventory.Find("DescriptionImage").GetComponent<Image>().sprite = shopItemChoser.shopItemImage;
+        var imageObject = inventory.Find("DescriptionImage").GetComponent<Image>();
+        imageObject.sprite = shopItemChoser.shopItemImage;
+
+        var textObject = inventory.Find("DescriptionText").GetComponent<TextMeshProUGUI>();
+        textObject.text = shopItemChoser.shopItemDescription;
     }
 
     // Start is called before the first frame update

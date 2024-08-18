@@ -13,3 +13,5 @@ MonoBehaviour:
   m_Name: ShopChooser2
   m_EditorClassIdentifier: 
   shopItemImage: {fileID: 21300000, guid: 6734bce4d3bc41e4aa32c0ada3e62833, type: 3}
+  shopItemDescription: "\u043C\u0435\u043D\u044F \u0435\u0431\u0430\u043B\u043E \u0442\u0440\u0438
+    \u0441\u043E\u0431\u0430\u043A\u0438"
