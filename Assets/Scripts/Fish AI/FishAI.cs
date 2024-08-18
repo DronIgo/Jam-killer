@@ -10,8 +10,7 @@ public class FishAI : MonoBehaviour
     public bool hasAGoal = false;
     public FishState currentState;
     public GameObject playerShip;
-    
-    public float speed;
+    public FishMover fishMover;
     public float chaseDistance = 60.0f;
 
     public float distanceToPlayer

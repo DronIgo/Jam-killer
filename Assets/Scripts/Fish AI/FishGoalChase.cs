@@ -6,11 +6,13 @@ public class FishGoalChase : IFishGoal
 {
     public Transform playerTransform;
     public Transform fishTransform;
+    public FishMover fishMover;
     public float goalDist = 0.1f;
     public FishGoalChase(FishAI fish) : base(fish)
     {
         playerTransform = fish.playerShip.transform;
         fishTransform = fish.gameObject.transform;
+        fishMover = fish.fishMover;
 }
     public override void ActionOnGoalReached()
     {
@@ -29,7 +31,8 @@ public class FishGoalChase : IFishGoal
         Debug.DrawLine(fishTransform.position, goalPoint, Color.red, .1f, false);
         Vector3 goal = (goalPoint - fishTransform.position);
         goal.Normalize();
-        fishTransform.up = goal;
-        fishTransform.position += goal * fishAI.speed * Time.deltaTime;
+        fishMover.SetDirection(goal);
+        //fishTransform.up = goal;
+        //fishTransform.position += goal * fishAI.speed * Time.deltaTime;
     }
 }
