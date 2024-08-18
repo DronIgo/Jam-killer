@@ -6,8 +6,8 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/NatashaScene.unity
-    guid: ff8f35077b173a54e996735938841e07
+    path: Assets/Scenes/SailingScene.unity
+    guid: ff273de88cd8aee4b9e5644ad1329520
   - enabled: 1
     path: Assets/Scenes/ShopSceneTwoElectricBoogaloo.unity
     guid: eacece91401a1374ba727b94fd49dcf2
