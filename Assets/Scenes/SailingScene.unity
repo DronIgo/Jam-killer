@@ -371,6 +371,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8445840680541878363, guid: f70129843ace2a94a9348ceee242cba4, type: 3}
+      propertyPath: saver
+      value: 
+      objectReference: {fileID: 11400000, guid: 9bb369a668f37f348ac513775613ff4f, type: 2}
+    - target: {fileID: 8445840680541878363, guid: f70129843ace2a94a9348ceee242cba4, type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 936350934}
@@ -378,6 +382,18 @@ PrefabInstance:
       propertyPath: uiManager
       value: 
       objectReference: {fileID: 1200824588}
+    - target: {fileID: 8445840680541878363, guid: f70129843ace2a94a9348ceee242cba4, type: 3}
+      propertyPath: savePrefab
+      value: 
+      objectReference: {fileID: 8869222956829330092, guid: a2b2863e245c1c740bd34c03367f76f2, type: 3}
+    - target: {fileID: 8445840680541878363, guid: f70129843ace2a94a9348ceee242cba4, type: 3}
+      propertyPath: defaultValues
+      value: 
+      objectReference: {fileID: 11400000, guid: 9ce495b69e698a940bf69d9dad970d5c, type: 2}
+    - target: {fileID: 8445840680541878363, guid: f70129843ace2a94a9348ceee242cba4, type: 3}
+      propertyPath: sceneSailingSavePrefab
+      value: 
+      objectReference: {fileID: 8869222956829330092, guid: a2b2863e245c1c740bd34c03367f76f2, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f70129843ace2a94a9348ceee242cba4, type: 3}
 --- !u!1 &757774901

@@ -6,8 +6,6 @@ using UnityEngine.UI;
 [CreateAssetMenu(fileName = "ShopChooser", menuName = "ScriptableObjects/ShopChooser", order = 3)]
 public class ShopChooser : ScriptableObject
 {
-    //todo
     public Sprite shopItemImage;
     public string shopItemDescription;
-
 }

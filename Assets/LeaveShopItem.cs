@@ -9,8 +9,6 @@ public class LeaveShopItem : MonoBehaviour, IPointerClickHandler
 {
     public void OnPointerClick(PointerEventData eventData)
     {
-        //todo save new condition?
-        // change scene
         SceneManager.LoadScene(0);
     }
 }
