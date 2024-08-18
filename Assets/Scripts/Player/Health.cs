@@ -49,6 +49,7 @@ public class Health : MonoBehaviour
             return;
 
         _currentLives -= damageAmount;
+        
         CheckDeath();
         GameManager.UpdateUIElements();
     }

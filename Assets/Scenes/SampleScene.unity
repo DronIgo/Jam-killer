@@ -343,6 +343,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7930537506793132374, guid: 15dd1c738911c014ba182484c6f89a01, type: 3}
+      propertyPath: progressSpeed
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7930537506793132374, guid: 15dd1c738911c014ba182484c6f89a01, type: 3}
+      propertyPath: defaultFailTime
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7930537506793132374, guid: 15dd1c738911c014ba182484c6f89a01, type: 3}
+      propertyPath: progressDegradationSpeed
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 8869222956829330092, guid: 15dd1c738911c014ba182484c6f89a01, type: 3}
       propertyPath: m_RootOrder
       value: 5
