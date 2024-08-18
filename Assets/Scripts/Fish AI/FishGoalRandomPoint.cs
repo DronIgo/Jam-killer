@@ -14,9 +14,7 @@ public class FishGoalRandomPoint : IFishGoal
     {
         fishTransform = fish.gameObject.transform;
         fishMover = fish.fishMover;
-        float angle = Random.Range(0, Mathf.PI * 2.0f);
-        float dist = Random.Range(minDistance, maxDistance);
-        goalPoint = new Vector3(Mathf.Sin(angle) * dist, Mathf.Cos(angle) * dist, fishTransform.position.z);
+        goalPoint = Utils.GetRandomPointInArea(fishTransform.position, minDistance, maxDistance);
     }
 
     public override void ActionOnGoalReached()
@@ -35,7 +33,5 @@ public class FishGoalRandomPoint : IFishGoal
         Vector3 goal = (goalPoint - fishTransform.position);
         goal.Normalize();
         fishMover.SetDirection(goal);
-        //fishTransform.up = goal;
-        //fishTransform.position += goal * fishAI.speed * Time.deltaTime;
     }
 }

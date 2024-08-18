@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a036f14e9ba7e5b419d36c90f10ca516, type: 3}
+  m_Name: FishTunaSmall 1
+  m_EditorClassIdentifier: 
+  size: 2
+  fishName: Small Tuna
+  fishCost: 3
+  fishIcon: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  fishPrefab: {fileID: 8422349493398879725, guid: 6b8746441037252479c2675b8c9d2f0f, type: 3}
+  probability: 4
+  lifeTime: 20
+  behaviourType: {fileID: 11400000, guid: 9bd69675ad9bdf04fb107fe3f7edb463, type: 2}
