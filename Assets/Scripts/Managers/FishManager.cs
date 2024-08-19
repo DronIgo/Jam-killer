@@ -154,7 +154,7 @@ public class FishManager : MonoBehaviour
 
     #endregion
 
-    public bool minigameActive = true;
+    public static bool minigameActive = false;
     public GameObject currentFishInMinigameGO;
     public FishAI currentFishInMinigameAI;
     public void InitiateMinigame(Fish fish) 

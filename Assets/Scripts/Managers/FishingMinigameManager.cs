@@ -55,7 +55,7 @@ public class FishingMinigameManager : MonoBehaviour
             fishManager.currentFishInMinigameAI.SetGoal(new FishGoalRandomPoint(fishManager.currentFishInMinigameAI));
         }
         minigameObject.SetActive(false);
-        fishManager.minigameActive = false;
+        FishManager.minigameActive = false;
         fishManager.ResetFishBehaviour();
 
         

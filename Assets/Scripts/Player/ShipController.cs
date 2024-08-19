@@ -41,11 +41,17 @@ public class ShipController : MonoBehaviour
         float vertical = input.verticalMovement;
 
         // move with acceleration
+        if (FishManager.minigameActive)
+            return;
         move = new Vector2(horizontal, vertical).normalized;
         Vector2 accelerationVector;
 
         if (move != Vector2.zero)
         {
+            //if (FishingRod.rodActive)
+            //{
+            //    fishingRod.SetActive(false);
+            //}
             Vector2 targetVelocity = move * maxSpeed;
 
             Vector2 deltaVelocity = targetVelocity - currentVelocity;
@@ -59,7 +65,8 @@ public class ShipController : MonoBehaviour
         else
         {
             accelerationVector = -currentVelocity.normalized * (deceleration * Time.deltaTime);
-            if(accelerationVector.sqrMagnitude > currentVelocity.sqrMagnitude){
+            if (accelerationVector.sqrMagnitude > currentVelocity.sqrMagnitude)
+            {
                 accelerationVector = -currentVelocity;
             }
             if (Vector2.Dot(currentVelocity, accelerationVector) > 0f)
@@ -80,7 +87,6 @@ public class ShipController : MonoBehaviour
         {
             shipRenderer.flipX = true;
         }
-
 
         //check hook thrown
         if (input.hookThrown)

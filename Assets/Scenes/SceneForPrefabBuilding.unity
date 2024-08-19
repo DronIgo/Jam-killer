@@ -239,6 +239,65 @@ MonoBehaviour:
   gm6: {fileID: 0}
   amount6: 0
   generateNow: 0
+--- !u!1 &810372457
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 810372459}
+  - component: {fileID: 810372458}
+  m_Layer: 0
+  m_Name: Fixer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &810372458
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 810372457}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e4e8f0fd58e0aa42b331574f68aa5db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabs:
+  - Assets/Prefabs/World/Obstacle.prefab
+  - Assets/Prefabs/World/Obstacle2.prefab
+  - Assets/Prefabs/World/Leaf.prefab
+  - Assets/Prefabs/World/LeafBig.prefab
+  - Assets/Prefabs/World/Vortex.prefab
+  - Assets/Prefabs/World/Background.prefab
+  names:
+  - Obstacle(Clone)
+  - Obstacle2(Clone)
+  - Leaf(Clone)
+  - LeafBig(Clone)
+  - Vortex(Clone)
+  - Background
+  fixNow: 0
+--- !u!4 &810372459
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 810372457}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.454269, y: 0.6048575, z: 0.021124123}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &994189407 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8869222956829330098, guid: 15dd1c738911c014ba182484c6f89a01, type: 3}
