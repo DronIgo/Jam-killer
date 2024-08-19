@@ -2,13 +2,15 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class FishingMinigame : MonoBehaviour
 {
-    [SerializeField] Transform topPivot;
-    [SerializeField] Transform bottomPivot;
+    public float maskSize = 220.0f;
+    [SerializeField] RectTransform topPivot;
+    [SerializeField] RectTransform bottomPivot;
 
-    [SerializeField] Transform fish;
+    [SerializeField] RectTransform fish;
 
     float fishPosition;
     float fishDestination;
@@ -19,7 +21,7 @@ public class FishingMinigame : MonoBehaviour
     float fishSpeed;
     [SerializeField] float smoothMotion = 1f;
 
-    [SerializeField] Transform hook;
+    [SerializeField] RectTransform hook;
     float hookPosition;
     [SerializeField] float hookSize = 0.1f;
     [SerializeField] float progressSpeed = 0.5f;
@@ -29,9 +31,12 @@ public class FishingMinigame : MonoBehaviour
     [SerializeField] float hookGravityPower = 0.005f;
     [SerializeField] float progressDegradationSpeed = 0.01f;
 
-    [SerializeField] SpriteRenderer hookSpriteRenderer;
+    //[SerializeField] SpriteRenderer hookSpriteRenderer;
 
-    [SerializeField] Transform progressBarContainer;
+    [SerializeField] RectMask2D progressBarMask;
+    [SerializeField] RectMask2D hookMask;
+
+    //[SerializeField] Transform progressBarContainer;
 
     bool pause = false;
     public bool win { get; private set; }
@@ -52,10 +57,7 @@ public class FishingMinigame : MonoBehaviour
         
     private void Resize()
     {
-        Vector3 ls = hook.localScale;
-        float totalScale = Vector3.Distance(topPivot.position, bottomPivot.position);
-        ls.y = (totalScale * hookSize);
-        hook.localScale = ls;
+        hookMask.padding = new Vector4(hookMask.padding.x, maskSize * (1 - hookSize) / 2, hookMask.padding.z , maskSize * (1 - hookSize) / 2);
     }
 
     public void InitiateGame()
@@ -82,12 +84,8 @@ public class FishingMinigame : MonoBehaviour
     private void UpdateModel()
     {
         fish.position = Vector3.Lerp(bottomPivot.position, topPivot.position, fishPosition);
-
         hook.position = Vector3.Lerp(bottomPivot.position, topPivot.position, hookPosition);
-
-        Vector3 ls = progressBarContainer.localScale;
-        ls.y = hookProgress;
-        progressBarContainer.localScale = ls;
+        progressBarMask.padding = new Vector4(progressBarMask.padding.x, progressBarMask.padding.y, progressBarMask.padding.z, maskSize * (1 - hookProgress));
     }
 
     private void ProgressCheck()

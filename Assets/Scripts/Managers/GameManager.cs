@@ -55,6 +55,7 @@ public class GameManager : MonoBehaviour
     public void AddFish(FishType type)
     {
         caughtFish.Add(type);
+        UpdateUIElements();
     }
 
     public void SaveStateInSail()
