@@ -472,7 +472,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1
 --- !u!114 &8869222956829330095
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -485,9 +485,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c36b5e069641b045908ec41029b5cc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSpeed: 15
-  acceleration: 3
-  deceleration: 5
+  maxSpeed: 10
+  acceleration: 8
+  deceleration: 8
   currentVelocity: {x: 0, y: 0}
   fishingRod: {fileID: 0}
   move: {x: 0, y: 0}
