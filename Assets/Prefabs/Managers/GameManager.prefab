@@ -45,4 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uiManager: {fileID: 0}
+  saver: {fileID: 11400000, guid: 9bb369a668f37f348ac513775613ff4f, type: 2}
+  defaultValues: {fileID: 11400000, guid: 9ce495b69e698a940bf69d9dad970d5c, type: 2}
+  isInOcean: 1
   player: {fileID: 0}

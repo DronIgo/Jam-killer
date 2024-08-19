@@ -123,6 +123,63 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &89758977
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3372761308736153672, guid: c16641dbd21350943874db19455f194d, type: 3}
+      propertyPath: m_Name
+      value: SoundManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 5033921215669103987, guid: c16641dbd21350943874db19455f194d, type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5033921215669103987, guid: c16641dbd21350943874db19455f194d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5033921215669103987, guid: c16641dbd21350943874db19455f194d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5033921215669103987, guid: c16641dbd21350943874db19455f194d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5033921215669103987, guid: c16641dbd21350943874db19455f194d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5033921215669103987, guid: c16641dbd21350943874db19455f194d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5033921215669103987, guid: c16641dbd21350943874db19455f194d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5033921215669103987, guid: c16641dbd21350943874db19455f194d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5033921215669103987, guid: c16641dbd21350943874db19455f194d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5033921215669103987, guid: c16641dbd21350943874db19455f194d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5033921215669103987, guid: c16641dbd21350943874db19455f194d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c16641dbd21350943874db19455f194d, type: 3}
 --- !u!1 &132811519
 GameObject:
   m_ObjectHideFlags: 0
@@ -449,33 +506,13 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8445840680541878363, guid: f70129843ace2a94a9348ceee242cba4, type: 3}
-      propertyPath: saver
-      value: 
-      objectReference: {fileID: 11400000, guid: 9bb369a668f37f348ac513775613ff4f, type: 2}
-    - target: {fileID: 8445840680541878363, guid: f70129843ace2a94a9348ceee242cba4, type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 936350934}
     - target: {fileID: 8445840680541878363, guid: f70129843ace2a94a9348ceee242cba4, type: 3}
-      propertyPath: isInOcean
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8445840680541878363, guid: f70129843ace2a94a9348ceee242cba4, type: 3}
       propertyPath: uiManager
       value: 
       objectReference: {fileID: 1200824588}
-    - target: {fileID: 8445840680541878363, guid: f70129843ace2a94a9348ceee242cba4, type: 3}
-      propertyPath: savePrefab
-      value: 
-      objectReference: {fileID: 8869222956829330092, guid: a2b2863e245c1c740bd34c03367f76f2, type: 3}
-    - target: {fileID: 8445840680541878363, guid: f70129843ace2a94a9348ceee242cba4, type: 3}
-      propertyPath: defaultValues
-      value: 
-      objectReference: {fileID: 11400000, guid: 9ce495b69e698a940bf69d9dad970d5c, type: 2}
-    - target: {fileID: 8445840680541878363, guid: f70129843ace2a94a9348ceee242cba4, type: 3}
-      propertyPath: sceneSailingSavePrefab
-      value: 
-      objectReference: {fileID: 8869222956829330092, guid: a2b2863e245c1c740bd34c03367f76f2, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f70129843ace2a94a9348ceee242cba4, type: 3}
 --- !u!1 &757774901
@@ -739,6 +776,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 424018470, guid: 4b540f4f2f3b1bc43a24433710b12c0e, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 424018470, guid: 4b540f4f2f3b1bc43a24433710b12c0e, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 424018470, guid: 4b540f4f2f3b1bc43a24433710b12c0e, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 424018470, guid: 4b540f4f2f3b1bc43a24433710b12c0e, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3786517866515275074, guid: 4b540f4f2f3b1bc43a24433710b12c0e, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -830,6 +883,10 @@ PrefabInstance:
     - target: {fileID: 3786517866515275102, guid: 4b540f4f2f3b1bc43a24433710b12c0e, type: 3}
       propertyPath: m_Name
       value: Game UI Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 3839212676359641606, guid: 4b540f4f2f3b1bc43a24433710b12c0e, type: 3}
+      propertyPath: m_RootOrder
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4b540f4f2f3b1bc43a24433710b12c0e, type: 3}
@@ -949,14 +1006,6 @@ PrefabInstance:
       propertyPath: minigameObject
       value: 
       objectReference: {fileID: 1263824873}
-    - target: {fileID: 4346221122796100500, guid: 65ac76c9eb5abcf4a9693ae8a87d7446, type: 3}
-      propertyPath: distDispawn
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 4346221122796100500, guid: 65ac76c9eb5abcf4a9693ae8a87d7446, type: 3}
-      propertyPath: desiredNumOfFish
-      value: 13
-      objectReference: {fileID: 0}
     - target: {fileID: 4346221122796100501, guid: 65ac76c9eb5abcf4a9693ae8a87d7446, type: 3}
       propertyPath: m_Name
       value: FishManager

@@ -15,6 +15,15 @@ public class FishingMinigameManager : MonoBehaviour
 
     public void InitMinigame(Fish fish)
     {
+        if (SoundManager.instance != null)
+        {
+            SoundManager.instance.OnFishTackleStart();
+        }
+        else
+        {
+            Debug.LogWarning("SoundManager doesn't exists!");
+        }
+
         minigame.SetParamsFromFish(fish);
 
         StartCoroutine("PlayMinigame");
@@ -34,19 +43,37 @@ public class FishingMinigameManager : MonoBehaviour
         }
         if (minigame.win)
         {
+            GameManager.instance.AddFish(fishManager.currentFishInMinigameAI.fishComponent.type);
             if (fishManager.currentFishInMinigameGO != null)
                 fishManager.DeleteFish(fishManager.currentFishInMinigameGO, true);
-            //GameManager.instance.AddFish();
-            Debug.Log("Слушай, а ловко ты это придумал. Молодец!");
         }
         if (minigame.lose)
         {
             fishManager.currentFishInMinigameAI.ForceSetState(FishAI.FishState.FUCKING_DONE);
             fishManager.currentFishInMinigameAI.SetGoal(new FishGoalRandomPoint(fishManager.currentFishInMinigameAI));
-            Debug.Log("Результаты теста - вы реальный лошпед");
         }
         minigameObject.SetActive(false);
         fishManager.minigameActive = false;
         fishManager.ResetFishBehaviour();
+
+        
+        if (SoundManager.instance != null)
+        {
+            SoundManager.instance.OnFishTackleEnd();
+
+            if (minigame.win)
+            {
+                SoundManager.instance.OnFishCaught();
+            }
+            else
+            {
+                SoundManager.instance.OnFishGetAway();
+            }
+        }
+        else
+        {
+            Debug.LogWarning("SoundManager doesn't exists!");
+        }
+
     }
 }
