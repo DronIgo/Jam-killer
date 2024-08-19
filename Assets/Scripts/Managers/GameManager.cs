@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
     public bool isInOcean;
 
     public GameObject player;
+    public CameraController cameraController;
     public Transform playerCenter;
 
     private void Awake()
