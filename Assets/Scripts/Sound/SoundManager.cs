@@ -55,6 +55,8 @@ public class SoundManager : MonoBehaviour
     {
         if (GameManager.instance.isInOcean)
             StartSailing();
+        else
+            insideAudio.Play();
     }
 
     public void StartSailing()

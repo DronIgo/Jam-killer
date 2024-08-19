@@ -43,25 +43,10 @@ public class FishingMinigameManager : MonoBehaviour
             }
             yield return new WaitForEndOfFrame();
         }
-        if (minigame.win)
-        {
-            GameManager.instance.AddFish(fishManager.currentFishInMinigameAI.fishComponent.type);
-            if (fishManager.currentFishInMinigameGO != null)
-                fishManager.DeleteFish(fishManager.currentFishInMinigameGO);
-        }
-        if (minigame.lose)
-        {
-            fishManager.currentFishInMinigameAI.ForceSetState(FishAI.FishState.FUCKING_DONE);
-            fishManager.currentFishInMinigameAI.SetGoal(new FishGoalRandomPoint(fishManager.currentFishInMinigameAI));
-        }
-        minigameObject.SetActive(false);
-        fishManager.minigameActive = false;
-        fishManager.ResetFishBehaviour();
 
-        
         if (SoundManager.instance != null)
         {
-            SoundManager.instance.OnFishTackleEnd();
+            SoundManager.instance.StopFishing();
 
             if (minigame.win)
             {
@@ -76,6 +61,22 @@ public class FishingMinigameManager : MonoBehaviour
         {
             Debug.LogWarning("SoundManager doesn't exists!");
         }
+
+        if (minigame.win)
+        {
+            GameManager.instance.AddFish(fishManager.currentFishInMinigameAI.fishComponent.type);
+            if (fishManager.currentFishInMinigameGO != null)
+                fishManager.DeleteFish(fishManager.currentFishInMinigameGO);
+        }
+        if (minigame.lose)
+        {
+            fishManager.currentFishInMinigameAI.ForceSetState(FishAI.FishState.FUCKING_DONE);
+            fishManager.currentFishInMinigameAI.SetGoal(new FishGoalRandomPoint(fishManager.currentFishInMinigameAI));
+        }
+        minigameObject.SetActive(false);
+        fishManager.minigameActive = false;
+        fishManager.ResetFishBehaviour();
+      
 
     }
 }
