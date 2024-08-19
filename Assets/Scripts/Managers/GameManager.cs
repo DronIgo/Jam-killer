@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
     public bool isInOcean;
 
     public GameObject player;
+    public Transform playerCenter;
 
     private void Awake()
     {
@@ -29,6 +30,7 @@ public class GameManager : MonoBehaviour
             Destroy(this.gameObject);
         }
         LoadState();
+        //playerCenter = player.transform.Find("center");
     }
 
     // Update is called once per frame

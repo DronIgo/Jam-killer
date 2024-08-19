@@ -74,11 +74,11 @@ public class ShipController : MonoBehaviour
         // mirror if necessary
         if (horizontal < 0)
         {
-            shipRenderer.flipX = true;
+            shipRenderer.flipX = false;
         }
         else if (horizontal > 0)
         {
-            shipRenderer.flipX = false;
+            shipRenderer.flipX = true;
         }
 
 
@@ -87,7 +87,7 @@ public class ShipController : MonoBehaviour
         {
             if (!FishingRod.rodActive)
             {
-                fishingRod.Throw(new Vector2(0f, -0.5f));
+                fishingRod.Throw(new Vector2(0.23f, -1.53f));
             }
             else
                 fishingRod.SetActive(false);

@@ -7,14 +7,28 @@ public class FishGoalChase : IFishGoal
     public Transform playerTransform;
     public FishMover fishMover;
     public float goalDist = 0.1f;
+    public int attacksLeft = 1;
     public FishGoalChase(FishAI fish) : base(fish)
     {
-        playerTransform = fish.playerShip.transform;
+        playerTransform = fish.playerCenter;
         fishMover = fish.fishMover;
+        goalDist = fish.fishType.attackDistance;
+        attacksLeft = fish.behaviourType.numOfAttacks;
+    }
+
+    public FishGoalChase(FishGoalChase prevGoal) : base(prevGoal.fishAI)
+    {
+        playerTransform = prevGoal.playerTransform;
+        fishMover = prevGoal.fishMover;
+        goalDist = prevGoal.goalDist;
+        attacksLeft = prevGoal.attacksLeft;
     }
     public override void ActionOnGoalReached()
     {
         fishAI.Attack();
+        attacksLeft--;
+        if (attacksLeft > 0)
+            fishAI.SetGoal(new FishGoalChase(this));
         fishAI.hasAGoal = false;
     }
 

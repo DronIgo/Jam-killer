@@ -8,5 +8,4 @@ public class FishBehaviourType : ScriptableObject
     public FishAI.FishState defaultState;
     public float distanceChase;
     public int numOfAttacks;
-
 }

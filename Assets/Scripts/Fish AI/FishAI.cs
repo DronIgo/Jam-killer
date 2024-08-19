@@ -10,10 +10,12 @@ public class FishAI : MonoBehaviour
     public bool hasAGoal = false;
     public FishState currentState;
     public GameObject playerShip;
+    public Transform playerCenter;
     public FishMover fishMover;
     public Transform fishTransform;
     public Fish fishComponent;
     public FishBehaviourType behaviourType;
+    public FishType fishType => fishComponent.type;
     public GameObject attackEffect;
     public float distanceToPlayer
     {
@@ -27,6 +29,8 @@ public class FishAI : MonoBehaviour
     {
         fishTransform = fishMover.gameObject.transform;
         SetGoal(new FishGoalRandomPoint(this));
+        playerShip = GameManager.instance.player;
+        playerCenter = GameManager.instance.playerCenter;
     }
 
     // Update is called once per frame
@@ -76,11 +80,19 @@ public class FishAI : MonoBehaviour
         } else if (CheckBaitCondition())
         {
             SetGoal(new FishGoalBait(this));
-        } else 
+        } else if (CheckSwimAwayCondition())
+        {
+            SetGoal(new FishGoalSwimAway(this));
+        } else
         {
             SetGoal(new FishGoalRandomPoint(this));
         }
         hasAGoal = true;
+    }
+
+    private bool CheckSwimAwayCondition()
+    {
+        return currentState == FishState.FUCKING_DONE;
     }
 
     private bool CheckAgroCondition()

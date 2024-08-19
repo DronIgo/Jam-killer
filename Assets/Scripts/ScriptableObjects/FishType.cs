@@ -14,6 +14,10 @@ public class FishType : ScriptableObject
     public GameObject fishPrefab;
     public GameObject attackPrefab;
 
+    public float attackDistance;
+    public float probabilityOfAttack;
+    public float probabilityOfBaiting;
+
     public int probability;
 
     public float lifeTime;

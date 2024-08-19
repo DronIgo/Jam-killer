@@ -135,7 +135,8 @@ public class FishManager : MonoBehaviour
                 Debug.LogWarning("FishPrefab in fishType: " + type.name + " doens't have FishAI component. Dumb ass fish");
                 return;
             }
-            fishAI.playerShip = player.gameObject;
+            fishAI.playerShip = GameManager.instance.player;
+            fishAI.playerCenter = GameManager.instance.playerCenter;
             fishAI.behaviourType = type.behaviourType;
             fishAI.attackEffect = type.attackPrefab;
             fishAI.ResetBehaviour();

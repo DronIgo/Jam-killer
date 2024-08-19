@@ -18,6 +18,9 @@ MonoBehaviour:
   fishIcon: {fileID: 10915, guid: 0000000000000000f000000000000000, type: 0}
   fishPrefab: {fileID: 8422349493398879725, guid: 6b8746441037252479c2675b8c9d2f0f, type: 3}
   attackPrefab: {fileID: 1172108374226610288, guid: fae5c613681bc2d4ab7d7b1b6749d40e, type: 3}
+  attackDistance: 1
+  probabilityOfAttack: 0.1
+  probabilityOfBaiting: 0
   probability: 2
   lifeTime: 10
   behaviourType: {fileID: 11400000, guid: 2f0ceecdf03bc104b87e5d4c33775f05, type: 2}

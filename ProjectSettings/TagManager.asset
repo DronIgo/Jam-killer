@@ -38,6 +38,18 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Background
+    uniqueID: 326012277
+    locked: 0
+  - name: UnderSurface
+    uniqueID: 54620369
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Surface
+    uniqueID: 69300509
+    locked: 0
+  - name: In Air
+    uniqueID: 1927837349
     locked: 0
