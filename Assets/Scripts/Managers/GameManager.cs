@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
     public UIManager uiManager;
     public static int score = 10;
     public static int baitNum = 10;
-    public static List<FishType> caughtFish = new List<FishType>();
+    public List<FishType> caughtFish = new List<FishType>();
 
     public string insideFishSceneName = "InsideFish";
     public string oceanSceneName = "Ocean";

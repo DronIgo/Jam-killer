@@ -16,7 +16,7 @@ MonoBehaviour:
   fishName: Giant Tuna
   description: How did you catch that???
   fishCost: 30
-  fishIcon: {fileID: 10915, guid: 0000000000000000f000000000000000, type: 0}
+  fishIcon: {fileID: 21300000, guid: 6734bce4d3bc41e4aa32c0ada3e62833, type: 3}
   fishPrefab: {fileID: 8422349493398879725, guid: 6b8746441037252479c2675b8c9d2f0f, type: 3}
   attackPrefab: {fileID: 1172108374226610288, guid: fae5c613681bc2d4ab7d7b1b6749d40e, type: 3}
   attackDistance: 1
