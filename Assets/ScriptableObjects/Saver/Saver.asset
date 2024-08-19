@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9962ea091933ec94c99ae0afb33a5dc6, type: 3}
   m_Name: Saver
   m_EditorClassIdentifier: 
-  lives: 3
+  lives: 1000
   score: 0
   baitNum: 10
+  shipPrefab: {fileID: 0}
+  fishingMinigamePrefab: {fileID: 0}
   caughtFish: []

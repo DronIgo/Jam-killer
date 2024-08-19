@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class SoundManager : MonoBehaviour
@@ -8,7 +9,8 @@ public class SoundManager : MonoBehaviour
     public static SoundManager instance;
     // TimedObjectDestroyer;             // float timewhendestroy
 
-
+    [Header("Settings")]
+    public float fadeDuration = 5.0f; // Время на затухание и нарастание
     public GameObject fishCaught;
     public GameObject baitDeploy;
     public GameObject fishGetsAway;
@@ -21,11 +23,16 @@ public class SoundManager : MonoBehaviour
     public GameObject bottleCrash;
 
 
-    public AudioClip backgroundAudio;
-    private AudioSource audioSource;
+    public AudioSource sailAudio;
 
-    // Start is called before the first frame update
-    void Start()
+    public AudioSource fishingAudio;
+
+    public AudioSource insideAudio;
+    public AudioSource pressureAudio;
+
+    // public AudioSource currentAudioSource; TODO: ?
+
+    void Awake()
     {
         if (instance == null)
         {
@@ -36,9 +43,56 @@ public class SoundManager : MonoBehaviour
             Destroy(this.gameObject);
             return;
         }
+        
+        sailAudio = transform.Find("ChillFishing").gameObject.GetComponent<AudioSource>();
+        fishingAudio = transform.Find("FishGyatt").gameObject.GetComponent<AudioSource>();
+        insideAudio = transform.Find("InsideTheFish").gameObject.GetComponent<AudioSource>();
+        pressureAudio = transform.Find("HydrostaticPressure").gameObject.GetComponent<AudioSource>();
+    }
 
-        audioSource = GetComponent<AudioSource>();
-        PlayMusic(backgroundAudio);
+    // Start is called before the first frame update
+    void Start()
+    {
+        if (GameManager.instance.isInOcean)
+            StartSailing();
+    }
+
+    public void StartSailing()
+    {
+        Debug.Log("start sailing");
+        sailAudio.Play();
+    }
+
+    public void StartFishing()
+    {
+        StopWithFade(sailAudio, fishingAudio);
+    }
+
+    public void StopFishing()
+    {
+        StopWithFade(fishingAudio, sailAudio);
+    }
+
+    public void StopWithFade(AudioSource audioSourceOld, AudioSource audioSourceNew)
+    {
+        StartCoroutine(FadeCurrentMusic(audioSourceOld, audioSourceNew));
+
+    }
+    private IEnumerator FadeCurrentMusic(AudioSource audioSourceOld, AudioSource audioSourceNew)
+    {
+        audioSourceNew.volume = 0;
+        audioSourceNew.Play();
+
+        float time = 0;
+        while (time < fadeDuration)
+        {
+            time += Time.deltaTime;
+            audioSourceOld.volume = Mathf.Lerp(1, 0, time / fadeDuration);
+            audioSourceNew.volume = Mathf.Lerp(0, 1, time / fadeDuration);
+            yield return null;
+        }
+        
+        audioSourceOld.Stop();
     }
 
     public void OnFishCaught()
@@ -78,25 +132,4 @@ public class SoundManager : MonoBehaviour
         fishTackleObject = null;
     }
 
-    public void PlayMusic(AudioClip musicClip)
-
-    {
-        if (audioSource.clip == musicClip) return;
-
-        audioSource.clip = musicClip;
-        audioSource.Play();
-        Debug.Log("Begin playing music...");
-    }
-
-    public void StopMusic()
-    {
-        audioSource.Stop();
-        audioSource.clip = null;
-    }
-
-
-    public void SetVolume(float volume)
-    {
-        audioSource.volume = volume;
-    }
 }

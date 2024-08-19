@@ -17,10 +17,12 @@ public class FishingMinigameManager : MonoBehaviour
     {
         if (SoundManager.instance != null)
         {
+            SoundManager.instance.StartFishing();
             SoundManager.instance.OnFishTackleStart();
         }
         else
         {
+            SoundManager.instance.StartSailing();
             Debug.LogWarning("SoundManager doesn't exists!");
         }
 
