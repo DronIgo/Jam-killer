@@ -13,8 +13,6 @@ public class LivesDisplay : UIelement
     public GameObject livesDisplayImage = null;
 
     public GameObject livesDisplayDamaged = null;
-    [Tooltip("The prefab to use to display the number")]
-    public GameObject numberDisplay = null;
     [Tooltip("The maximum number of images to display before switching to just a number")]
     public int maximumNumberToDisplay = 3;
 
@@ -71,22 +69,13 @@ public class LivesDisplay : UIelement
 
         if (livesDisplayImage != null)
         {
-            if (maximumNumberToDisplay >= number)
-            {
-                for (int i = 0; i < number; i++)
-                {
-                    Instantiate(livesDisplayImage, transform);
-                }
-                for (int i = 0; i < maxHealth - number; ++i)
-                {
-                    Instantiate(livesDisplayDamaged, transform);
-                }
-            }
-            else
+            for (int i = 0; i < number; i++)
             {
                 Instantiate(livesDisplayImage, transform);
-                GameObject createdNumberDisp = Instantiate(numberDisplay, transform);
-                createdNumberDisp.GetComponent<Text>().text = number.ToString();
+            }
+            for (int i = 0; i < maxHealth - number; ++i)
+            {
+                Instantiate(livesDisplayDamaged, transform);
             }
         }
     }

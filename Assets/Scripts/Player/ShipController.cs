@@ -27,7 +27,7 @@ public class ShipController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (rb != null)
+        if (rb == null)
             rb = GetComponent<Rigidbody2D>();
         input = InputManager.instance;
         shipRenderer = GetComponent<SpriteRenderer>();
