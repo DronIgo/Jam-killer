@@ -15,8 +15,12 @@ public class FishAI : MonoBehaviour
     public Transform fishTransform;
     public Fish fishComponent;
     public FishBehaviourType behaviourType;
-    public FishType fishType => fishComponent.type;
+    //public FishType fishType => fishComponent.type;
     public GameObject attackEffect;
+    /// <summary>
+    /// set form fish manager
+    /// </summary>
+    public bool notStarted = true;
     public float distanceToPlayer
     {
         get
@@ -28,7 +32,8 @@ public class FishAI : MonoBehaviour
     void Awake()
     {
         fishTransform = fishMover.gameObject.transform;
-        SetGoal(new FishGoalRandomPoint(this));
+        hasAGoal = false;
+        //SetGoal(new FishGoalRandomPoint(this));
         playerShip = GameManager.instance.player;
         playerCenter = GameManager.instance.playerCenter;
     }

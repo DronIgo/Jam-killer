@@ -22,5 +22,6 @@ public class FishType : ScriptableObject
 
     public float lifeTime;
 
+    public FishMovementType movementType;
     public FishBehaviourType behaviourType;
 }

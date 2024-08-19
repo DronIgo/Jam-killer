@@ -12,7 +12,7 @@ public class FishGoalChase : IFishGoal
     {
         playerTransform = fish.playerCenter;
         fishMover = fish.fishMover;
-        goalDist = fish.fishType.attackDistance;
+        goalDist = fish.fishComponent.type.attackDistance;
         attacksLeft = fish.behaviourType.numOfAttacks;
     }
 

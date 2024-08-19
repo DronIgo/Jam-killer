@@ -123,6 +123,12 @@ public class FishManager : MonoBehaviour
         if (fishAlive_go_ai.Count >= maxTotalNumOfFish)
             return;
         GameObject fish = Instantiate(type.fishPrefab, position, Quaternion.identity);
+        //Configurate Fish component
+        {
+            Fish fishComponent = fish.GetComponent<Fish>();
+            fishComponent.fishManager = this;
+            fishComponent.type = type;
+        }
         //set FishAI
         FishAI fishAI;
         {
@@ -139,6 +145,7 @@ public class FishManager : MonoBehaviour
             fishAI.playerCenter = GameManager.instance.playerCenter;
             fishAI.behaviourType = type.behaviourType;
             fishAI.attackEffect = type.attackPrefab;
+            fishAI.notStarted = false;
             fishAI.ResetBehaviour();
         }
         //set Size
@@ -156,12 +163,6 @@ public class FishManager : MonoBehaviour
             default:
                 fish.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
                 break;
-        }
-        //Configurate Fish component
-        {
-            Fish fishComponent = fish.GetComponent<Fish>();
-            fishComponent.fishManager = this;
-            fishComponent.type = type;
         }
         fish.transform.parent = this.transform;
         fishAlive_go_ai.Add(new System.Tuple<GameObject, FishAI>(fish, fishAI));
