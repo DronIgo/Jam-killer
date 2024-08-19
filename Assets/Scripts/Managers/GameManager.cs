@@ -10,7 +10,11 @@ public class GameManager : MonoBehaviour
     public UIManager uiManager;
     public static int score = 10;
     public static int baitNum = 10;
-    public static List<FishType> caughtFish = new List<FishType>();
+    public List<FishType> caughtFish = new List<FishType>();
+
+    public string insideFishSceneName = "InsideFish";
+    public string oceanSceneName = "Ocean";
+    public string shopSceneName = "Shop";
 
     [SerializeField] Saver saver;
     [SerializeField] Saver defaultValues;
@@ -88,12 +92,19 @@ public class GameManager : MonoBehaviour
         score = saver.score;
     }
 
+    public void GoToTheShop()
+    {
+        SaveStateBetweenSails();
+
+        SceneManager.LoadScene(shopSceneName);
+    }
+
     public void GoInsideFish()
     {
         SaveStateBetweenSails();
         SaveStateInSail();
 
-        SceneManager.LoadScene("InsideFish");
+        SceneManager.LoadScene(insideFishSceneName);
     }
 
     public void ReturnToOcean()
@@ -101,7 +112,7 @@ public class GameManager : MonoBehaviour
         SaveStateBetweenSails();
         SaveStateInSail();
 
-        SceneManager.LoadScene("SailingScene");
+        SceneManager.LoadScene(oceanSceneName);
 
     }
 }

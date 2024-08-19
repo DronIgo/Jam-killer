@@ -11,10 +11,25 @@ public class LivesDisplay : UIelement
     [Header("Settings")]
     [Tooltip("The prefab image to use when displaying lives remaining")]
     public GameObject livesDisplayImage = null;
+
+    public GameObject livesDisplayDamaged = null;
     [Tooltip("The prefab to use to display the number")]
     public GameObject numberDisplay = null;
     [Tooltip("The maximum number of images to display before switching to just a number")]
     public int maximumNumberToDisplay = 3;
+
+    public int maxHealth = -1;
+
+    public int prevNumberOfLives = -1;
+
+    private void Start()
+    {
+        if (GameManager.instance != null && GameManager.instance.player != null)
+        {
+            Health playerHealth = GameManager.instance.player.GetComponent<Health>();
+            maxHealth = playerHealth.maxLives;
+        }
+    }
 
     /// <summary>
     /// Description:
@@ -32,7 +47,7 @@ public class LivesDisplay : UIelement
             Health playerHealth = GameManager.instance.player.GetComponent<Health>();
             if (playerHealth != null)
             {
-                SetChildImageNumber(playerHealth.currentLives - 1);
+                SetChildImageNumber(playerHealth.currentLives);
             }
         }
     }
@@ -61,6 +76,10 @@ public class LivesDisplay : UIelement
                 for (int i = 0; i < number; i++)
                 {
                     Instantiate(livesDisplayImage, transform);
+                }
+                for (int i = 0; i < maxHealth - number; ++i)
+                {
+                    Instantiate(livesDisplayDamaged, transform);
                 }
             }
             else
