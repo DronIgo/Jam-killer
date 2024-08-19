@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class Saver : ScriptableObject
 {
     public int lives;
+    public int maxLives;
     public int score;
     public int baitNum;
     public GameObject shipPrefab;

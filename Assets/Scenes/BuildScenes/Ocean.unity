@@ -288,6 +288,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1044957756 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3826496428499832621, guid: 4b540f4f2f3b1bc43a24433710b12c0e, type: 3}
+  m_PrefabInstance: {fileID: 1103897056}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1044957758 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4577308731727769279, guid: 4b540f4f2f3b1bc43a24433710b12c0e, type: 3}
+  m_PrefabInstance: {fileID: 1103897056}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1044957756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fc2bc54e7df3f74fbcdf0c8964c20b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1103897056
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -562,11 +578,11 @@ PrefabInstance:
     - target: {fileID: 2085238734, guid: 65ac76c9eb5abcf4a9693ae8a87d7446, type: 3}
       propertyPath: minigame
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1044957758}
     - target: {fileID: 2085238734, guid: 65ac76c9eb5abcf4a9693ae8a87d7446, type: 3}
       propertyPath: minigameObject
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1044957756}
     - target: {fileID: 4346221122796100501, guid: 65ac76c9eb5abcf4a9693ae8a87d7446, type: 3}
       propertyPath: m_Name
       value: FishManager
