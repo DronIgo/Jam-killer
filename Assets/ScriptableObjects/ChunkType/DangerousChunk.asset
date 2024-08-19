@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: DangerousChunk
   m_EditorClassIdentifier: 
   probability: 0.2
-  chunkPrefab: {fileID: 26989011586243885, guid: eb00da7eb5b5f78479cc6b1ef47ec456, type: 3}
+  prefab: {fileID: 26989011586243885, guid: eb00da7eb5b5f78479cc6b1ef47ec456, type: 3}
