@@ -52,6 +52,11 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void AddFish(FishType type)
+    {
+        caughtFish.Add(type);
+    }
+
     public void SaveStateInSail()
     {
         if (isInOcean)

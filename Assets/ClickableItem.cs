@@ -13,9 +13,6 @@ public class ClickableItem : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        var imageObject = inventory.Find("DescriptionImage").GetComponent<Image>();
-        imageObject.sprite = shopItemChoser.shopItemImage;
-
         var textObject = inventory.Find("DescriptionText").GetComponent<TextMeshProUGUI>();
         textObject.text = shopItemChoser.shopItemDescription;
     }

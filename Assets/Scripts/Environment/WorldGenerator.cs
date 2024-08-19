@@ -45,11 +45,11 @@ public class WorldGenerator : MonoBehaviour
         existingGameObjects = new();
 
         // generate start chunk
-        Debug.Log("Creating first chunk...");
+        //Debug.Log("Creating first chunk...");
         UpdateCurrentChunkPos();
         GenerateNewChunk(currentChunkPos);
 
-        Debug.Log("Creating near chunks...");
+        //Debug.Log("Creating near chunks...");
         GenerateChunkArea(currentChunkPos, generationRadius);
     }
 
@@ -86,7 +86,7 @@ public class WorldGenerator : MonoBehaviour
         // to hide gameObject and avoid clogging up the stage
         gameObject.transform.parent = this.transform;
 
-        Debug.Log("Place chunk on " + "("+ chunkPosition.x + ", " + chunkPosition.y + ")");
+        //Debug.Log("Place chunk on " + "("+ chunkPosition.x + ", " + chunkPosition.y + ")");
 
         return gameObject;
     }
@@ -166,7 +166,7 @@ public class WorldGenerator : MonoBehaviour
                 if (!existingGameObjects.ContainsKey(chunk))
                     continue;
 
-                Debug.Log("Cleaning chunk: (" + chunk.x +"," + chunk.y + ")");
+                //Debug.Log("Cleaning chunk: (" + chunk.x +"," + chunk.y + ")");
                 Destroy(existingGameObjects[chunk]);
                 existingGameObjects.Remove(chunk);
             }

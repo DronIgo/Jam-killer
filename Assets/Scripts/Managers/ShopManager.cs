@@ -24,12 +24,16 @@ public class ShopManager : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
+    public void UpdateDefaultState()
     {
-        
+
     }
 
+    public void GoSailing()
+    {
+        SaveStateInSail();
+    }
+    
     public void SaveStateInSail()
     {
         saver.lives = defaultValues.lives;

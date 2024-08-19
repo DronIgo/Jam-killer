@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-[CreateAssetMenu(fileName = "ShopChooser", menuName = "ScriptableObjects/ShopChooser", order = 3)]
+[CreateAssetMenu(fileName = "Item", menuName = "ScriptableObjects/ShopItem", order = 3)]
 public class ShopChooser : ScriptableObject
 {
-    public Sprite shopItemImage;
     public string shopItemDescription;
+    public int cost;
+    public string ItemName;
 }
