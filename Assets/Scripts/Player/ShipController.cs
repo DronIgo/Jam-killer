@@ -48,7 +48,7 @@ public class ShipController : MonoBehaviour
             Vector2 targetVelocity = move * maxSpeed;
 
             Vector2 deltaVelocity = targetVelocity - currentVelocity;
-            accelerationVector = deltaVelocity.normalized * (acceleration * Time.fixedDeltaTime);
+            accelerationVector = deltaVelocity.normalized * (acceleration * Time.deltaTime);
 
             if (accelerationVector.sqrMagnitude > deltaVelocity.sqrMagnitude)
             {
@@ -57,7 +57,7 @@ public class ShipController : MonoBehaviour
         }
         else
         {
-            accelerationVector = -currentVelocity.normalized * (deceleration * Time.fixedDeltaTime);
+            accelerationVector = -currentVelocity.normalized * (deceleration * Time.deltaTime);
             if(accelerationVector.sqrMagnitude > currentVelocity.sqrMagnitude){
                 accelerationVector = -currentVelocity;
             }
@@ -68,7 +68,7 @@ public class ShipController : MonoBehaviour
         }
 
         currentVelocity += accelerationVector;
-        rb.MovePosition(rb.position + currentVelocity * Time.fixedDeltaTime);
+        rb.MovePosition(rb.position + currentVelocity * Time.deltaTime);
 
 
         // mirror if necessary

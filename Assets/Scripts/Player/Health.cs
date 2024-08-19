@@ -24,7 +24,6 @@ public class Health : MonoBehaviour
 
     void Start()
     {
-
     }
 
     // Update is called once per frame
@@ -55,5 +54,15 @@ public class Health : MonoBehaviour
         
         CheckDeath();
         GameManager.UpdateUIElements();
+        
+        if (SoundManager.instance != null)
+        {
+            SoundManager.instance.OnBottleCrash();
+        }
+        else
+        {
+            Debug.LogWarning("SoundManager not exists!!!!");
+        }
+
     }
 }

@@ -15,6 +15,15 @@ public class FishingMinigameManager : MonoBehaviour
 
     public void InitMinigame(Fish fish)
     {
+        if (SoundManager.instance != null)
+        {
+            SoundManager.instance.OnFishTackleStart();
+        }
+        else
+        {
+            Debug.LogWarning("SoundManager doesn't exists!");
+        }
+
         minigame.SetParamsFromFish(fish);
 
         StartCoroutine("PlayMinigame");
@@ -46,5 +55,25 @@ public class FishingMinigameManager : MonoBehaviour
         minigameObject.SetActive(false);
         fishManager.minigameActive = false;
         fishManager.ResetFishBehaviour();
+
+        
+        if (SoundManager.instance != null)
+        {
+            SoundManager.instance.OnFishTackleEnd();
+
+            if (minigame.win)
+            {
+                SoundManager.instance.OnFishCaught();
+            }
+            else
+            {
+                SoundManager.instance.OnFishGetAway();
+            }
+        }
+        else
+        {
+            Debug.LogWarning("SoundManager doesn't exists!");
+        }
+
     }
 }
