@@ -58,10 +58,9 @@ public class FishingMinigameManager : MonoBehaviour
         FishManager.minigameActive = false;
         fishManager.ResetFishBehaviour();
 
-        
         if (SoundManager.instance != null)
         {
-            SoundManager.instance.OnFishTackleEnd();
+            SoundManager.instance.StopFishing();
 
             if (minigame.win)
             {
@@ -76,6 +75,7 @@ public class FishingMinigameManager : MonoBehaviour
         {
             Debug.LogWarning("SoundManager doesn't exists!");
         }
+
 
     }
 }

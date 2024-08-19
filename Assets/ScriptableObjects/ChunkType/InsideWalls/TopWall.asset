@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 542f015354276554f8097e9483bdf8c6, type: 3}
-  m_Name: InsideFish
+  m_Name: TopWall
   m_EditorClassIdentifier: 
   probability: 1
-  prefab: {fileID: 26989011586243885, guid: 4faae35d2edcb6044b7766e5436920bf, type: 3}
+  prefab: {fileID: 8875659008192379381, guid: 38e4b68fe417d2f488777138c8a0a3ed, type: 3}

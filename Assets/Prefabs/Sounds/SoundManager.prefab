@@ -67,6 +67,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 5033921215669103987}
     m_Modifications:
     - target: {fileID: 1473716049387155620, guid: d4df860a36c80af4f9b9d61c74704ede, type: 3}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1473716049387155620, guid: d4df860a36c80af4f9b9d61c74704ede, type: 3}
       propertyPath: m_PlayOnAwake
       value: 0
       objectReference: {fileID: 0}
@@ -134,6 +138,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 5033921215669103987}
     m_Modifications:
     - target: {fileID: 1473716049387155620, guid: f56f2b4c75c61104c9bc2cc40476e3f7, type: 3}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1473716049387155620, guid: f56f2b4c75c61104c9bc2cc40476e3f7, type: 3}
       propertyPath: m_PlayOnAwake
       value: 0
       objectReference: {fileID: 0}
@@ -200,6 +208,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5033921215669103987}
     m_Modifications:
+    - target: {fileID: 1473716049387155620, guid: d4df860a36c80af4f9b9d61c74704ede, type: 3}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1473716049387155620, guid: d4df860a36c80af4f9b9d61c74704ede, type: 3}
       propertyPath: m_audioClip
       value: 
@@ -271,6 +283,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5033921215669103987}
     m_Modifications:
+    - target: {fileID: 1473716049387155620, guid: 2d35efa688340c940a762f7bce3a37ca, type: 3}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1473716049387155620, guid: 2d35efa688340c940a762f7bce3a37ca, type: 3}
       propertyPath: m_PlayOnAwake
       value: 0
