@@ -29,7 +29,11 @@ public class FishGoalChase : IFishGoal
         attacksLeft--;
         if (attacksLeft > 0)
             fishAI.SetGoal(new FishGoalChase(this));
-        fishAI.hasAGoal = false;
+        else
+        {
+            fishAI.ForceSetState(FishAI.FishState.FUCKING_DONE);
+            fishAI.hasAGoal = false;
+        }
     }
 
     public override bool CheckGoalStatus()

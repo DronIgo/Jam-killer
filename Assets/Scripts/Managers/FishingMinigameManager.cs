@@ -47,7 +47,7 @@ public class FishingMinigameManager : MonoBehaviour
         {
             GameManager.instance.AddFish(fishManager.currentFishInMinigameAI.fishComponent.type);
             if (fishManager.currentFishInMinigameGO != null)
-                fishManager.DeleteFish(fishManager.currentFishInMinigameGO, true);
+                fishManager.DeleteFish(fishManager.currentFishInMinigameGO);
         }
         if (minigame.lose)
         {

@@ -49,7 +49,9 @@ MonoBehaviour:
   maxSpeed: 2
   maxRotationSpeed: 3.1415927
   accelaration: 4
+  stopDistance: 0
   currentSpeed: {x: 0, y: 0, z: 0}
+  sr: {fileID: 8422349494602218601}
 --- !u!1 &8422349493398879725
 GameObject:
   m_ObjectHideFlags: 0
@@ -61,7 +63,7 @@ GameObject:
   - component: {fileID: 8422349493398879722}
   - component: {fileID: 736941261879835841}
   m_Layer: 0
-  m_Name: ComplexFish
+  m_Name: BigFish(Legacy)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -76,7 +78,7 @@ Transform:
   m_GameObject: {fileID: 8422349493398879725}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 3.1446295, y: -6.934646, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 8, y: 8, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8422349494996819080}

@@ -20,7 +20,12 @@ public class Fish : MonoBehaviour
 
     public void Destroy()
     {
-        Destroy(this.gameObject);
+        fishManager.DeleteFish(gameObject);
+    }
+
+    public void OnDestroy()
+    {
+        //Instantiate(type.swimAwayPrefab, transform.position, transform.rotation);
     }
 
     public void StartMinigame()

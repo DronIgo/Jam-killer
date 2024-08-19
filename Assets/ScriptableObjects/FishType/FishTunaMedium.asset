@@ -17,8 +17,9 @@ MonoBehaviour:
   description: Caught inside a bigger fish!
   fishCost: 60
   fishIcon: {fileID: 21300000, guid: 43cc6e5463e29f243905eff57416decf, type: 3}
-  fishPrefab: {fileID: 8422349493398879725, guid: 6b8746441037252479c2675b8c9d2f0f, type: 3}
+  fishPrefab: {fileID: 905652574763858821, guid: d9fa7cfb941481642ae8e0a3249bd8e5, type: 3}
   attackPrefab: {fileID: 7354048608118152188, guid: 2bfa362adb527f148a25898b5bcc64ca, type: 3}
+  swimAwayPrefab: {fileID: 0}
   attackDistance: 0.3
   probabilityOfAttack: 0.8
   probabilityOfBaiting: 0
