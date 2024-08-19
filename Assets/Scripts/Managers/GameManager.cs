@@ -92,7 +92,9 @@ public class GameManager : MonoBehaviour
     public void LoadState()
     {
         Debug.Log(saver.lives);
-        instance.player.GetComponent<Health>().currentLives = saver.lives;
+        var playerHealth = instance.player.GetComponent<Health>();
+        playerHealth.currentLives = saver.lives;
+        playerHealth.maxLives = saver.maxLives;
         caughtFish = saver.caughtFish;
         baitNum = saver.baitNum;
         score = saver.score;

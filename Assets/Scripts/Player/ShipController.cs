@@ -68,7 +68,8 @@ public class ShipController : MonoBehaviour
         }
 
         currentVelocity += accelerationVector;
-        rb.MovePosition(rb.position + currentVelocity * Time.deltaTime);
+        transform.position += new Vector3(currentVelocity.x, currentVelocity.y) * Time.deltaTime;
+        //rb.MovePosition(rb.position + currentVelocity * Time.fixedDeltaTime);
 
 
         // mirror if necessary

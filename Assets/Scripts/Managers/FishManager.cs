@@ -148,6 +148,10 @@ public class FishManager : MonoBehaviour
             fishAI.notStarted = false;
             fishAI.ResetBehaviour();
         }
+        //set FishMover speed 
+        {
+            fish.GetComponentInChildren<FishMover>().maxSpeed = type.speed;
+        }
         //set Size
         switch (type.size)
         {

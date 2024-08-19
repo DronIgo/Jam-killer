@@ -9,13 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9962ea091933ec94c99ae0afb33a5dc6, type: 3}
-  m_Name: DefaultValues
+  m_Script: {fileID: 11500000, guid: 79ea8061e9b4d5147add6764e723d432, type: 3}
+  m_Name: ShopState
   m_EditorClassIdentifier: 
-  lives: 3
-  maxLives: 3
-  score: 0
-  baitNum: 10
-  shipPrefab: {fileID: 0}
-  fishingMinigamePrefab: {fileID: 0}
-  caughtFish: []
+  alreadyBought: []
+  totalMoney: 0

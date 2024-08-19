@@ -22,6 +22,7 @@ public class FishType : ScriptableObject
     public int probability;
 
     public float lifeTime;
+    public float speed = 2f;
 
     public FishMovementType movementType;
     public FishBehaviourType behaviourType;

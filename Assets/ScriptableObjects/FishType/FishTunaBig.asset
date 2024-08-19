@@ -24,5 +24,6 @@ MonoBehaviour:
   probabilityOfBaiting: 0
   probability: 2
   lifeTime: 10
+  speed: 4
   movementType: {fileID: 11400000, guid: ecc613f24cfa8d54b99a69349c3f3e26, type: 2}
   behaviourType: {fileID: 11400000, guid: 9bd69675ad9bdf04fb107fe3f7edb463, type: 2}

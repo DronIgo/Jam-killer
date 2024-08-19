@@ -9,13 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9962ea091933ec94c99ae0afb33a5dc6, type: 3}
-  m_Name: DefaultValues
+  m_Script: {fileID: 11500000, guid: 542f015354276554f8097e9483bdf8c6, type: 3}
+  m_Name: Smile
   m_EditorClassIdentifier: 
-  lives: 3
-  maxLives: 3
-  score: 0
-  baitNum: 10
-  shipPrefab: {fileID: 0}
-  fishingMinigamePrefab: {fileID: 0}
-  caughtFish: []
+  probability: 1
+  chunkPrefab: {fileID: 4769874732140262520, guid: eee4e57fc5523b74da97bbb28f71962b, type: 3}
