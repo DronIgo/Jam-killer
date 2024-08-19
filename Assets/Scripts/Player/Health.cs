@@ -6,6 +6,9 @@ public class Health : MonoBehaviour
 {
     [SerializeField]
     private int _currentLives = 2;
+
+    public int maxLives = 4;
+
     public int currentLives {
         get
         {

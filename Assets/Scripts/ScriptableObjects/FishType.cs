@@ -9,6 +9,7 @@ public class FishType : ScriptableObject
     public FISH_SIZE size;
 
     public string fishName;
+    public string description;
     public int fishCost;
     public Sprite fishIcon;
     public GameObject fishPrefab;

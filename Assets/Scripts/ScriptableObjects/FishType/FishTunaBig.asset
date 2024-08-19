@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: FishTunaBig
   m_EditorClassIdentifier: 
   size: 0
-  fishName: Big Tuna
+  fishName: Giant Tuna
+  description: How did you catch that???
   fishCost: 30
   fishIcon: {fileID: 10915, guid: 0000000000000000f000000000000000, type: 0}
   fishPrefab: {fileID: 8422349493398879725, guid: 6b8746441037252479c2675b8c9d2f0f, type: 3}
@@ -24,4 +25,4 @@ MonoBehaviour:
   probability: 2
   lifeTime: 10
   movementType: {fileID: 11400000, guid: ecc613f24cfa8d54b99a69349c3f3e26, type: 2}
-  behaviourType: {fileID: 11400000, guid: 2f0ceecdf03bc104b87e5d4c33775f05, type: 2}
+  behaviourType: {fileID: 11400000, guid: 9bd69675ad9bdf04fb107fe3f7edb463, type: 2}

@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,7 +11,7 @@ public class ScoreDisplay : UIelement
 {
     [Header("References")]
     [Tooltip("The text to use when displaying the score")]
-    public Text displayText = null;
+    public TextMeshProUGUI displayText = null;
 
     /// <summary>
     /// Description:
