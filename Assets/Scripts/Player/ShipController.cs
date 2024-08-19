@@ -19,12 +19,16 @@ public class ShipController : MonoBehaviour
     // for debug
     public Vector2 move;
 
+    public Rigidbody2D rb;
+
     private InputManager input;
     private SpriteRenderer shipRenderer;
 
     // Start is called before the first frame update
     void Start()
     {
+        if (rb != null)
+            rb = GetComponent<Rigidbody2D>();
         input = InputManager.instance;
         shipRenderer = GetComponent<SpriteRenderer>();
         if (fishingRod == null)
@@ -33,9 +37,6 @@ public class ShipController : MonoBehaviour
 
     void Update()
     {
-        // get user input
-        Rigidbody2D rb = GetComponent<Rigidbody2D>();
-
         float horizontal = input.horizontalMovement;
         float vertical = input.verticalMovement;
 
@@ -68,9 +69,7 @@ public class ShipController : MonoBehaviour
         }
 
         currentVelocity += accelerationVector;
-        transform.position += new Vector3(currentVelocity.x, currentVelocity.y) * Time.deltaTime;
-        //rb.MovePosition(rb.position + currentVelocity * Time.fixedDeltaTime);
-
+        //transform.position += new Vector3(currentVelocity.x, currentVelocity.y) * Time.deltaTime;
 
         // mirror if necessary
         if (horizontal < 0)
@@ -93,5 +92,10 @@ public class ShipController : MonoBehaviour
             else
                 fishingRod.SetActive(false);
         }
+    }
+
+    private void FixedUpdate()
+    {
+        rb.MovePosition(rb.position + currentVelocity * Time.fixedDeltaTime);
     }
 }

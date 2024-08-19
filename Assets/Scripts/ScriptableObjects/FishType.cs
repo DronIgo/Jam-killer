@@ -14,6 +14,7 @@ public class FishType : ScriptableObject
     public Sprite fishIcon;
     public GameObject fishPrefab;
     public GameObject attackPrefab;
+    public GameObject swimAwayPrefab;
 
     public float attackDistance;
     public float probabilityOfAttack;

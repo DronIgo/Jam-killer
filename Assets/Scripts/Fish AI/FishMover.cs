@@ -10,6 +10,7 @@ public class FishMover : MonoBehaviour
     public float accelaration = 4f;
     public float stopDistance; 
     public Vector3 currentSpeed = new Vector3(0, 0, 0);
+    public SpriteRenderer sr;
 
     void Awake()
     {   
@@ -20,11 +21,10 @@ public class FishMover : MonoBehaviour
     private void Update()
     {
         transform.position += currentSpeed * Time.deltaTime;
-        if (currentSpeed.sqrMagnitude > 0)
-        {
-            transform.up = currentSpeed.normalized;
-            //transform.forward = Vector3.forward;
-        }
+        if (currentSpeed.x > 0)
+            sr.flipX = true;
+        else
+            sr.flipX = false;
     }
 
     /// <summary>
@@ -48,18 +48,13 @@ public class FishMover : MonoBehaviour
     /// For stationary targets
     /// </summary>
     /// <param name="goal"></param>
-    public void SetGoal(Vector3 goal)
-    {
+    //public void SetGoal(Vector3 goal)
+    //{
         
-    }
+    //}
 
     public void Stop()
     {
         currentSpeed = new Vector3(0, 0, 0);
     }
-
-    //private void RotateTowardsDir(Vector3 dir)
-    //{
-    //    currentSpeed += 
-    //}
 }

@@ -6,6 +6,7 @@ using UnityEngine.Events;
 public class FishAI : MonoBehaviour
 {
     public enum FishState { HOSTILE, SCARED, NEUTRAL, CURIOUS, FUCKING_DONE };
+    float hungry = 0.5f;
     public IFishGoal currentGoal;
     public bool hasAGoal = false;
     public FishState currentState;
@@ -15,12 +16,7 @@ public class FishAI : MonoBehaviour
     public Transform fishTransform;
     public Fish fishComponent;
     public FishBehaviourType behaviourType;
-    //public FishType fishType => fishComponent.type;
     public GameObject attackEffect;
-    /// <summary>
-    /// set form fish manager
-    /// </summary>
-    public bool notStarted = true;
     public float distanceToPlayer
     {
         get
@@ -102,14 +98,20 @@ public class FishAI : MonoBehaviour
 
     private bool CheckAgroCondition()
     {
-        return currentState == FishState.HOSTILE && distanceToPlayer < behaviourType.distanceChase;
+        if (!(currentState == FishState.HOSTILE))
+            return false;
+        if (!(distanceToPlayer < behaviourType.distanceChase))
+            return false;
+        if (hungry < Random.Range(0.0f, 1.0f))
+            return false;
+        return true;
     }
 
     private bool CheckBaitCondition()
     {
         if (currentState != FishState.CURIOUS)
             return false;
-        if (distanceToPlayer >= 10f)
+        if (distanceToPlayer >= 5f)
             return false;
         if (!FishingRod.rodActive)
             return false;

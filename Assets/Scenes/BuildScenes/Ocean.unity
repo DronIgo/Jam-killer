@@ -705,6 +705,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8869222956829330095, guid: 15dd1c738911c014ba182484c6f89a01, type: 3}
+      propertyPath: rb
+      value: 
+      objectReference: {fileID: 1267086804}
     - target: {fileID: 8869222956829330098, guid: 15dd1c738911c014ba182484c6f89a01, type: 3}
       propertyPath: m_Name
       value: Ship
@@ -726,6 +730,27 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2009308790172471144, guid: 15dd1c738911c014ba182484c6f89a01, type: 3}
   m_PrefabInstance: {fileID: 1267086800}
   m_PrefabAsset: {fileID: 0}
+--- !u!50 &1267086804
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1267086801}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 10
+  m_LinearDrag: 0
+  m_AngularDrag: 0
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
 --- !u!1 &1612492689
 GameObject:
   m_ObjectHideFlags: 0

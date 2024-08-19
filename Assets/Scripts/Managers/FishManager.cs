@@ -73,21 +73,18 @@ public class FishManager : MonoBehaviour
     {
         return fishAlive_go_ai.FindIndex((System.Tuple<GameObject, FishAI> a) => { return a.Item1 == fish; });
     }
-    public void DeleteFish(GameObject fish, bool instantDestroy = false)
+    public void DeleteFish(GameObject fish)
     {
         int index = FindFishIndex(fish);
         if (index != -1)
             DeleteFish(index);
     }
 
-    void DeleteFish(int index, bool instantDestroy = false)
+    void DeleteFish(int index)
     {
         if (index < currentCheckIndex)
             currentCheckIndex -= 1;
-        if (instantDestroy)
-            Destroy(fishAlive_go_ai[index].Item1);
-        else
-            fishAlive_go_ai[index].Item1.GetComponent<Fish>().Destroy();
+        Destroy(fishAlive_go_ai[index].Item1);
         fishAlive_go_ai.RemoveAt(index);
     }
     void CheckFishDespawn()
@@ -145,28 +142,11 @@ public class FishManager : MonoBehaviour
             fishAI.playerCenter = GameManager.instance.playerCenter;
             fishAI.behaviourType = type.behaviourType;
             fishAI.attackEffect = type.attackPrefab;
-            fishAI.notStarted = false;
             fishAI.ResetBehaviour();
         }
         //set FishMover speed 
         {
             fish.GetComponentInChildren<FishMover>().maxSpeed = type.speed;
-        }
-        //set Size
-        switch (type.size)
-        {
-            case FishType.FISH_SIZE.BIG:
-                fish.transform.localScale = new Vector3(8.0f, 8.0f, 1.0f);
-                break;
-            case FishType.FISH_SIZE.MEDIUM:
-                fish.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
-                break;
-            case FishType.FISH_SIZE.SMALL:
-                fish.transform.localScale = new Vector3(0.15f, 0.15f, 1.0f);
-                break;
-            default:
-                fish.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
-                break;
         }
         fish.transform.parent = this.transform;
         fishAlive_go_ai.Add(new System.Tuple<GameObject, FishAI>(fish, fishAI));
