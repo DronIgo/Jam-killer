@@ -2,7 +2,7 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!114 &11400000
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 32
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9962ea091933ec94c99ae0afb33a5dc6, type: 3}
-  m_Name: DefaultValues
+  m_Name: BonusesSaver
   m_EditorClassIdentifier: 
-  lives: 2
-  maxLives: 2
+  lives: 1
+  maxLives: 1
   score: 0
   baitNum: 5
-  shipPrefab: {fileID: 0}
+  shipPrefab: {fileID: 8869222956829330098, guid: bee132e5e31c8d24da271f2eef594dc7, type: 3}
   fishingMinigamePrefab: {fileID: 0}
   smallOcean: []
   smallInside: []

@@ -35,13 +35,13 @@ public class GameManager : MonoBehaviour
             Destroy(this.gameObject);
         }
         LoadState();
+        SetPause(false);
         //playerCenter = player.transform.Find("center");
     }
 
     // Update is called once per frame
     void Update()
     {
-        
     }
 
     public static void UpdateUIElements()
@@ -55,6 +55,7 @@ public class GameManager : MonoBehaviour
     public void AddFish(FishType type)
     {
         caughtFish.Add(type);
+        score += type.fishCost;
         UpdateUIElements();
     }
 
@@ -96,8 +97,23 @@ public class GameManager : MonoBehaviour
         playerHealth.currentLives = saver.lives;
         playerHealth.maxLives = saver.maxLives;
         caughtFish = saver.caughtFish;
+        score = 0;
+        foreach (var ft in caughtFish)
+            score += ft.fishCost;
         baitNum = saver.baitNum;
-        score = saver.score;
+        List<FishType> avialableFish;
+        if (isInOcean)
+        {
+            avialableFish = new List<FishType>(saver.bigOcean);
+            avialableFish.AddRange(saver.smallOcean);
+        } else
+        {
+            avialableFish = new List<FishType>(saver.smallInside);
+        }
+
+        FishManager.instance.UpdateFishLists(avialableFish);
+
+        UpdateUIElements();
     }
 
     public void GoToTheShop()
@@ -122,5 +138,26 @@ public class GameManager : MonoBehaviour
 
         SceneManager.LoadScene(oceanSceneName);
 
+    }
+
+    public void Death()
+    {
+        caughtFish.Clear();
+        UpdateUIElements();
+        uiManager.GoToPageByName("DeathPage");
+        uiManager.allowPause = false;
+        SetPause(true);
+    }
+
+    private bool curPause;
+    public void SetPause(bool pause)
+    {
+        if (pause)
+        {
+            Time.timeScale = 0;
+        } else
+        {
+            Time.timeScale = 1;
+        }
     }
 }

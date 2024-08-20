@@ -5,21 +5,22 @@ using UnityEngine;
 public class Health : MonoBehaviour
 {
     [SerializeField]
-    private int _currentLives = 2;
+    //private int _currentLives = 2;
 
     public int maxLives = 4;
 
-    public int currentLives {
-        get
-        {
-            return _currentLives;
-        }
-        set
-        {
-            _currentLives = value;
-            GameManager.UpdateUIElements();
-        }
-    }
+    public int currentLives = 2;
+    //{
+    //    get
+    //    {
+    //        return _currentLives;
+    //    }
+    //    set
+    //    {
+    //        _currentLives = value;
+    //        GameManager.UpdateUIElements();
+    //    }
+    //}
 
 
     void Start()
@@ -34,12 +35,12 @@ public class Health : MonoBehaviour
 
     private void CheckDeath()
     {
-        if (_currentLives > 0)
+        if (currentLives > 0)
         {
             Debug.Log("Still Alive");
             return;
         }
-
+        GameManager.instance.Death();
         Destroy(this.gameObject);
     }
 
@@ -47,10 +48,10 @@ public class Health : MonoBehaviour
     {
         Debug.Log("Oww boat get damage!!!");
 
-        if (_currentLives <= 0)
+        if (currentLives <= 0)
             return;
 
-        _currentLives -= damageAmount;
+        currentLives -= damageAmount;
         
         CheckDeath();
         GameManager.UpdateUIElements();

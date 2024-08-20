@@ -15,3 +15,17 @@ MonoBehaviour:
   shopItemDescription: Good old rum! To protect you from the dangers of the ocean.
   cost: 30
   ItemName: bottle2
+  extraLives: 1
+  extraLivesAmount: 1
+  extraBait: 0
+  extraBaitAmount: 1
+  updateShipPrefab: 0
+  newShipPrefab: {fileID: 0}
+  updatefishingMinigamePrefab: 0
+  newFishingMinigame: {fileID: 0}
+  newBait: {fileID: 0}
+  updateSmallFishList: 0
+  newSmallFishList: []
+  newSmallFishInsideList: []
+  updateBigFishList: 0
+  newBigFishList: []

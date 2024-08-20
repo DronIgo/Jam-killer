@@ -25,7 +25,10 @@ public class ScoreDisplay : UIelement
     {
         if (displayText != null)
         {
-            displayText.text = GameManager.score.ToString();
+            if (GameManager.instance == null)
+                displayText.text = ShopManager.instance.money.ToString();
+            else
+                displayText.text = GameManager.score.ToString();
         }
     }
 

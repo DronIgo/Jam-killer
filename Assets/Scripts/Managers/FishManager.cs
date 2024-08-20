@@ -4,8 +4,13 @@ using UnityEngine;
 
 public class FishManager : MonoBehaviour
 {
+    
     //public class 
-    public List<FishType> fishTypes;
+    public List<FishType> regularFishTypes;
+
+    public List<FishType> dangerousFish;
+    public List<FishType> smallFish;
+    public List<FishType> bigFish;
 
     public List<System.Tuple<GameObject, FishAI>> fishAlive_go_ai = new();
 
@@ -25,12 +30,30 @@ public class FishManager : MonoBehaviour
 
     public FishingMinigameManager minigameManager;
 
+    public static FishManager instance;
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(this.gameObject);
+        }
+    }
+
+    void UpdateTotalProbability()
+    {
+        totalProbability = 0;
+        foreach (FishType type in regularFishTypes)
+            totalProbability += type.probability;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
-        totalProbability = 0;
-        foreach (FishType type in fishTypes)
-            totalProbability += type.probability;
+        UpdateTotalProbability();
         //init player
         player = GameManager.instance.player.transform;
     }
@@ -45,11 +68,18 @@ public class FishManager : MonoBehaviour
         }
     }
 
+    public void UpdateFishLists(List<FishType> newFishTypes)
+    {
+        regularFishTypes.Clear();
+        regularFishTypes = new List<FishType>(newFishTypes);
+        UpdateTotalProbability();
+    }
+
     #region Fish population managment
     void SpawnRandomFish()
     {
         int prob = Random.Range(0, totalProbability);
-        foreach (var type in fishTypes)
+        foreach (var type in regularFishTypes)
         {
             prob -= type.probability;
             if (prob < 0)
@@ -60,9 +90,16 @@ public class FishManager : MonoBehaviour
         }
     }
 
+    void SummonDangerousFish(int amount) 
+    { 
+        
+    }
+
     void SummonFish(int amount)
     {
-        //Debug.Log("SummonFish: " + amount);
+        if (regularFishTypes.Count == 0)
+            return;
+
         for (int i = 0; i < amount; ++i)
         {
             SpawnRandomFish();

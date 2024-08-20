@@ -13,5 +13,9 @@ public class Saver : ScriptableObject
     public GameObject shipPrefab;
     public GameObject fishingMinigamePrefab;
 
+    public List<FishType> smallOcean;
+    public List<FishType> smallInside;
+    public List<FishType> bigOcean;
+
     public List<FishType> caughtFish = new List<FishType>();
 }
