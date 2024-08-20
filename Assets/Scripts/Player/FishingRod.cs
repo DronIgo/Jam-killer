@@ -25,6 +25,7 @@ public class FishingRod : MonoBehaviour
 
     public void Throw(Vector2 dir)
     {
+        SoundManager.instance.OnBaltDeploy();
         if (dir.sqrMagnitude > maxRodDistance)
             dir = dir.normalized * maxRodDistance;
         bait.localPosition = new Vector3(dir.x, dir.y, 0);

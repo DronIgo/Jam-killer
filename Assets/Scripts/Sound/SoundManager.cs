@@ -119,6 +119,19 @@ public class SoundManager : MonoBehaviour
         
         audioSourceOld.Stop();
     }
+    private IEnumerator StopMusic(AudioSource audioSourceNew,  float duration)
+    {
+
+        float time = 0;
+        while (time < duration)
+        {
+            time += Time.deltaTime;
+            audioSourceNew.volume = Mathf.Lerp(1, 0, time / duration);
+            yield return null;
+        }
+        
+        audioSourceNew.Stop();
+    }
 
     public void OnFishCaught()
     {
@@ -147,6 +160,7 @@ public class SoundManager : MonoBehaviour
 
     public void OnFishUngulp()
     {
+        StartCoroutine(StopMusic(currentAudio, 1f));
         Instantiate(fishUngulp);
     }
 

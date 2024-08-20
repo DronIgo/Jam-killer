@@ -10,7 +10,7 @@ public class InsideFishTimer : MonoBehaviour
 
     public bool underPressure = false;
 
-    public float remainingSec = 3f;
+    public float remainingSec = 3.5f;
     public bool playedSound;
 
     private void Awake()
