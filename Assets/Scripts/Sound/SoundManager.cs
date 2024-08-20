@@ -29,6 +29,7 @@ public class SoundManager : MonoBehaviour
 
     public AudioSource insideAudio;
     public AudioSource pressureAudio;
+    public AudioSource currentAudio;
 
     // public AudioSource currentAudioSource; TODO: ?
 
@@ -56,27 +57,36 @@ public class SoundManager : MonoBehaviour
         if (GameManager.instance.isInOcean)
             StartSailing();
         else
-            insideAudio.Play();
+            StartInsideFishSailing();
     }
 
     public void StartSailing()
     {
+        currentAudio = sailAudio;
         Debug.Log("start sailing");
-        sailAudio.Play();
+        currentAudio.Play();
+    }
+
+    public void StartInsideFishSailing()
+    {
+        currentAudio = insideAudio;
+        Debug.Log("start sailing inside fish");
+        currentAudio.Play();
     }
 
     public void StartFishing()
     {
-        StopWithFade(sailAudio, fishingAudio);
+        StopWithFade(currentAudio, fishingAudio);
     }
 
     public void StopFishing()
     {
-        StopWithFade(fishingAudio, sailAudio);
+        StopWithFade(currentAudio, sailAudio);
     }
 
     public void StopWithFade(AudioSource audioSourceOld, AudioSource audioSourceNew)
     {
+        currentAudio = audioSourceNew;
         StartCoroutine(FadeCurrentMusic(audioSourceOld, audioSourceNew));
 
     }
@@ -120,18 +130,20 @@ public class SoundManager : MonoBehaviour
 
     public void OnFishTackleStart()
     {
-        if (fishTackleObject != null)
-        {
-            Debug.LogError("Fish Tackle already started!");
-            return;
-        }
-        fishTackleObject = Instantiate(fishTackle);
+        Debug.Log("Fish tackle disabled");
+        // if (fishTackleObject != null)
+        // {
+        //     Debug.LogError("Fish Tackle already started!");
+        //     return;
+        // }
+        // fishTackleObject = Instantiate(fishTackle);
     }
 
     public void OnFishTackleEnd()
     {
-        Destroy(fishTackleObject);
-        fishTackleObject = null;
+        Debug.Log("Fish tackle disabled");
+        // Destroy(fishTackleObject);
+        // fishTackleObject = null;
     }
 
 }
