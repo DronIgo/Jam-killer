@@ -15,7 +15,7 @@ MonoBehaviour:
   size: 2
   fishName: fsh
   description: so sml, so tsty
-  fishCost: 2
+  fishCost: 8
   fishIcon: {fileID: 21300000, guid: 1404a373eb3b3f44db782b7e57f061fd, type: 3}
   fishPrefab: {fileID: 6939232671039847740, guid: 575b3dfc640a51246b331b5ddaa4586d, type: 3}
   attackPrefab: {fileID: 0}

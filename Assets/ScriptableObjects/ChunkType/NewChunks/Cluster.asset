@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 542f015354276554f8097e9483bdf8c6, type: 3}
   m_Name: Cluster
   m_EditorClassIdentifier: 
-  probability: 1
+  probability: 3
   prefab: {fileID: 3988056815495188690, guid: ce0fbcac39bc62e4ca6d3dfc3b3c13ed, type: 3}

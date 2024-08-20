@@ -81,7 +81,7 @@ public class ShopManager : MonoBehaviour
         bonusesSaver.smallInside = new List<FishType>();
         bonusesSaver.extraCameraSize = 0;
 
-        foreach (ShopChooser item in shopStateSaver.choosen)
+        foreach (ShopChooser item in choosen)
         {
             if (item.extraBait)
                 bonusesSaver.baitNum += item.extraBaitAmount;
@@ -116,9 +116,11 @@ public class ShopManager : MonoBehaviour
                 updateBigFish = true;
             }
 
- 
-            bonusesSaver.extraCameraSize = item.extraCameraSize;
-            updateCamera = true;
+            if (item.extraCameraSize > 0)
+            {
+                bonusesSaver.extraCameraSize = item.extraCameraSize;
+                updateCamera = true;
+            }
         }
         #if UNITY_EDITOR
         EditorUtility.SetDirty(bonusesSaver);
@@ -155,6 +157,7 @@ public class ShopManager : MonoBehaviour
 
     public void GoSailing()
     {
+        UpdateBonusesState();
         SaveStateInSail();
         SceneManager.LoadScene("Ocean");
     }

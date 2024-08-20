@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.28295696, g: 0.18643707, b: 0.15526378, a: 1}
+  m_IndirectSpecularColor: {r: 0.28281617, g: 0.1864155, b: 0.15522784, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -816,6 +816,14 @@ PrefabInstance:
       propertyPath: remainingSec
       value: 3.5
       objectReference: {fileID: 0}
+    - target: {fileID: 557777271548231541, guid: 1a818fa6d332cb94e816e3ce222368c8, type: 3}
+      propertyPath: targetTimeSec
+      value: 35
+      objectReference: {fileID: 0}
+    - target: {fileID: 557777271548231541, guid: 1a818fa6d332cb94e816e3ce222368c8, type: 3}
+      propertyPath: whenToFadeSec
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 2331302141676606648, guid: 1a818fa6d332cb94e816e3ce222368c8, type: 3}
       propertyPath: m_Name
       value: InsideFishTimer
@@ -940,6 +948,10 @@ PrefabInstance:
       propertyPath: emptyChunkType
       value: 
       objectReference: {fileID: 11400000, guid: fe9aae80e8893324db352a7fc57a5656, type: 2}
+    - target: {fileID: 1905296306, guid: 5b4510ba710ecb64f91eb316686ad50f, type: 3}
+      propertyPath: generationRadius
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1905296306, guid: 5b4510ba710ecb64f91eb316686ad50f, type: 3}
       propertyPath: chunkTypes.Array.size
       value: 5

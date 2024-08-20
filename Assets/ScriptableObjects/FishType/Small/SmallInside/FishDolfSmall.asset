@@ -15,7 +15,7 @@ MonoBehaviour:
   size: 2
   fishName: Dolf Fish
   description: Simply delicious
-  fishCost: 6
+  fishCost: 18
   fishIcon: {fileID: 21300000, guid: e2771f5d4feca854b8f6e095226a4e6c, type: 3}
   fishPrefab: {fileID: 6939232671039847740, guid: 575b3dfc640a51246b331b5ddaa4586d, type: 3}
   attackPrefab: {fileID: 0}
