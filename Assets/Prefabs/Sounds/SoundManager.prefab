@@ -56,11 +56,15 @@ MonoBehaviour:
   fishTackle: {fileID: 6232611260069923851, guid: 4153be8e4c983aa4a88941fae3b38475, type: 3}
   punch: {fileID: 6232611260069923851, guid: cb41db5304aff804396bbb0cd5bad290, type: 3}
   bottleCrash: {fileID: 6232611260069923851, guid: aa0be269acab63a4abbfcea6aec88254, type: 3}
+  fishGulp: {fileID: 6232611260069923851, guid: add28c56e61a9514a9bab915a0ccaf16, type: 3}
+  fishUngulp: {fileID: 6232611260069923851, guid: 41fb6b5b30adfbc41899c5f91ab3751f, type: 3}
+  pressureAudioEnabled: 0
   sailAudio: {fileID: 0}
   fishingAudio: {fileID: 0}
   insideAudio: {fileID: 0}
   pressureAudio: {fileID: 0}
   currentAudio: {fileID: 0}
+  audioBeforeFishing: {fileID: 0}
 --- !u!1001 &292470581
 PrefabInstance:
   m_ObjectHideFlags: 0
