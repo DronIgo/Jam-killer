@@ -61,6 +61,7 @@ public class ShopManager : MonoBehaviour
     private bool updateMinigame =false;
     private bool updateSmallFish = false;
     private bool updateBigFish = false;
+    private bool updateCamera = false;
 
     public void UpdateBonusesState()
     {
@@ -68,6 +69,7 @@ public class ShopManager : MonoBehaviour
         updateMinigame = false;
         updateSmallFish = false;
         updateBigFish = false;
+        updateCamera = false;
 
         bonusesSaver.baitNum = 0;   
         bonusesSaver.lives = 0;
@@ -110,6 +112,12 @@ public class ShopManager : MonoBehaviour
             {
                 bonusesSaver.bigOcean = new List<FishType>(item.newBigFishList);
                 updateBigFish = true;
+            }
+
+            if (item.extraCameraSize > 0)
+            {
+                bonusesSaver.extraCameraSize = item.extraCameraSize;
+                updateCamera = true;
             }
         }
         #if UNITY_EDITOR
@@ -254,6 +262,10 @@ public class ShopManager : MonoBehaviour
             fishTypes.AddRange(bonusesSaver.bigOcean);
 
             saver.bigOcean = new List<FishType>(fishTypes);
+        }
+        if (updateCamera)
+        {
+            saver.extraCameraSize = bonusesSaver.extraCameraSize;
         }
         #if UNITY_EDITOR
         EditorUtility.SetDirty(saver);

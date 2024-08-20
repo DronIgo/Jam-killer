@@ -29,4 +29,6 @@ public class ShopChooser : ScriptableObject
 
     public bool updateBigFishList = false;
     public List<FishType> newBigFishList;
+
+    public float extraCameraSize = 0;
 }
