@@ -31,6 +31,7 @@ public class SoundManager : MonoBehaviour
     public AudioSource insideAudio;
     public AudioSource pressureAudio;
     public AudioSource currentAudio;
+    public AudioSource audioBeforeFishing;
 
     // public AudioSource currentAudioSource; TODO: ?
 
@@ -82,12 +83,13 @@ public class SoundManager : MonoBehaviour
 
     public void StartFishing()
     {
+        audioBeforeFishing = currentAudio;
         StopWithFade(currentAudio, fishingAudio, fadeDuration);
     }
 
     public void StopFishing()
     {
-        StopWithFade(currentAudio, sailAudio, fadeDuration);
+        StopWithFade(currentAudio, audioBeforeFishing, fadeDuration);
     }
 
     public void StopWithFade(AudioSource audioSourceOld, AudioSource audioSourceNew, float duration)
