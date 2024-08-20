@@ -147,8 +147,8 @@ public class GameManager : MonoBehaviour
     {
         caughtFish.Clear();
         UpdateUIElements();
-        uiManager.GoToPageByName("DeathPage");
-        uiManager.allowPause = false;
+        //uiManager.GoToPageByName("DeathPage");
+        //uiManager.allowPause = false;
         FishManager.minigameActive = false;
         SetPause(true);
     }
