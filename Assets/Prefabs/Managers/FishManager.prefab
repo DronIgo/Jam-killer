@@ -45,19 +45,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b039b57fd9bb8a47b12529bf254c67f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fishTypes:
-  - {fileID: 11400000, guid: 072ce695ee843c44497ccea04ab6778b, type: 2}
-  - {fileID: 11400000, guid: 0ba3c64e85336024fbcdc89923ba89c0, type: 2}
-  - {fileID: 11400000, guid: 9ebd583f40629fa45bb232c45d9e7e81, type: 2}
+  regularFishTypes: []
+  mediumFish: []
+  smallFish: []
+  bigFish: []
   maxNumberOfChecksInFrame: 10
   maxTotalNumOfFish: 30
   desiredNumOfFish: 13
+  maxNumOfMediumFish: 3
+  maxNumOfBigFish: 2
+  minNumOfMediumFish: 1
+  minNumOfBigFish: 1
   player: {fileID: 0}
-  distDispawn: 20
-  minSpawnDist: 15
-  maxSpawnDist: 25
+  distDispawn: 50
+  minSpawnDist: 20
+  maxSpawnDist: 40
+  insideFish: 0
+  minY: -14.5
+  maxY: 14.5
   minigameManager: {fileID: 2085238734}
-  minigameActive: 0
   currentFishInMinigameGO: {fileID: 0}
   currentFishInMinigameAI: {fileID: 0}
 --- !u!114 &2085238734

@@ -528,6 +528,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 5549079939962245420, guid: 305e887085f89544ab964ed128023fa1, type: 3}
+      propertyPath: maxNumOfMediumFish
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8165778031784799384, guid: 305e887085f89544ab964ed128023fa1, type: 3}
       propertyPath: m_RootOrder
       value: 1

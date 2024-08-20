@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Aggressive
   m_EditorClassIdentifier: 
   defaultState: 0
-  distanceChase: 40
+  distanceChase: 15
+  agroDistance: 10
   numOfAttacks: 3
   defaultHungryLevel: 0.9
