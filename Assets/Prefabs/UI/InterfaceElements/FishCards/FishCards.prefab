@@ -78,3 +78,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fishCardPrefab: {fileID: 1744542383272879520, guid: 3e2842d8f21a9d646b71f81d7ff10d35, type: 3}
   fishCards: []
+  cheapestColor: {r: 0.2784314, g: 0.34509805, b: 0.42352942, a: 0}
+  cheapColor: {r: 0.7294118, g: 0.37254903, b: 0.59607846, a: 0}
+  mediumColor: {r: 0.45882353, g: 0.49019608, b: 0.101960786, a: 0}
+  expensiveColor: {r: 0.60784316, g: 0.23921569, b: 0.20784314, a: 0}
+  legendaryColor: {r: 1, g: 0.7490196, b: 0, a: 0}
+  cheapestCost: 4
+  cheapCost: 10
+  mediumCost: 20
+  expensiveCost: 30
+  legendaryCost: 40
