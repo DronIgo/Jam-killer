@@ -26,6 +26,7 @@ public class CameraController : MonoBehaviour
         player = GameManager.instance.player.transform;
         cameraDefaultSize = player.GetComponent<ShipController>().cameraSize;
         cameraDesiredSize = cameraDefaultSize;
+        cameraSize = cameraDefaultSize;
     }
 
 
