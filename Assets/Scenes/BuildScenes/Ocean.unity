@@ -400,9 +400,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4887378277046840657, guid: 305e887085f89544ab964ed128023fa1, type: 3}
+      propertyPath: garbageRadius
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4887378277046840657, guid: 305e887085f89544ab964ed128023fa1, type: 3}
       propertyPath: emptyChunkType
       value: 
       objectReference: {fileID: 11400000, guid: 21c3c9bcca5f51d41921c2a0d339e7ca, type: 2}
+    - target: {fileID: 4887378277046840657, guid: 305e887085f89544ab964ed128023fa1, type: 3}
+      propertyPath: generationRadius
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5298758132617805517, guid: 305e887085f89544ab964ed128023fa1, type: 3}
       propertyPath: player
       value: 

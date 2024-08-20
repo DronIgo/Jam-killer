@@ -15,7 +15,7 @@ MonoBehaviour:
   size: 2
   fishName: Tuna
   description: Delicious with the right spices
-  fishCost: 3
+  fishCost: 9
   fishIcon: {fileID: 21300000, guid: a6e8d0d1d3a44d641a1b6ae76cc2b540, type: 3}
   fishPrefab: {fileID: 6939232671039847740, guid: 575b3dfc640a51246b331b5ddaa4586d, type: 3}
   attackPrefab: {fileID: 0}
