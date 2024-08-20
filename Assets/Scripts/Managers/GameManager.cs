@@ -43,6 +43,7 @@ public class GameManager : MonoBehaviour
         FishManager.minigameActive = false;
         LoadState();
         StartCoroutine("StartGame");
+        //Debug.Log("Awake");
     }
 
     private IEnumerator StartGame()
@@ -146,8 +147,8 @@ public class GameManager : MonoBehaviour
     {
         caughtFish.Clear();
         UpdateUIElements();
-        uiManager.GoToPageByName("DeathPage");
-        uiManager.allowPause = false;
+        //uiManager.GoToPageByName("DeathPage");
+        //uiManager.allowPause = false;
         FishManager.minigameActive = false;
         SetPause(true);
     }

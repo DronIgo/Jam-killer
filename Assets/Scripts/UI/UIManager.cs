@@ -43,8 +43,8 @@ public class UIManager : MonoBehaviour
     private bool isPaused = false;
 
     // A list of all UI element classes
-    // [SerializeField]
-    private List<UIelement> UIelements;
+    [SerializeField]
+    private List<UIelement> UIelements = new();
 
     // The event system handling UI navigation
     [HideInInspector]
@@ -52,6 +52,11 @@ public class UIManager : MonoBehaviour
     // The Input Manager to listen for pausing
     [SerializeField]
     private InputManager inputManager;
+
+    private void Awake()
+    {
+        SetUpUIElements();
+    }
 
     /// <summary>
     /// Description:
@@ -111,7 +116,7 @@ public class UIManager : MonoBehaviour
     /// </summary>
     public void CreateNavigationEffect()
     {
-         if (navigationEffect)
+        if (navigationEffect)
         {
             Instantiate(navigationEffect, transform.position, Quaternion.identity, null);
         }
@@ -258,7 +263,6 @@ public class UIManager : MonoBehaviour
     {
         SetUpInputManager();
         SetUpEventSystem();
-        SetUpUIElements();
         InitilizeFirstPage();
         UpdateUI();
     }
