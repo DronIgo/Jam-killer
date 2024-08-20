@@ -1574,6 +1574,7 @@ MonoBehaviour:
   navigationEffect: {fileID: 0}
   clickEffect: {fileID: 0}
   backEffect: {fileID: 0}
+  UIelements: []
   eventSystem: {fileID: 0}
   inputManager: {fileID: 0}
 --- !u!1 &5781661602380309669
@@ -2229,7 +2230,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &5485599544280320442
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2247,8 +2248,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 36.05}
-  m_SizeDelta: {x: 930, y: 525}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 960, y: 540}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2319233708926332917
 CanvasRenderer:

@@ -16,4 +16,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: de1cff91515486f45a15122ed7475287, type: 2}
   choosen:
   - {fileID: 11400000, guid: de1cff91515486f45a15122ed7475287, type: 2}
-  totalMoney: 13
+  totalMoney: 1000

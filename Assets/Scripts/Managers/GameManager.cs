@@ -12,6 +12,20 @@ public class GameManager : MonoBehaviour
     public static int baitNum = 10;
     public List<FishType> caughtFish = new List<FishType>();
 
+    public bool _canReturnHome = false;
+    public bool canReturnHome
+    {
+        get
+        {
+            return _canReturnHome;
+        }
+        set
+        {
+            _canReturnHome = value;
+            uiManager.UpdateUI();
+        }
+    }
+
     public string insideFishSceneName = "InsideFish";
     public string oceanSceneName = "Ocean";
     public string shopSceneName = "Shop";
@@ -147,8 +161,8 @@ public class GameManager : MonoBehaviour
     {
         caughtFish.Clear();
         UpdateUIElements();
-        //uiManager.GoToPageByName("DeathPage");
-        //uiManager.allowPause = false;
+        uiManager.GoToPageByName("DeathPage");
+        uiManager.allowPause = false;
         FishManager.minigameActive = false;
         SetPause(true);
     }

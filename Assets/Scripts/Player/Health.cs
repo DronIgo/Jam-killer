@@ -58,7 +58,7 @@ public class Health : MonoBehaviour
             return;
         }
         GameManager.instance.Death();
-        Destroy(this.gameObject);
+        //Destroy(this.gameObject);
     }
 
     public void TakeDamage(int damageAmount)
