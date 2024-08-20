@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: GoodBait2
   m_EditorClassIdentifier: 
   shopItemDescription: Better bait to attract better fish!
-  cost: 40
+  cost: 25
   ItemName: goodBait2
   extraLives: 0
   extraLivesAmount: 1
@@ -35,3 +35,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ba6227343069590438f1148ca5f16783, type: 2}
   updateBigFishList: 0
   newBigFishList: []
+  extraCameraSize: 0

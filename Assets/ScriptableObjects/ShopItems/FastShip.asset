@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: FastShip
   m_EditorClassIdentifier: 
   shopItemDescription: This ship was made to sail the sea as quickly as possible.
-  cost: 150
+  cost: 30
   ItemName: fasterShip
   extraLives: 0
   extraLivesAmount: 1

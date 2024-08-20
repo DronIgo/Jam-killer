@@ -221,7 +221,7 @@ public class ShopManager : MonoBehaviour
         costText.text = item.shopItemChoser.cost.ToString();
         if (!item.bought)
         {
-            if (item.shopItemChoser.cost < money)
+            if (item.shopItemChoser.cost <= money)
                 buyButton.SetActive(true);
         }
         if (item.bought && !item.selected)

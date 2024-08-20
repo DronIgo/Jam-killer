@@ -117,6 +117,9 @@ public class FishAI : MonoBehaviour
         if (hungry < Random.Range(0.0f, 1.0f)) ;
         if (!FishingRod.rodActive)
             return false;
+        if (GameManager.baitNum <= 0)
+            return false;
+        
         return true;
     }
 

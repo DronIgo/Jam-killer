@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shopItemDescription: This one will attract monsters from the deapth of the ocean
     to your ship. Perharps you can even get inside...
-  cost: 50
+  cost: 10
   ItemName: baitShip
   extraLives: 0
   extraLivesAmount: 1
@@ -33,3 +33,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b486050cbec4e11418301aad08e6ef1e, type: 2}
   - {fileID: 11400000, guid: b486050cbec4e11418301aad08e6ef1e, type: 2}
   - {fileID: 11400000, guid: b486050cbec4e11418301aad08e6ef1e, type: 2}
+  extraCameraSize: 0

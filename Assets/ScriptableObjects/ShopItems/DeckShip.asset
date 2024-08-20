@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: DeckShip
   m_EditorClassIdentifier: 
   shopItemDescription: Observation deck will help you see your surrondings better.
-  cost: 200
+  cost: 30
   ItemName: deckShip
   extraLives: 0
   extraLivesAmount: 1

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: GoodBait1
   m_EditorClassIdentifier: 
   shopItemDescription: Catch exotic fish with this rod!
-  cost: 40
+  cost: 25
   ItemName: goodBait1
   extraLives: 0
   extraLivesAmount: 1
