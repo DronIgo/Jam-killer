@@ -93,14 +93,18 @@ public class GameManager : MonoBehaviour
         saver.baitNum = baitNum;
         saver.caughtFish = new List<FishType>(caughtFish);
 
+        #if UNITY_EDITOR
         EditorUtility.SetDirty(saver);
+        #endif
     }
 
     public void SaveStateBetweenSails()
     {
         saver.caughtFish = new List<FishType>(caughtFish);
 
+        #if UNITY_EDITOR
         EditorUtility.SetDirty(saver);
+        #endif
     }
 
     public void LoadState()
