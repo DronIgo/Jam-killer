@@ -11,7 +11,7 @@ public class SoundManager : MonoBehaviour
 
     [Header("Settings")]
     public float fadeDuration = 5.0f; // Время на затухание и нарастание
-    public float pressureFadeDuration = 10.0f; // Время на затухание и нарастание
+    public float pressureFadeDuration = 25.0f; // Время на затухание и нарастание
     public GameObject fishCaught;
     public GameObject baitDeploy;
     public GameObject fishGetsAway;
@@ -23,6 +23,10 @@ public class SoundManager : MonoBehaviour
     public GameObject punch;
     public GameObject bottleCrash;
 
+    public GameObject fishGulp;
+    public GameObject fishUngulp;
+
+    public bool pressureAudioEnabled = false;
 
     public AudioSource sailAudio;
 
@@ -41,6 +45,7 @@ public class SoundManager : MonoBehaviour
         {
             instance = this;
         }
+    
         else if (instance != this)
         {
             Destroy(this.gameObject);
@@ -135,6 +140,15 @@ public class SoundManager : MonoBehaviour
         Instantiate(bottleCrash);
     }
 
+    public void OnFishGulp()
+    {
+        Instantiate(fishGulp);
+    }
+
+    public void OnFishUngulp()
+    {
+        Instantiate(fishUngulp);
+    }
 
     public void OnFishTackleStart()
     {

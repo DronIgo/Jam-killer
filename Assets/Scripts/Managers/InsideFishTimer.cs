@@ -10,6 +10,9 @@ public class InsideFishTimer : MonoBehaviour
 
     public bool underPressure = false;
 
+    public float remainingSec = 3f;
+    public bool playedSound;
+
     private void Awake()
     {
         if (instance == null)
@@ -42,6 +45,12 @@ public class InsideFishTimer : MonoBehaviour
         {
             SoundManager.instance.StartPressure();
             underPressure = true;
+        }
+
+        if (targetTimeSec < remainingSec && !playedSound)
+        {
+            SoundManager.instance.OnFishUngulp();
+            playedSound = true;
         }
     }
 
