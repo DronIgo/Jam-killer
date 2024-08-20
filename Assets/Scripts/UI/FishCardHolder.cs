@@ -9,6 +9,19 @@ public class FishCardHolder : UIelement
     public GameObject fishCardPrefab;
     public List<GameObject> fishCards;
 
+    public Color cheapestColor = Color.blue;
+    public Color cheapColor = Color.blue;
+    public Color mediumColor = Color.blue;
+    public Color expensiveColor = Color.blue;
+    public Color legendaryColor = Color.blue;
+
+   
+    public int cheapestCost = 4;
+    public int cheapCost = 10;
+    public int mediumCost = 20;
+    public int expensiveCost = 30;
+    public int legendaryCost = 40;
+
     private void AddFishCard(FishType fishType)
     {
         GameObject newCard = Instantiate(fishCardPrefab);
@@ -18,14 +31,18 @@ public class FishCardHolder : UIelement
         newCard.transform.Find("CardIcon").GetComponent<Image>().sprite = fishType.fishIcon;
         newCard.transform.localScale = new Vector3(1, 1, 1);
         Image cardImage = newCard.GetComponent<Image>();
-        if (fishType.fishCost < 4)
-            cardImage.color = Color.grey;
-        else if (fishType.fishCost < 8)
-            cardImage.color = Color.green;
-        else if (fishType.fishCost < 15)
-            cardImage.color = Color.yellow;
+
+        if (fishType.fishCost < cheapestCost)
+            cardImage.color = cheapestColor;
+        else if (fishType.fishCost < cheapCost)
+            cardImage.color = cheapColor;
+        else if (fishType.fishCost < mediumCost)
+            cardImage.color = mediumColor;
+        else if (fishType.fishCost < expensiveCost)
+            cardImage.color = expensiveColor;
         else 
-            cardImage.color = Color.cyan;
+            cardImage.color = legendaryColor;
+        
         fishCards.Add(newCard);
     }
 
