@@ -485,11 +485,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c36b5e069641b045908ec41029b5cc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSpeed: 10
-  acceleration: 8
-  deceleration: 8
+  maxSpeed: 7
+  acceleration: 5
+  deceleration: 5
   currentVelocity: {x: 0, y: 0}
-  cameraSize: 6
+  cameraSize: 7
   fishingRod: {fileID: 0}
   move: {x: 0, y: 0}
   rb: {fileID: 1267086804}
