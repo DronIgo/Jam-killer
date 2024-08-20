@@ -936,6 +936,34 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 1905296306, guid: 5b4510ba710ecb64f91eb316686ad50f, type: 3}
+      propertyPath: emptyChunkType
+      value: 
+      objectReference: {fileID: 11400000, guid: fe9aae80e8893324db352a7fc57a5656, type: 2}
+    - target: {fileID: 1905296306, guid: 5b4510ba710ecb64f91eb316686ad50f, type: 3}
+      propertyPath: chunkTypes.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1905296306, guid: 5b4510ba710ecb64f91eb316686ad50f, type: 3}
+      propertyPath: chunkTypes.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 10c3f377ec9b325448c53974917d17a1, type: 2}
+    - target: {fileID: 1905296306, guid: 5b4510ba710ecb64f91eb316686ad50f, type: 3}
+      propertyPath: chunkTypes.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 61007a38e6d0b504c9173a65cb55fd78, type: 2}
+    - target: {fileID: 1905296306, guid: 5b4510ba710ecb64f91eb316686ad50f, type: 3}
+      propertyPath: chunkTypes.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: 79cb2caa81b8b74449456eadb8d7a97a, type: 2}
+    - target: {fileID: 1905296306, guid: 5b4510ba710ecb64f91eb316686ad50f, type: 3}
+      propertyPath: chunkTypes.Array.data[3]
+      value: 
+      objectReference: {fileID: 11400000, guid: c3f9d3c487db4614ebe29e775e2f1cd6, type: 2}
+    - target: {fileID: 1905296306, guid: 5b4510ba710ecb64f91eb316686ad50f, type: 3}
+      propertyPath: chunkTypes.Array.data[4]
+      value: 
+      objectReference: {fileID: 11400000, guid: 53a7080ffa942754091d6dbc1685ec25, type: 2}
     - target: {fileID: 3639435702665404049, guid: 5b4510ba710ecb64f91eb316686ad50f, type: 3}
       propertyPath: m_RootOrder
       value: 3
