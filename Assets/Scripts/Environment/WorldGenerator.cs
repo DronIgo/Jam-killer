@@ -13,6 +13,7 @@ public class WorldGenerator : MonoBehaviour
     public Dictionary<Vector2Int, ChunkType> generatedChunks;
     public Dictionary<Vector2Int, GameObject> existingGameObjects;
 
+    public ChunkType emptyChunkType;
     public List<ChunkType> chunkTypes;
 
     public int generationRadius = 2;
@@ -45,11 +46,14 @@ public class WorldGenerator : MonoBehaviour
         existingGameObjects = new();
 
         // generate start chunk
-        Debug.Log("Creating first chunk...");
+        //Debug.Log("Creating first chunk...");
         UpdateCurrentChunkPos();
-        GenerateNewChunk(currentChunkPos);
 
-        Debug.Log("Creating near chunks...");
+        GameObject chunkGameObject = PlaceChunk(currentChunkPos,emptyChunkType.prefab);
+        generatedChunks.Add(currentChunkPos, emptyChunkType);
+        existingGameObjects.Add(currentChunkPos, chunkGameObject);
+
+        //Debug.Log("Creating near chunks...");
         GenerateChunkArea(currentChunkPos, generationRadius);
     }
 
@@ -86,7 +90,7 @@ public class WorldGenerator : MonoBehaviour
         // to hide gameObject and avoid clogging up the stage
         gameObject.transform.parent = this.transform;
 
-        Debug.Log("Place chunk on " + "("+ chunkPosition.x + ", " + chunkPosition.y + ")");
+        //Debug.Log("Place chunk on " + "("+ chunkPosition.x + ", " + chunkPosition.y + ")");
 
         return gameObject;
     }
@@ -94,7 +98,7 @@ public class WorldGenerator : MonoBehaviour
     private void GenerateNewChunk(Vector2Int chunkPos)
     {
         ChunkType chunkType = GetRandomChunkType();
-        GameObject chunkGameObject = PlaceChunk(chunkPos, chunkType.chunkPrefab);
+        GameObject chunkGameObject = PlaceChunk(chunkPos, chunkType.prefab);
         generatedChunks.Add(chunkPos, chunkType);
         existingGameObjects.Add(chunkPos, chunkGameObject);
     }
@@ -130,7 +134,7 @@ public class WorldGenerator : MonoBehaviour
                 if (!existingGameObjects.ContainsKey(chunk))
                 {
                     // otherwise place it with correct chunkPrefab
-                    GameObject chunkObject = PlaceChunk(chunk, generatedChunks[chunk].chunkPrefab);
+                    GameObject chunkObject = PlaceChunk(chunk, generatedChunks[chunk].prefab);
                     existingGameObjects.Add(chunk, chunkObject);
                 }
                 continue;
@@ -166,7 +170,7 @@ public class WorldGenerator : MonoBehaviour
                 if (!existingGameObjects.ContainsKey(chunk))
                     continue;
 
-                Debug.Log("Cleaning chunk: (" + chunk.x +"," + chunk.y + ")");
+                //Debug.Log("Cleaning chunk: (" + chunk.x +"," + chunk.y + ")");
                 Destroy(existingGameObjects[chunk]);
                 existingGameObjects.Remove(chunk);
             }

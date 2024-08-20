@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a036f14e9ba7e5b419d36c90f10ca516, type: 3}
+  m_Name: FishTunaSmallInside
+  m_EditorClassIdentifier: 
+  size: 2
+  fishName: Small Tuna
+  description: Caught inside a bigger fish!
+  fishCost: 15
+  fishIcon: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  fishPrefab: {fileID: 6939232671039847740, guid: 575b3dfc640a51246b331b5ddaa4586d, type: 3}
+  attackPrefab: {fileID: 0}
+  swimAwayPrefab: {fileID: 0}
+  attackDistance: 0
+  probabilityOfAttack: 0
+  probabilityOfBaiting: 0.7
+  probability: 4
+  lifeTime: 20
+  speed: 2
+  movementType: {fileID: 11400000, guid: 925dd07f5f91a4f468cfc327dc3629f4, type: 2}
+  behaviourType: {fileID: 11400000, guid: 23a8ebee37aa5b7469d431c8e23ffacb, type: 2}

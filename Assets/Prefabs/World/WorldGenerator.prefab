@@ -44,13 +44,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3bb370fff3c0d74b9ea0d02fe976a44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chunkWidth: 15
-  chunkHeight: 15
+  chunkWidth: 30
+  chunkHeight: 30
   currentChunkPos: {x: 0, y: 0}
   chunkTypes:
-  - {fileID: 11400000, guid: d9583f4ad759f4c4485b6ef03b28824d, type: 2}
-  - {fileID: 11400000, guid: 9a20e3d140179b64185010d0779cd982, type: 2}
-  - {fileID: 11400000, guid: f7ab269c4d3475547ac92f2a76a05f2c, type: 2}
+  - {fileID: 11400000, guid: 21c3c9bcca5f51d41921c2a0d339e7ca, type: 2}
+  - {fileID: 11400000, guid: 00e6c6fd7a92c2d4087691b0eaf7647b, type: 2}
+  - {fileID: 11400000, guid: 87852175faa58cb478cd288e8fe78afa, type: 2}
+  - {fileID: 11400000, guid: 37aff96d1ce78144f8e0a63cff9108e9, type: 2}
+  - {fileID: 11400000, guid: fea1f94b3fecb0747bc817946c5aa8e0, type: 2}
+  - {fileID: 11400000, guid: 404e8b7af16e20848ad6d012574eca4f, type: 2}
+  - {fileID: 11400000, guid: 4efa1217cfbcc6541bdd46da11f19844, type: 2}
+  - {fileID: 11400000, guid: da211e23ef4732e4798ee3e453b487d1, type: 2}
+  - {fileID: 11400000, guid: a84f92d0743c2634da7546af0a40d7b1, type: 2}
+  - {fileID: 11400000, guid: 0c55d6117aa652943949a20b0751170b, type: 2}
+  - {fileID: 11400000, guid: 23501a7d77702d14fb66f02b5125badb, type: 2}
+  - {fileID: 11400000, guid: 11922b0cb7e7f8745926fe61178280de, type: 2}
+  - {fileID: 11400000, guid: b6b2f2605c8319148a1d3fd6d1b20b84, type: 2}
+  - {fileID: 11400000, guid: bb793c0fb04758a42a509b07c169f974, type: 2}
+  - {fileID: 11400000, guid: d14750876b20de34c9b4c5938ed66cfc, type: 2}
+  - {fileID: 11400000, guid: 055c6eee450a9f345b0a7d4bd71325f6, type: 2}
+  - {fileID: 11400000, guid: 9f6127c11120295478d0eced15ac47e4, type: 2}
+  - {fileID: 11400000, guid: 2d97cecc34cdb8942ab5ad9a944f055c, type: 2}
   generationRadius: 2
   garbageRadius: 3
   player: {fileID: 0}

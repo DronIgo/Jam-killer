@@ -7,5 +7,5 @@ public class ChunkType : ScriptableObject
 {
     public float probability;
 
-    public GameObject chunkPrefab;
+    public GameObject prefab;
 }

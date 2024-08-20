@@ -6,12 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SailingScene.unity
-    guid: ff273de88cd8aee4b9e5644ad1329520
+    path: Assets/Scenes/BuildScenes/MainMenu.unity
+    guid: 3703494d3efc7484fbbea304dcb1829e
   - enabled: 1
-    path: Assets/Scenes/ShopSceneTwoElectricBoogaloo.unity
-    guid: eacece91401a1374ba727b94fd49dcf2
+    path: Assets/Scenes/BuildScenes/Shop.unity
+    guid: a3250798afce0b041b0e1a5ad5fc88a0
   - enabled: 1
-    path: Assets/Scenes/InsideFish.unity
-    guid: ded143181f7b6034bbccce5f30fa9a99
+    path: Assets/Scenes/BuildScenes/Ocean.unity
+    guid: 64c65c37ff415e24faae633f8a7ef172
+  - enabled: 1
+    path: Assets/Scenes/BuildScenes/InsideFish.unity
+    guid: 3b6160747e1ab434cb750b916dfc0dcf
   m_configObjects: {}

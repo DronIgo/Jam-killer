@@ -7,10 +7,24 @@ public class FishGoalRandomPoint : IFishGoal
     public Vector3 goalPoint;
     public float maxDistance = 20.0f;
     public float minDistance = 3.0f;
+
+    public float maxY;
+    public float minY;
+    public bool useRestriction;
+
     public float goalDist = 0.1f;
     public FishMover fishMover;
     public FishGoalRandomPoint(FishAI fish) : base(fish)
     {
+        var moveType = fish.fishComponent.type.movementType;
+
+        maxDistance = moveType.maxDistForGoal;
+        minDistance = moveType.minDistForGoal;
+
+        maxY = moveType.maxYForGoal;
+        minY = moveType.minYForGoal;
+        useRestriction = moveType.useCoordRestrictions;
+
         fishMover = fish.fishMover;
         goalPoint = Utils.GetRandomPointInArea(fishTransform.position, minDistance, maxDistance);
     }

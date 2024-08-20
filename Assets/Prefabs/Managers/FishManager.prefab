@@ -51,13 +51,15 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 9ebd583f40629fa45bb232c45d9e7e81, type: 2}
   maxNumberOfChecksInFrame: 10
   maxTotalNumOfFish: 30
-  desiredNumOfFish: 8
+  desiredNumOfFish: 13
   player: {fileID: 0}
-  distDispawn: 50
+  distDispawn: 20
   minSpawnDist: 15
   maxSpawnDist: 25
   minigameManager: {fileID: 2085238734}
   minigameActive: 0
+  currentFishInMinigameGO: {fileID: 0}
+  currentFishInMinigameAI: {fileID: 0}
 --- !u!114 &2085238734
 MonoBehaviour:
   m_ObjectHideFlags: 0

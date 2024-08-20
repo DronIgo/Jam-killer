@@ -9,14 +9,22 @@ public class FishType : ScriptableObject
     public FISH_SIZE size;
 
     public string fishName;
+    public string description;
     public int fishCost;
     public Sprite fishIcon;
     public GameObject fishPrefab;
     public GameObject attackPrefab;
+    public GameObject swimAwayPrefab;
+
+    public float attackDistance;
+    public float probabilityOfAttack;
+    public float probabilityOfBaiting;
 
     public int probability;
 
     public float lifeTime;
+    public float speed = 2f;
 
+    public FishMovementType movementType;
     public FishBehaviourType behaviourType;
 }

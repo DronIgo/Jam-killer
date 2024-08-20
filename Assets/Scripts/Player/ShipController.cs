@@ -14,10 +14,14 @@ public class ShipController : MonoBehaviour
     public float deceleration = 2f;
     public Vector2 currentVelocity = Vector2.zero;
 
+    public float cameraSize = 10f;
+
     public FishingRod fishingRod;
 
     // for debug
     public Vector2 move;
+
+    public Rigidbody2D rb;
 
     private InputManager input;
     private SpriteRenderer shipRenderer;
@@ -25,6 +29,8 @@ public class ShipController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (rb == null)
+            rb = GetComponent<Rigidbody2D>();
         input = InputManager.instance;
         shipRenderer = GetComponent<SpriteRenderer>();
         if (fishingRod == null)
@@ -33,22 +39,25 @@ public class ShipController : MonoBehaviour
 
     void Update()
     {
-        // get user input
-        Rigidbody2D rb = GetComponent<Rigidbody2D>();
-
         float horizontal = input.horizontalMovement;
         float vertical = input.verticalMovement;
 
         // move with acceleration
+        if (FishManager.minigameActive)
+            return;
         move = new Vector2(horizontal, vertical).normalized;
         Vector2 accelerationVector;
 
         if (move != Vector2.zero)
         {
+            //if (FishingRod.rodActive)
+            //{
+            //    fishingRod.SetActive(false);
+            //}
             Vector2 targetVelocity = move * maxSpeed;
 
             Vector2 deltaVelocity = targetVelocity - currentVelocity;
-            accelerationVector = deltaVelocity.normalized * (acceleration * Time.fixedDeltaTime);
+            accelerationVector = deltaVelocity.normalized * (acceleration * Time.deltaTime);
 
             if (accelerationVector.sqrMagnitude > deltaVelocity.sqrMagnitude)
             {
@@ -57,8 +66,9 @@ public class ShipController : MonoBehaviour
         }
         else
         {
-            accelerationVector = -currentVelocity.normalized * (deceleration * Time.fixedDeltaTime);
-            if(accelerationVector.sqrMagnitude > currentVelocity.sqrMagnitude){
+            accelerationVector = -currentVelocity.normalized * (deceleration * Time.deltaTime);
+            if (accelerationVector.sqrMagnitude > currentVelocity.sqrMagnitude)
+            {
                 accelerationVector = -currentVelocity;
             }
             if (Vector2.Dot(currentVelocity, accelerationVector) > 0f)
@@ -68,29 +78,32 @@ public class ShipController : MonoBehaviour
         }
 
         currentVelocity += accelerationVector;
-        rb.MovePosition(rb.position + currentVelocity * Time.fixedDeltaTime);
-
+        //transform.position += new Vector3(currentVelocity.x, currentVelocity.y) * Time.deltaTime;
 
         // mirror if necessary
         if (horizontal < 0)
         {
-            shipRenderer.flipX = true;
+            shipRenderer.flipX = false;
         }
         else if (horizontal > 0)
         {
-            shipRenderer.flipX = false;
+            shipRenderer.flipX = true;
         }
-
 
         //check hook thrown
         if (input.hookThrown)
         {
             if (!FishingRod.rodActive)
             {
-                fishingRod.Throw(new Vector2(0f, -0.5f));
+                fishingRod.Throw(new Vector2(0.23f, -1.53f));
             }
             else
                 fishingRod.SetActive(false);
         }
+    }
+
+    private void FixedUpdate()
+    {
+        rb.MovePosition(rb.position + currentVelocity * Time.fixedDeltaTime);
     }
 }

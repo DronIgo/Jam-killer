@@ -6,15 +6,18 @@ using UnityEngine.Events;
 public class FishAI : MonoBehaviour
 {
     public enum FishState { HOSTILE, SCARED, NEUTRAL, CURIOUS, FUCKING_DONE };
+    float hungry = 0.5f;
     public IFishGoal currentGoal;
     public bool hasAGoal = false;
     public FishState currentState;
     public GameObject playerShip;
+    public Transform playerCenter;
     public FishMover fishMover;
     public Transform fishTransform;
     public Fish fishComponent;
     public FishBehaviourType behaviourType;
     public GameObject attackEffect;
+    public static float fishArgoRadiusModifier = 0.5f;
     public float distanceToPlayer
     {
         get
@@ -26,7 +29,10 @@ public class FishAI : MonoBehaviour
     void Awake()
     {
         fishTransform = fishMover.gameObject.transform;
-        SetGoal(new FishGoalRandomPoint(this));
+        hasAGoal = false;
+        //SetGoal(new FishGoalRandomPoint(this));
+        playerShip = GameManager.instance.player;
+        playerCenter = GameManager.instance.playerCenter;
     }
 
     // Update is called once per frame
@@ -76,24 +82,39 @@ public class FishAI : MonoBehaviour
         } else if (CheckBaitCondition())
         {
             SetGoal(new FishGoalBait(this));
-        } else 
+        } else if (CheckSwimAwayCondition())
+        {
+            SetGoal(new FishGoalSwimAway(this));
+        } else
         {
             SetGoal(new FishGoalRandomPoint(this));
         }
         hasAGoal = true;
     }
 
+    private bool CheckSwimAwayCondition()
+    {
+        return currentState == FishState.FUCKING_DONE;
+    }
+
     private bool CheckAgroCondition()
     {
-        return currentState == FishState.HOSTILE && distanceToPlayer < behaviourType.distanceChase;
+        if (!(currentState == FishState.HOSTILE))
+            return false;
+        if (!(distanceToPlayer < fishArgoRadiusModifier * behaviourType.agroDistance))
+            return false;
+        if (hungry < Random.Range(0.0f, 1.0f))
+            return false;
+        return true;
     }
 
     private bool CheckBaitCondition()
     {
         if (currentState != FishState.CURIOUS)
             return false;
-        if (distanceToPlayer >= 10f)
+        if (distanceToPlayer >= 5f)
             return false;
+        if (hungry < Random.Range(0.0f, 1.0f)) ;
         if (!FishingRod.rodActive)
             return false;
         return true;
@@ -111,6 +132,7 @@ public class FishAI : MonoBehaviour
         if (behaviourType == null)
             return;
         currentState = behaviourType.defaultState;
+        hungry = behaviourType.defaultHungryLevel;
     }
 
     public void SetGoal(IFishGoal goal)

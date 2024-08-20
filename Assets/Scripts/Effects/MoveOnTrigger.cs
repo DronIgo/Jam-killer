@@ -8,7 +8,7 @@ public class MoveOnTrigger : MonoBehaviour
     public Transform center;
     public float minDistanceX;
     public float minDistanceY;
-
+    public float extraRotationByZ;
 
     public Vector3 setDirection;
     public float durationOfMovement;
@@ -50,6 +50,7 @@ public class MoveOnTrigger : MonoBehaviour
                 timePassed = durationOfMovement;
 
             shipTransform.position = Vector3.Lerp(startPos, endPos, timePassed / durationOfMovement);
+            shipTransform.Rotate(Vector3.forward, extraRotationByZ * Time.deltaTime / durationOfMovement);
             yield return new WaitForEndOfFrame();
         }
         ship.enabled = true;

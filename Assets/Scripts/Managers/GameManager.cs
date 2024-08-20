@@ -10,13 +10,21 @@ public class GameManager : MonoBehaviour
     public UIManager uiManager;
     public static int score = 10;
     public static int baitNum = 10;
-    public static List<FishType> caughtFish = new List<FishType>();
+    public List<FishType> caughtFish = new List<FishType>();
+
+    public string insideFishSceneName = "InsideFish";
+    public string oceanSceneName = "Ocean";
+    public string shopSceneName = "Shop";
 
     [SerializeField] Saver saver;
     [SerializeField] Saver defaultValues;
     public bool isInOcean;
 
     public GameObject player;
+    public CameraController cameraController;
+    public Transform playerCenter;
+
+    public FishManager fishManager;
 
     private void Awake()
     {
@@ -28,13 +36,14 @@ public class GameManager : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
+        SetPause(false);
+        FishManager.minigameActive = false;
         LoadState();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
     }
 
     public static void UpdateUIElements()
@@ -45,44 +54,60 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void AddFish(FishType type)
+    {
+        caughtFish.Add(type);
+        score += type.fishCost;
+        UpdateUIElements();
+    }
+
     public void SaveStateInSail()
     {
-        if (isInOcean)
-        {
-            saver.lives = instance.player.GetComponent<Health>().currentLives;
-            saver.baitNum = baitNum;
-            saver.caughtFish = caughtFish;
-        }
-        else
-        {
-            saver.lives = defaultValues.lives;
-            saver.baitNum = defaultValues.baitNum;
-            saver.caughtFish = defaultValues.caughtFish;
-            saver.score = defaultValues.score;
-        }
+        saver.lives = instance.player.GetComponent<Health>().currentLives;
+        saver.baitNum = baitNum;
+        saver.caughtFish = new List<FishType>(caughtFish);
+
         EditorUtility.SetDirty(saver);
     }
 
     public void SaveStateBetweenSails()
     {
-        if (isInOcean)
-        {
-            saver.caughtFish = caughtFish;
-        }
-        else
-        {
-            saver.caughtFish = new List<FishType>();
-        }
+        saver.caughtFish = new List<FishType>(caughtFish);
+
         EditorUtility.SetDirty(saver);
     }
 
     public void LoadState()
     {
         Debug.Log(saver.lives);
-        instance.player.GetComponent<Health>().currentLives = saver.lives;
-        caughtFish = saver.caughtFish;
+        var playerHealth = instance.player.GetComponent<Health>();
+        playerHealth.currentLives = saver.lives;
+        playerHealth.maxLives = saver.maxLives;
+        caughtFish = new List<FishType>(saver.caughtFish);
+        score = 0;
+        foreach (var ft in caughtFish)
+            score += ft.fishCost;
         baitNum = saver.baitNum;
-        score = saver.score;
+        List<FishType> avialableFish;
+        if (isInOcean)
+        {
+            avialableFish = new List<FishType>(saver.bigOcean);
+            avialableFish.AddRange(saver.smallOcean);
+        } else
+        {
+            avialableFish = new List<FishType>(saver.smallInside);
+        }
+
+        fishManager.UpdateFishLists(avialableFish);
+
+        UpdateUIElements();
+    }
+
+    public void GoToTheShop()
+    {
+        SaveStateBetweenSails();
+
+        SceneManager.LoadScene(shopSceneName);
     }
 
     public void GoInsideFish()
@@ -90,7 +115,7 @@ public class GameManager : MonoBehaviour
         SaveStateBetweenSails();
         SaveStateInSail();
 
-        SceneManager.LoadScene("InsideFish");
+        SceneManager.LoadScene(insideFishSceneName);
     }
 
     public void ReturnToOcean()
@@ -98,7 +123,28 @@ public class GameManager : MonoBehaviour
         SaveStateBetweenSails();
         SaveStateInSail();
 
-        SceneManager.LoadScene("SailingScene");
+        SceneManager.LoadScene(oceanSceneName);
 
+    }
+
+    public void Death()
+    {
+        caughtFish.Clear();
+        UpdateUIElements();
+        uiManager.GoToPageByName("DeathPage");
+        uiManager.allowPause = false;
+        FishManager.minigameActive = false;
+        SetPause(true);
+    }
+
+    public void SetPause(bool pause)
+    {
+        if (pause)
+        {
+            Time.timeScale = 0;
+        } else
+        {
+            Time.timeScale = 1;
+        }
     }
 }

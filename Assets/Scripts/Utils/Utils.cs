@@ -11,4 +11,12 @@ public static class Utils
         Vector3 point = new Vector3(Mathf.Sin(angle) * dist, Mathf.Cos(angle) * dist, 0) + init;
         return point;
     }
+
+    public static Vector3 GetRandomPointInRect(float minX, float minY, float maxX, float maxY)
+    {
+        float x = Random.Range(minX, maxX);
+        float y = Random.Range(minY, maxY);
+        Vector3 point = new Vector3(x, y, 0);
+        return point;
+    }
 }

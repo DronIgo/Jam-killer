@@ -4,12 +4,24 @@ using UnityEngine;
 
 public class FishManager : MonoBehaviour
 {
+    
     //public class 
-    public List<FishType> fishTypes;
+    public List<FishType> regularFishTypes;
+
+    public List<FishType> mediumFish;
+    public List<FishType> smallFish;
+    public List<FishType> bigFish;
+
+    int currentNumSmall = 0;
+    int currentNumMedium = 0;
+    int currentNumBig = 0;
 
     public List<System.Tuple<GameObject, FishAI>> fishAlive_go_ai = new();
 
     private int totalProbability = 0;
+    private int totalProbabilityBig = 0;
+    private int totalProbabilitySmall = 0;
+    private int totalProbabilityMedium = 0;
 
     public int maxNumberOfChecksInFrame = 5;
     private int currentCheckIndex = 0;
@@ -17,20 +29,57 @@ public class FishManager : MonoBehaviour
     public int maxTotalNumOfFish = 30;
     public int desiredNumOfFish = 8;
 
+    public int maxNumOfMediumFish = 3;
+    public int maxNumOfBigFish = 2;
+    public int minNumOfMediumFish = 1;
+    public int minNumOfBigFish = 1;
+
     public Transform player;
 
     public float distDispawn = 40.0f;
     public float minSpawnDist = 4f;
     public float maxSpawnDist = 10f;
 
+    public bool insideFish;
+    public float minY = -14.5f;
+    public float maxY = 14.5f;
+
     public FishingMinigameManager minigameManager;
+
+    public static FishManager instance;
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(this.gameObject);
+        }
+    }
+
+    void UpdateTotalProbability()
+    {
+        totalProbability = 0;
+        totalProbabilityBig = 0;
+        totalProbabilityMedium = 0;
+        totalProbabilitySmall = 0;
+        foreach (FishType type in regularFishTypes)
+            totalProbability += type.probability;
+
+        foreach (FishType type in smallFish)
+            totalProbabilitySmall += type.probability;
+        foreach (FishType type in bigFish)
+            totalProbabilityBig += type.probability;
+        foreach (FishType type in mediumFish)
+            totalProbabilityMedium += type.probability;
+    }
 
     // Start is called before the first frame update
     void Start()
     {
-        totalProbability = 0;
-        foreach (FishType type in fishTypes)
-            totalProbability += type.probability;
+        UpdateTotalProbability();
         //init player
         player = GameManager.instance.player.transform;
     }
@@ -45,11 +94,62 @@ public class FishManager : MonoBehaviour
         }
     }
 
-    #region Fish population managment
-    void SpawnRandomFish()
+    public void UpdateFishLists(List<FishType> newFishTypes)
     {
-        int prob = Random.Range(0, totalProbability);
-        foreach (var type in fishTypes)
+        regularFishTypes.Clear();
+        regularFishTypes = new List<FishType>(newFishTypes);
+        smallFish.Clear();
+        mediumFish.Clear();
+        bigFish.Clear();
+        foreach (var fish in regularFishTypes)
+        {
+            if (fish.size == FishType.FISH_SIZE.BIG)
+                bigFish.Add(fish);
+            if (fish.size == FishType.FISH_SIZE.MEDIUM)
+                mediumFish.Add(fish);
+            if (fish.size == FishType.FISH_SIZE.SMALL)
+                smallFish.Add(fish);
+        }
+        UpdateTotalProbability();
+    }
+
+    #region Fish population managment
+    //void SpawnRandomFish()
+    //{
+    //    int prob = Random.Range(0, totalProbability);
+    //    foreach (var type in regularFishTypes)
+    //    {
+    //        prob -= type.probability;
+    //        if (prob < 0)
+    //        {
+    //            SpawnFish(type);
+    //            return;
+    //        }
+    //    }
+    //}
+
+    void SpawnRandomFish(FishType.FISH_SIZE size)
+    {
+        int totalProb = 0;
+        List<FishType> fishPool = new List<FishType>();
+        switch (size)
+        {
+            case FishType.FISH_SIZE.BIG:
+                totalProb = totalProbabilityBig;
+                fishPool = bigFish;
+                break;
+            case FishType.FISH_SIZE.MEDIUM:
+                totalProb = totalProbabilityMedium;
+                fishPool = mediumFish;
+                break;
+            case FishType.FISH_SIZE.SMALL:
+                totalProb = totalProbabilitySmall;
+                fishPool = smallFish;
+                break;
+        }
+
+        int prob = Random.Range(0, totalProb);
+        foreach (var type in fishPool)
         {
             prob -= type.probability;
             if (prob < 0)
@@ -60,34 +160,82 @@ public class FishManager : MonoBehaviour
         }
     }
 
-    void SummonFish(int amount)
+    void SummonRandomFish(int amount, FishType.FISH_SIZE size)
     {
-        //Debug.Log("SummonFish: " + amount);
+        switch(size)
+        {
+            case FishType.FISH_SIZE.BIG:
+                if (bigFish.Count == 0)
+                    return;
+                break;
+            case FishType.FISH_SIZE.MEDIUM:
+                if (mediumFish.Count == 0)
+                    return;
+                break;
+            case FishType.FISH_SIZE.SMALL:
+                if (smallFish.Count == 0)
+                    return;
+                break;
+        }
+
+
         for (int i = 0; i < amount; ++i)
         {
-            SpawnRandomFish();
+            SpawnRandomFish(size);
         }
+    }
+
+    void SummonFish(int amount)
+    {
+        if (regularFishTypes.Count == 0)
+            return;
+
+        int minMed = Mathf.Max(minNumOfMediumFish - currentNumMedium, 0);
+        int maxMed = Mathf.Max(maxNumOfMediumFish - currentNumMedium, 0);
+        int minBig = Mathf.Max(minNumOfBigFish - currentNumBig);
+        int maxBig = Mathf.Max(maxNumOfBigFish - currentNumBig);
+
+        int med = Random.Range(minMed, maxMed + 1);
+        int big = Random.Range(minBig, maxBig + 1);
+        int small = Mathf.Max(desiredNumOfFish - currentNumBig - currentNumMedium - currentNumSmall - med - big, 0);
+
+        SummonRandomFish(small, FishType.FISH_SIZE.SMALL);
+        SummonRandomFish(med, FishType.FISH_SIZE.MEDIUM);
+        SummonRandomFish(big, FishType.FISH_SIZE.BIG);
+        //for (int i = 0; i < amount; ++i)
+        //{
+        //    SpawnRandomFish();
+        //}
     }
 
     int FindFishIndex(GameObject fish)
     {
         return fishAlive_go_ai.FindIndex((System.Tuple<GameObject, FishAI> a) => { return a.Item1 == fish; });
     }
-    public void DeleteFish(GameObject fish, bool instantDestroy = false)
+    public void DeleteFish(GameObject fish)
     {
         int index = FindFishIndex(fish);
         if (index != -1)
             DeleteFish(index);
     }
 
-    void DeleteFish(int index, bool instantDestroy = false)
+    void DeleteFish(int index)
     {
+        switch (fishAlive_go_ai[index].Item2.fishComponent.type.size)
+        {
+            case FishType.FISH_SIZE.BIG:
+                currentNumBig--;
+                break;
+            case FishType.FISH_SIZE.MEDIUM:
+                currentNumMedium--;
+                break;
+            case FishType.FISH_SIZE.SMALL:
+                currentNumSmall--;
+                break;
+        }
         if (index < currentCheckIndex)
             currentCheckIndex -= 1;
-        if (instantDestroy)
-            Destroy(fishAlive_go_ai[index].Item1);
-        else
-            fishAlive_go_ai[index].Item1.GetComponent<Fish>().Destroy();
+        Destroy(fishAlive_go_ai[index].Item1);
         fishAlive_go_ai.RemoveAt(index);
     }
     void CheckFishDespawn()
@@ -113,6 +261,19 @@ public class FishManager : MonoBehaviour
 
     void SpawnFish(FishType type)
     {
+        switch (type.size)
+        {
+            case FishType.FISH_SIZE.BIG:
+                currentNumBig++;
+                break;
+            case FishType.FISH_SIZE.MEDIUM:
+                currentNumMedium++;
+                break;
+            case FishType.FISH_SIZE.SMALL:
+                currentNumSmall++;
+                break;
+        }
+
         Vector3 position = Utils.GetRandomPointInArea(player.position, minSpawnDist, maxSpawnDist);
         position.z = 1;
         SpawnFish(position, type);
@@ -123,6 +284,12 @@ public class FishManager : MonoBehaviour
         if (fishAlive_go_ai.Count >= maxTotalNumOfFish)
             return;
         GameObject fish = Instantiate(type.fishPrefab, position, Quaternion.identity);
+        //Configurate Fish component
+        {
+            Fish fishComponent = fish.GetComponent<Fish>();
+            fishComponent.fishManager = this;
+            fishComponent.type = type;
+        }
         //set FishAI
         FishAI fishAI;
         {
@@ -135,32 +302,18 @@ public class FishManager : MonoBehaviour
                 Debug.LogWarning("FishPrefab in fishType: " + type.name + " doens't have FishAI component. Dumb ass fish");
                 return;
             }
-            fishAI.playerShip = player.gameObject;
+            fishAI.playerShip = GameManager.instance.player;
+            fishAI.playerCenter = GameManager.instance.playerCenter;
             fishAI.behaviourType = type.behaviourType;
             fishAI.attackEffect = type.attackPrefab;
-            fishAI.ResetBehaviour();
+            if (!minigameActive)
+                fishAI.ResetBehaviour();
+            else
+                fishAI.currentState = FishAI.FishState.NEUTRAL;
         }
-        //set Size
-        switch (type.size)
+        //set FishMover speed 
         {
-            case FishType.FISH_SIZE.BIG:
-                fish.transform.localScale = new Vector3(8.0f, 8.0f, 1.0f);
-                break;
-            case FishType.FISH_SIZE.MEDIUM:
-                fish.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
-                break;
-            case FishType.FISH_SIZE.SMALL:
-                fish.transform.localScale = new Vector3(0.15f, 0.15f, 1.0f);
-                break;
-            default:
-                fish.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
-                break;
-        }
-        //Configurate Fish component
-        {
-            Fish fishComponent = fish.GetComponent<Fish>();
-            fishComponent.fishManager = this;
-            fishComponent.type = type;
+            fish.GetComponentInChildren<FishMover>().maxSpeed = type.speed;
         }
         fish.transform.parent = this.transform;
         fishAlive_go_ai.Add(new System.Tuple<GameObject, FishAI>(fish, fishAI));
@@ -168,7 +321,7 @@ public class FishManager : MonoBehaviour
 
     #endregion
 
-    public bool minigameActive = true;
+    public static bool minigameActive = false;
     public GameObject currentFishInMinigameGO;
     public FishAI currentFishInMinigameAI;
     public void InitiateMinigame(Fish fish) 
