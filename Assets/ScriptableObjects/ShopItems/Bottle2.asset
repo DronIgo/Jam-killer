@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Bottle2
   m_EditorClassIdentifier: 
   shopItemDescription: Good old rum! To protect you from the dangers of the ocean.
-  cost: 30
+  cost: 25
   ItemName: bottle2
   extraLives: 1
   extraLivesAmount: 1

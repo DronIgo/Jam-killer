@@ -10,24 +10,28 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3c80546209ce21c499320f8a841300d6, type: 3}
-  m_Name: GoodBait
+  m_Name: GoodBait2
   m_EditorClassIdentifier: 
-  shopItemDescription: Lol good bait good fish
-  cost: 30
-  ItemName: goodBait
+  shopItemDescription: Better bait to attract better fish!
+  cost: 40
+  ItemName: goodBait2
   extraLives: 0
   extraLivesAmount: 1
   extraBait: 0
   extraBaitAmount: 1
   updateShipPrefab: 0
-  newShipPrefab: {fileID: 8869222956829330098, guid: bee132e5e31c8d24da271f2eef594dc7, type: 3}
+  newShipPrefab: {fileID: 0}
   updatefishingMinigamePrefab: 0
   newFishingMinigame: {fileID: 0}
   newBait: {fileID: 0}
   updateSmallFishList: 1
   newSmallFishList:
   - {fileID: 11400000, guid: 9ebd583f40629fa45bb232c45d9e7e81, type: 2}
+  - {fileID: 11400000, guid: bf63b6a29cd152f43afa4655ba210b1b, type: 2}
+  - {fileID: 11400000, guid: e692ab9cddeaa744da239bba7b9b2813, type: 2}
   newSmallFishInsideList:
-  - {fileID: 11400000, guid: 9ebd583f40629fa45bb232c45d9e7e81, type: 2}
+  - {fileID: 11400000, guid: d94fff38e69866a4387f3301fe102e73, type: 2}
+  - {fileID: 11400000, guid: 3f5f4cc6d5cc49f47ab80918e3be5402, type: 2}
+  - {fileID: 11400000, guid: ba6227343069590438f1148ca5f16783, type: 2}
   updateBigFishList: 0
   newBigFishList: []

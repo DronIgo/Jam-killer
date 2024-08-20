@@ -10,11 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3c80546209ce21c499320f8a841300d6, type: 3}
-  m_Name: ShipBlue
+  m_Name: BaitShip
   m_EditorClassIdentifier: 
-  shopItemDescription: Ship but blue
-  cost: 30
-  ItemName: shipBlue
+  shopItemDescription: This one will attract monsters from the deapth of the ocean
+    to your ship. Perharps you can even get inside...
+  cost: 50
+  ItemName: baitShip
   extraLives: 0
   extraLivesAmount: 1
   extraBait: 0
@@ -27,5 +28,8 @@ MonoBehaviour:
   updateSmallFishList: 0
   newSmallFishList: []
   newSmallFishInsideList: []
-  updateBigFishList: 0
-  newBigFishList: []
+  updateBigFishList: 1
+  newBigFishList:
+  - {fileID: 11400000, guid: b486050cbec4e11418301aad08e6ef1e, type: 2}
+  - {fileID: 11400000, guid: b486050cbec4e11418301aad08e6ef1e, type: 2}
+  - {fileID: 11400000, guid: b486050cbec4e11418301aad08e6ef1e, type: 2}

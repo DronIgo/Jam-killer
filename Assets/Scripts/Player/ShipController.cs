@@ -44,6 +44,9 @@ public class ShipController : MonoBehaviour
         float horizontal = input.horizontalMovement;
         float vertical = input.verticalMovement;
 
+        if (FishManager.minigameActive)
+            return;
+
         //check hook thrown
         if (input.hookThrown)
         {
@@ -60,8 +63,7 @@ public class ShipController : MonoBehaviour
             return;
 
         // move with acceleration
-        if (FishManager.minigameActive)
-            return;
+
         move = new Vector2(horizontal, vertical).normalized;
         Vector2 accelerationVector;
 
