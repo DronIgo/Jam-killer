@@ -6,6 +6,9 @@ public class InsideFishTimer : MonoBehaviour
 {
     public static InsideFishTimer instance;
     public float targetTimeSec = 10f;
+    public float whenToFadeSec = 15f;
+
+    public bool underPressure = false;
 
     private void Awake()
     {
@@ -24,13 +27,21 @@ public class InsideFishTimer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (FishManager.minigameActive)
+            return;
+
         targetTimeSec -= Time.deltaTime;
-        GameManager.UpdateUIElements();
 
         if (targetTimeSec < 0)
         {
+            Debug.Log("Timer end");
             GameManager.instance.ReturnToOcean();
-            // Debug.Log("Timer end");
+        }
+
+        if (targetTimeSec < whenToFadeSec && !underPressure)
+        {
+            SoundManager.instance.StartPressure();
+            underPressure = true;
         }
     }
 

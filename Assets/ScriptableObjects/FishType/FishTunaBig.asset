@@ -19,6 +19,7 @@ MonoBehaviour:
   fishIcon: {fileID: 21300000, guid: 6734bce4d3bc41e4aa32c0ada3e62833, type: 3}
   fishPrefab: {fileID: 8422349493398879725, guid: 6b8746441037252479c2675b8c9d2f0f, type: 3}
   attackPrefab: {fileID: 1172108374226610288, guid: fae5c613681bc2d4ab7d7b1b6749d40e, type: 3}
+  swimAwayPrefab: {fileID: 0}
   attackDistance: 1
   probabilityOfAttack: 0.1
   probabilityOfBaiting: 0
@@ -26,4 +27,4 @@ MonoBehaviour:
   lifeTime: 10
   speed: 4
   movementType: {fileID: 11400000, guid: ecc613f24cfa8d54b99a69349c3f3e26, type: 2}
-  behaviourType: {fileID: 11400000, guid: 9bd69675ad9bdf04fb107fe3f7edb463, type: 2}
+  behaviourType: {fileID: 11400000, guid: 7728d6a3bdc9a8d4fb6fb1e481bd104c, type: 2}

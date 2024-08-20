@@ -11,6 +11,7 @@ public class SoundManager : MonoBehaviour
 
     [Header("Settings")]
     public float fadeDuration = 5.0f; // Время на затухание и нарастание
+    public float pressureFadeDuration = 10.0f; // Время на затухание и нарастание
     public GameObject fishCaught;
     public GameObject baitDeploy;
     public GameObject fishGetsAway;
@@ -29,6 +30,8 @@ public class SoundManager : MonoBehaviour
 
     public AudioSource insideAudio;
     public AudioSource pressureAudio;
+    public AudioSource currentAudio;
+    public AudioSource audioBeforeFishing;
 
     // public AudioSource currentAudioSource; TODO: ?
 
@@ -56,41 +59,56 @@ public class SoundManager : MonoBehaviour
         if (GameManager.instance.isInOcean)
             StartSailing();
         else
-            insideAudio.Play();
+            StartInsideFishSailing();
     }
 
     public void StartSailing()
     {
+        currentAudio = sailAudio;
         Debug.Log("start sailing");
-        sailAudio.Play();
+        currentAudio.Play();
+    }
+
+    public void StartInsideFishSailing()
+    {
+        currentAudio = insideAudio;
+        Debug.Log("start sailing inside fish");
+        currentAudio.Play();
+    }
+
+    public void StartPressure()
+    {
+        StopWithFade(currentAudio, pressureAudio, pressureFadeDuration);
     }
 
     public void StartFishing()
     {
-        StopWithFade(sailAudio, fishingAudio);
+        audioBeforeFishing = currentAudio;
+        StopWithFade(currentAudio, fishingAudio, fadeDuration);
     }
 
     public void StopFishing()
     {
-        StopWithFade(fishingAudio, sailAudio);
+        StopWithFade(currentAudio, audioBeforeFishing, fadeDuration);
     }
 
-    public void StopWithFade(AudioSource audioSourceOld, AudioSource audioSourceNew)
+    public void StopWithFade(AudioSource audioSourceOld, AudioSource audioSourceNew, float duration)
     {
-        StartCoroutine(FadeCurrentMusic(audioSourceOld, audioSourceNew));
+        currentAudio = audioSourceNew;
+        StartCoroutine(FadeCurrentMusic(audioSourceOld, audioSourceNew, duration));
 
     }
-    private IEnumerator FadeCurrentMusic(AudioSource audioSourceOld, AudioSource audioSourceNew)
+    private IEnumerator FadeCurrentMusic(AudioSource audioSourceOld, AudioSource audioSourceNew,  float duration)
     {
         audioSourceNew.volume = 0;
         audioSourceNew.Play();
 
         float time = 0;
-        while (time < fadeDuration)
+        while (time < duration)
         {
             time += Time.deltaTime;
-            audioSourceOld.volume = Mathf.Lerp(1, 0, time / fadeDuration);
-            audioSourceNew.volume = Mathf.Lerp(0, 1, time / fadeDuration);
+            audioSourceOld.volume = Mathf.Lerp(1, 0, time / duration);
+            audioSourceNew.volume = Mathf.Lerp(0, 1, time / duration);
             yield return null;
         }
         
@@ -120,18 +138,20 @@ public class SoundManager : MonoBehaviour
 
     public void OnFishTackleStart()
     {
-        if (fishTackleObject != null)
-        {
-            Debug.LogError("Fish Tackle already started!");
-            return;
-        }
-        fishTackleObject = Instantiate(fishTackle);
+        Debug.Log("Fish tackle disabled");
+        // if (fishTackleObject != null)
+        // {
+        //     Debug.LogError("Fish Tackle already started!");
+        //     return;
+        // }
+        // fishTackleObject = Instantiate(fishTackle);
     }
 
     public void OnFishTackleEnd()
     {
-        Destroy(fishTackleObject);
-        fishTackleObject = null;
+        Debug.Log("Fish tackle disabled");
+        // Destroy(fishTackleObject);
+        // fishTackleObject = null;
     }
 
 }

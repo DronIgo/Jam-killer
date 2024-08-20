@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9962ea091933ec94c99ae0afb33a5dc6, type: 3}
   m_Name: BonusesSaver
   m_EditorClassIdentifier: 
-  lives: 0
-  maxLives: 0
+  lives: 1
+  maxLives: 1
   score: 0
   baitNum: 0
   shipPrefab: {fileID: 0}

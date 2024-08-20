@@ -37,6 +37,7 @@ public class GameManager : MonoBehaviour
             Destroy(this.gameObject);
         }
         SetPause(false);
+        FishManager.minigameActive = false;
         LoadState();
     }
 
@@ -132,6 +133,7 @@ public class GameManager : MonoBehaviour
         UpdateUIElements();
         uiManager.GoToPageByName("DeathPage");
         uiManager.allowPause = false;
+        FishManager.minigameActive = false;
         SetPause(true);
     }
 

@@ -15,3 +15,4 @@ MonoBehaviour:
   defaultState: 0
   distanceChase: 40
   numOfAttacks: 3
+  defaultHungryLevel: 0.9

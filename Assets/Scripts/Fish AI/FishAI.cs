@@ -17,6 +17,7 @@ public class FishAI : MonoBehaviour
     public Fish fishComponent;
     public FishBehaviourType behaviourType;
     public GameObject attackEffect;
+    public static float fishArgoRadiusModifier = 0.5f;
     public float distanceToPlayer
     {
         get
@@ -100,7 +101,7 @@ public class FishAI : MonoBehaviour
     {
         if (!(currentState == FishState.HOSTILE))
             return false;
-        if (!(distanceToPlayer < behaviourType.distanceChase))
+        if (!(distanceToPlayer < fishArgoRadiusModifier * behaviourType.agroDistance))
             return false;
         if (hungry < Random.Range(0.0f, 1.0f))
             return false;
@@ -113,6 +114,7 @@ public class FishAI : MonoBehaviour
             return false;
         if (distanceToPlayer >= 5f)
             return false;
+        if (hungry < Random.Range(0.0f, 1.0f)) ;
         if (!FishingRod.rodActive)
             return false;
         return true;
@@ -130,6 +132,7 @@ public class FishAI : MonoBehaviour
         if (behaviourType == null)
             return;
         currentState = behaviourType.defaultState;
+        hungry = behaviourType.defaultHungryLevel;
     }
 
     public void SetGoal(IFishGoal goal)

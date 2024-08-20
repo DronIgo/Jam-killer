@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9962ea091933ec94c99ae0afb33a5dc6, type: 3}
   m_Name: Saver
   m_EditorClassIdentifier: 
-  lives: 2
-  maxLives: 2
+  lives: 3
+  maxLives: 3
   score: 0
   baitNum: 5
   shipPrefab: {fileID: 0}
