@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Smile
   m_EditorClassIdentifier: 
   probability: 1
-  chunkPrefab: {fileID: 4769874732140262520, guid: eee4e57fc5523b74da97bbb28f71962b, type: 3}
+  prefab: {fileID: 4769874732140262520, guid: eee4e57fc5523b74da97bbb28f71962b, type: 3}

@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: WishGranter
   m_EditorClassIdentifier: 
   probability: 1
-  chunkPrefab: {fileID: 2646870342471264767, guid: 0285be5ea1c20a74eaf9d9e71bb3d9e6, type: 3}
+  prefab: {fileID: 2646870342471264767, guid: 0285be5ea1c20a74eaf9d9e71bb3d9e6, type: 3}

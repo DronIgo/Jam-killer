@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Kite
   m_EditorClassIdentifier: 
   probability: 1
-  chunkPrefab: {fileID: 3874404640857253701, guid: fa44bb3f6f68304479b2491141387938, type: 3}
+  prefab: {fileID: 3874404640857253701, guid: fa44bb3f6f68304479b2491141387938, type: 3}

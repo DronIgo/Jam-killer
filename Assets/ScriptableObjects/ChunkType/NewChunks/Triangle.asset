@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Triangle
   m_EditorClassIdentifier: 
   probability: 1
-  chunkPrefab: {fileID: 6525425172721443039, guid: eaff48bf023139040bb7a84a4e5a96db, type: 3}
+  prefab: {fileID: 6525425172721443039, guid: eaff48bf023139040bb7a84a4e5a96db, type: 3}

@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Cluster
   m_EditorClassIdentifier: 
   probability: 1
-  chunkPrefab: {fileID: 3988056815495188690, guid: ce0fbcac39bc62e4ca6d3dfc3b3c13ed, type: 3}
+  prefab: {fileID: 3988056815495188690, guid: ce0fbcac39bc62e4ca6d3dfc3b3c13ed, type: 3}

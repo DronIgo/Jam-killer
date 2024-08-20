@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Background
   m_EditorClassIdentifier: 
   probability: 1
-  chunkPrefab: {fileID: 1049879279612508287, guid: 8f052ccc378c1ba47940e39def5cf28f, type: 3}
+  prefab: {fileID: 1049879279612508287, guid: 8f052ccc378c1ba47940e39def5cf28f, type: 3}

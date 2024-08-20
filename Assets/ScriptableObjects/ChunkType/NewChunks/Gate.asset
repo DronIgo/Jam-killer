@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Gate
   m_EditorClassIdentifier: 
   probability: 1
-  chunkPrefab: {fileID: 3928829769800093043, guid: 8752e8f978c19624db455c017110df44, type: 3}
+  prefab: {fileID: 3928829769800093043, guid: 8752e8f978c19624db455c017110df44, type: 3}

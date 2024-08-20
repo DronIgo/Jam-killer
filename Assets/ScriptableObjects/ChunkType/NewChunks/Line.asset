@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Line
   m_EditorClassIdentifier: 
   probability: 1
-  chunkPrefab: {fileID: 594042651889594162, guid: f58399d72ea9fd345b7955ae1a3f1725, type: 3}
+  prefab: {fileID: 594042651889594162, guid: f58399d72ea9fd345b7955ae1a3f1725, type: 3}

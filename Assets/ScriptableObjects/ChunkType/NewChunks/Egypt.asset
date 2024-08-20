@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Egypt
   m_EditorClassIdentifier: 
   probability: 1
-  chunkPrefab: {fileID: 1160953697255882784, guid: 7734384551639a044a179c9de6b4c228, type: 3}
+  prefab: {fileID: 1160953697255882784, guid: 7734384551639a044a179c9de6b4c228, type: 3}

@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: House
   m_EditorClassIdentifier: 
   probability: 1
-  chunkPrefab: {fileID: 6019967038959669646, guid: 59722f1abb9f7ab41a64cff82add05a4, type: 3}
+  prefab: {fileID: 6019967038959669646, guid: 59722f1abb9f7ab41a64cff82add05a4, type: 3}

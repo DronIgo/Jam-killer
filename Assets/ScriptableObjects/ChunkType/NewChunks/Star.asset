@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Star
   m_EditorClassIdentifier: 
   probability: 1
-  chunkPrefab: {fileID: 1282169519845422994, guid: c9161bc7bd249984ba0b5322e56f373c, type: 3}
+  prefab: {fileID: 1282169519845422994, guid: c9161bc7bd249984ba0b5322e56f373c, type: 3}

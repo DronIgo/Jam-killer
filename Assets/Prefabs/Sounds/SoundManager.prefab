@@ -48,7 +48,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad1074f6ba438304586460a5046d8282, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fadeDuration: 5
+  fadeDuration: 1
   fishCaught: {fileID: 6232611260069923851, guid: a87272a941235d847b41bf9f3623d5d8, type: 3}
   baitDeploy: {fileID: 6232611260069923851, guid: ce469bf954e7f61469e8c791ed954758, type: 3}
   fishGetsAway: {fileID: 6232611260069923851, guid: e0687872243d74e4199558ebf44895ca, type: 3}

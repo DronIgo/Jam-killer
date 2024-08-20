@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Room
   m_EditorClassIdentifier: 
   probability: 1
-  chunkPrefab: {fileID: 3168666490701618098, guid: 6454b503cdea9f94a962d797aa724f9e, type: 3}
+  prefab: {fileID: 3168666490701618098, guid: 6454b503cdea9f94a962d797aa724f9e, type: 3}

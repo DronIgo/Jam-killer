@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Flow
   m_EditorClassIdentifier: 
   probability: 1
-  chunkPrefab: {fileID: 1512378203955060562, guid: bddf52e69a5fc9d40a7fbd0535eb8dda, type: 3}
+  prefab: {fileID: 1512378203955060562, guid: bddf52e69a5fc9d40a7fbd0535eb8dda, type: 3}

@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Bear
   m_EditorClassIdentifier: 
   probability: 1
-  chunkPrefab: {fileID: 4034926537964791358, guid: 190a279c58ac705418572822f38d61b4, type: 3}
+  prefab: {fileID: 4034926537964791358, guid: 190a279c58ac705418572822f38d61b4, type: 3}
