@@ -52,7 +52,7 @@ public class ShipController : MonoBehaviour
         {
             if (!FishingRod.rodActive)
             {
-                fishingRod.Throw(new Vector2(0.23f, -1.53f));
+                fishingRod.Throw(new Vector2(0.23f, -1.13f));
                 currentVelocity = Vector2.zero;
             }
             else
