@@ -18,4 +18,6 @@ public class Saver : ScriptableObject
     public List<FishType> bigOcean;
 
     public List<FishType> caughtFish = new List<FishType>();
+
+    public float extraCameraSize;
 }
