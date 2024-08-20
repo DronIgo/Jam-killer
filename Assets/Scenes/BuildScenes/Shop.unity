@@ -182,7 +182,7 @@ MonoBehaviour:
   image: {fileID: 2547110}
   bought: 0
   selected: 0
-  instantSelect: 0
+  instantSelect: 1
 --- !u!114 &2547110
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -714,7 +714,7 @@ MonoBehaviour:
   image: {fileID: 505655604}
   bought: 0
   selected: 0
-  instantSelect: 0
+  instantSelect: 1
 --- !u!114 &505655604
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2157,7 +2157,7 @@ MonoBehaviour:
   image: {fileID: 1130311096}
   bought: 0
   selected: 0
-  instantSelect: 0
+  instantSelect: 1
 --- !u!114 &1130311096
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2877,7 +2877,7 @@ MonoBehaviour:
   image: {fileID: 1637439663}
   bought: 0
   selected: 0
-  instantSelect: 0
+  instantSelect: 1
 --- !u!114 &1637439663
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2975,7 +2975,7 @@ MonoBehaviour:
   image: {fileID: 1641940050}
   bought: 0
   selected: 0
-  instantSelect: 0
+  instantSelect: 1
 --- !u!114 &1641940050
 MonoBehaviour:
   m_ObjectHideFlags: 0

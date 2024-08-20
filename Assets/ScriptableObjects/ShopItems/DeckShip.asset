@@ -19,8 +19,8 @@ MonoBehaviour:
   extraLivesAmount: 1
   extraBait: 0
   extraBaitAmount: 1
-  updateShipPrefab: 1
-  newShipPrefab: {fileID: 8869222956829330098, guid: bee132e5e31c8d24da271f2eef594dc7, type: 3}
+  updateShipPrefab: 0
+  newShipPrefab: {fileID: 0}
   updatefishingMinigamePrefab: 0
   newFishingMinigame: {fileID: 0}
   newBait: {fileID: 0}
@@ -29,3 +29,4 @@ MonoBehaviour:
   newSmallFishInsideList: []
   updateBigFishList: 0
   newBigFishList: []
+  extraCameraSize: 5

@@ -112,6 +112,7 @@ public class GameManager : MonoBehaviour
         Debug.Log(saver.lives);
 
         player = Instantiate(saver.shipPrefab, Vector3.zero, Quaternion.identity);
+        player.GetComponent<ShipController>().cameraSize += saver.extraCameraSize;
         playerCenter = player.transform.Find("Center");
         var playerHealth = instance.player.GetComponent<Health>();
         playerHealth.currentLives = saver.lives;
