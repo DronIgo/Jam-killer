@@ -50,6 +50,7 @@ public class InsideFishTimer : MonoBehaviour
         if (targetTimeSec < remainingSec && !playedSound)
         {
             SoundManager.instance.OnFishUngulp();
+            playedSound = true;
         }
     }
 
