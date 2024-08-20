@@ -43,6 +43,7 @@ public class GameManager : MonoBehaviour
         FishManager.minigameActive = false;
         LoadState();
         StartCoroutine("StartGame");
+        //Debug.Log("Awake");
     }
 
     private IEnumerator StartGame()

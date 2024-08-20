@@ -39,6 +39,8 @@ public class ShipController : MonoBehaviour
 
     void Update()
     {
+        if (!GameManager.instance.gameStarted)
+            return;
         float horizontal = input.horizontalMovement;
         float vertical = input.verticalMovement;
 
