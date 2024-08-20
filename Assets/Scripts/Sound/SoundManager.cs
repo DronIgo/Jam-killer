@@ -11,6 +11,7 @@ public class SoundManager : MonoBehaviour
 
     [Header("Settings")]
     public float fadeDuration = 5.0f; // Время на затухание и нарастание
+    public float pressureFadeDuration = 10.0f; // Время на затухание и нарастание
     public GameObject fishCaught;
     public GameObject baitDeploy;
     public GameObject fishGetsAway;
@@ -74,33 +75,38 @@ public class SoundManager : MonoBehaviour
         currentAudio.Play();
     }
 
+    public void StartPressure()
+    {
+        StopWithFade(currentAudio, pressureAudio, pressureFadeDuration);
+    }
+
     public void StartFishing()
     {
-        StopWithFade(currentAudio, fishingAudio);
+        StopWithFade(currentAudio, fishingAudio, fadeDuration);
     }
 
     public void StopFishing()
     {
-        StopWithFade(currentAudio, sailAudio);
+        StopWithFade(currentAudio, sailAudio, fadeDuration);
     }
 
-    public void StopWithFade(AudioSource audioSourceOld, AudioSource audioSourceNew)
+    public void StopWithFade(AudioSource audioSourceOld, AudioSource audioSourceNew, float duration)
     {
         currentAudio = audioSourceNew;
-        StartCoroutine(FadeCurrentMusic(audioSourceOld, audioSourceNew));
+        StartCoroutine(FadeCurrentMusic(audioSourceOld, audioSourceNew, duration));
 
     }
-    private IEnumerator FadeCurrentMusic(AudioSource audioSourceOld, AudioSource audioSourceNew)
+    private IEnumerator FadeCurrentMusic(AudioSource audioSourceOld, AudioSource audioSourceNew,  float duration)
     {
         audioSourceNew.volume = 0;
         audioSourceNew.Play();
 
         float time = 0;
-        while (time < fadeDuration)
+        while (time < duration)
         {
             time += Time.deltaTime;
-            audioSourceOld.volume = Mathf.Lerp(1, 0, time / fadeDuration);
-            audioSourceNew.volume = Mathf.Lerp(0, 1, time / fadeDuration);
+            audioSourceOld.volume = Mathf.Lerp(1, 0, time / duration);
+            audioSourceNew.volume = Mathf.Lerp(0, 1, time / duration);
             yield return null;
         }
         

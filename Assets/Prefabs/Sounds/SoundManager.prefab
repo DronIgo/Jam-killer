@@ -49,6 +49,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fadeDuration: 1
+  pressureFadeDuration: 10
   fishCaught: {fileID: 6232611260069923851, guid: a87272a941235d847b41bf9f3623d5d8, type: 3}
   baitDeploy: {fileID: 6232611260069923851, guid: ce469bf954e7f61469e8c791ed954758, type: 3}
   fishGetsAway: {fileID: 6232611260069923851, guid: e0687872243d74e4199558ebf44895ca, type: 3}
@@ -288,6 +289,10 @@ PrefabInstance:
       propertyPath: Loop
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1473716049387155620, guid: 2d35efa688340c940a762f7bce3a37ca, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: db94909a0958b514780998398d37f5e3, type: 3}
     - target: {fileID: 1473716049387155620, guid: 2d35efa688340c940a762f7bce3a37ca, type: 3}
       propertyPath: m_PlayOnAwake
       value: 0
