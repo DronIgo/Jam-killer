@@ -10,20 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a036f14e9ba7e5b419d36c90f10ca516, type: 3}
-  m_Name: Cambala
+  m_Name: FishGartie
   m_EditorClassIdentifier: 
   size: 2
-  fishName: Cambala
-  description: Delicious with the right spices
-  fishCost: 12
-  fishIcon: {fileID: 21300000, guid: 4d3ec773c68bdfa42bc9bac2f95c8321, type: 3}
+  fishName: Gartie fish
+  description: Seperating meat from the bone is the hardest part
+  fishCost: 8
+  fishIcon: {fileID: 21300000, guid: 936a3851d2927cb45b190f90f4844004, type: 3}
   fishPrefab: {fileID: 6939232671039847740, guid: 575b3dfc640a51246b331b5ddaa4586d, type: 3}
   attackPrefab: {fileID: 0}
   swimAwayPrefab: {fileID: 0}
-  attackDistance: 1
-  probabilityOfAttack: 0.2
+  attackDistance: 2
+  probabilityOfAttack: 0.3
   probabilityOfBaiting: 0.7
-  probability: 1
+  probability: 3
   lifeTime: 20
   speed: 2
   movementType: {fileID: 11400000, guid: 839df1b1a6975f046aacf3a83f4bce0f, type: 2}
