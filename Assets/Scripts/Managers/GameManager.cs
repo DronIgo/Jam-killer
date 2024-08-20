@@ -24,6 +24,9 @@ public class GameManager : MonoBehaviour
     public CameraController cameraController;
     public Transform playerCenter;
 
+    public bool gameStarted = false;
+    public bool fishManagerStarted = false;
+
     public FishManager fishManager;
 
     private void Awake()
@@ -39,8 +42,16 @@ public class GameManager : MonoBehaviour
         SetPause(false);
         FishManager.minigameActive = false;
         LoadState();
+        StartCoroutine("StartGame");
     }
 
+    private IEnumerator StartGame()
+    {
+        yield return new WaitForSeconds(0.5f);
+        gameStarted = true;
+        yield return new WaitForSeconds(0.5f);
+        fishManagerStarted = true;
+    }
     // Update is called once per frame
     void Update()
     {
@@ -80,6 +91,9 @@ public class GameManager : MonoBehaviour
     public void LoadState()
     {
         Debug.Log(saver.lives);
+
+        player = Instantiate(saver.shipPrefab, Vector3.zero, Quaternion.identity);
+        playerCenter = player.transform.Find("Center");
         var playerHealth = instance.player.GetComponent<Health>();
         playerHealth.currentLives = saver.lives;
         playerHealth.maxLives = saver.maxLives;
@@ -99,6 +113,7 @@ public class GameManager : MonoBehaviour
         }
 
         fishManager.UpdateFishLists(avialableFish);
+
 
         UpdateUIElements();
     }

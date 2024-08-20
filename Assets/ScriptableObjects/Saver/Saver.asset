@@ -16,7 +16,7 @@ MonoBehaviour:
   maxLives: 3
   score: 0
   baitNum: 5
-  shipPrefab: {fileID: 0}
+  shipPrefab: {fileID: 8869222956829330098, guid: 15dd1c738911c014ba182484c6f89a01, type: 3}
   fishingMinigamePrefab: {fileID: 0}
   smallOcean:
   - {fileID: 11400000, guid: 9ebd583f40629fa45bb232c45d9e7e81, type: 2}
