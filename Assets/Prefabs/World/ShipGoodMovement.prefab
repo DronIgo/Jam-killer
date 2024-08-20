@@ -463,7 +463,7 @@ SpriteRenderer:
   m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: cdf291bb0bb97fe4fab91ed5dc58e5a3, type: 3}
-  m_Color: {r: 0.5566037, g: 0.58987486, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
@@ -489,6 +489,7 @@ MonoBehaviour:
   acceleration: 8
   deceleration: 8
   currentVelocity: {x: 0, y: 0}
+  cameraSize: 7
   fishingRod: {fileID: 0}
   move: {x: 0, y: 0}
   rb: {fileID: 1267086804}
@@ -506,6 +507,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxLives: 4
   currentLives: 2
+  invincibilityTime: 3
+  isInvincible: 0
 --- !u!70 &638964882
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

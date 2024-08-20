@@ -16,4 +16,4 @@ MonoBehaviour:
   distanceChase: 20
   agroDistance: 10
   numOfAttacks: 1
-  defaultHungryLevel: 0.1
+  defaultHungryLevel: 0.25

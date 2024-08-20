@@ -10,18 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3c80546209ce21c499320f8a841300d6, type: 3}
-  m_Name: ExtraWorms2 1
+  m_Name: DeckShip
   m_EditorClassIdentifier: 
-  shopItemDescription: It's always nice to have some extra bait with you. Just in
-    case sail goes smoothly.
-  cost: 25
-  ItemName: worms2
+  shopItemDescription: Observation deck will help you see your surrondings better.
+  cost: 200
+  ItemName: deckShip
   extraLives: 0
   extraLivesAmount: 1
-  extraBait: 1
-  extraBaitAmount: 5
-  updateShipPrefab: 0
-  newShipPrefab: {fileID: 0}
+  extraBait: 0
+  extraBaitAmount: 1
+  updateShipPrefab: 1
+  newShipPrefab: {fileID: 8869222956829330098, guid: bee132e5e31c8d24da271f2eef594dc7, type: 3}
   updatefishingMinigamePrefab: 0
   newFishingMinigame: {fileID: 0}
   newBait: {fileID: 0}

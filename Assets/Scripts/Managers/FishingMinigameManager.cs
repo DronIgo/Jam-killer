@@ -35,6 +35,7 @@ public class FishingMinigameManager : MonoBehaviour
     {
         minigameObject.SetActive(true);
         minigame.InitiateGame();
+        GameManager.baitNum--;
         while (!minigame.win && !minigame.lose)
         {
             if (!FishingRod.rodActive) {

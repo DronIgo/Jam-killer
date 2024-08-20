@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c80546209ce21c499320f8a841300d6, type: 3}
+  m_Name: GoodBait1
+  m_EditorClassIdentifier: 
+  shopItemDescription: Better bait to attract better fish!
+  cost: 40
+  ItemName: goodBait1
+  extraLives: 0
+  extraLivesAmount: 1
+  extraBait: 0
+  extraBaitAmount: 1
+  updateShipPrefab: 0
+  newShipPrefab: {fileID: 0}
+  updatefishingMinigamePrefab: 0
+  newFishingMinigame: {fileID: 0}
+  newBait: {fileID: 0}
+  updateSmallFishList: 1
+  newSmallFishList:
+  - {fileID: 11400000, guid: 3fa73b53e3bf0424e8e530beb9c95b0f, type: 2}
+  - {fileID: 11400000, guid: 428c14ce2762977489d9115aa2ca02f3, type: 2}
+  - {fileID: 11400000, guid: 6be9cf6bac4d6fa4ba904bb23e1a2da0, type: 2}
+  newSmallFishInsideList:
+  - {fileID: 11400000, guid: 68b94239fd5dc1442b36bf44dc9e9ced, type: 2}
+  - {fileID: 11400000, guid: a831e7a1d1e2db941a493618c1765899, type: 2}
+  - {fileID: 11400000, guid: 79a33e9fb1a7e9446bc50716ebe2d819, type: 2}
+  updateBigFishList: 0
+  newBigFishList: []
