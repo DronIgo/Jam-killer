@@ -34,6 +34,10 @@ public class InputManager : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
+        if (player == null)
+        {
+            player = GameManager.instance.player;
+        }
     }
 
     /// <summary>

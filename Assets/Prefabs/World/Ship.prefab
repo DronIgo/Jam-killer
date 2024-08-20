@@ -489,6 +489,7 @@ MonoBehaviour:
   acceleration: 8
   deceleration: 8
   currentVelocity: {x: 0, y: 0}
+  cameraSize: 6
   fishingRod: {fileID: 0}
   move: {x: 0, y: 0}
   rb: {fileID: 1267086804}
@@ -504,8 +505,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c89ea96854066be42a6061202accea52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _currentLives: 4
   maxLives: 4
+  currentLives: 2
+  invincibilityTime: 3
+  isInvincible: 0
 --- !u!70 &638964882
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

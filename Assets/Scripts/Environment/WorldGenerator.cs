@@ -36,8 +36,9 @@ public class WorldGenerator : MonoBehaviour
     {
         if (player == null)
         {
-            Debug.LogError("You should setup player for World Generator!!!!!!!!!!!!!!!!!!!!!!!!!");
-            Application.Quit();
+            //Debug.LogError("You should setup player for World Generator!!!!!!!!!!!!!!!!!!!!!!!!!");
+            //Application.Quit();
+            player = GameManager.instance.player.transform;
         }
 
 
