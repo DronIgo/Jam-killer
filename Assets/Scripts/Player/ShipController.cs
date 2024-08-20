@@ -14,6 +14,8 @@ public class ShipController : MonoBehaviour
     public float deceleration = 2f;
     public Vector2 currentVelocity = Vector2.zero;
 
+    public float cameraSize = 10f;
+
     public FishingRod fishingRod;
 
     // for debug
