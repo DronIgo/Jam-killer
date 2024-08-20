@@ -24,6 +24,8 @@ public class GameManager : MonoBehaviour
     public CameraController cameraController;
     public Transform playerCenter;
 
+    public FishManager fishManager;
+
     private void Awake()
     {
         if (instance == null)
@@ -34,9 +36,8 @@ public class GameManager : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
-        LoadState();
         SetPause(false);
-        //playerCenter = player.transform.Find("center");
+        LoadState();
     }
 
     // Update is called once per frame
@@ -61,32 +62,17 @@ public class GameManager : MonoBehaviour
 
     public void SaveStateInSail()
     {
-        if (isInOcean)
-        {
-            saver.lives = instance.player.GetComponent<Health>().currentLives;
-            saver.baitNum = baitNum;
-            saver.caughtFish = caughtFish;
-        }
-        else
-        {
-            saver.lives = defaultValues.lives;
-            saver.baitNum = defaultValues.baitNum;
-            saver.caughtFish = defaultValues.caughtFish;
-            saver.score = defaultValues.score;
-        }
+        saver.lives = instance.player.GetComponent<Health>().currentLives;
+        saver.baitNum = baitNum;
+        saver.caughtFish = new List<FishType>(caughtFish);
+
         EditorUtility.SetDirty(saver);
     }
 
     public void SaveStateBetweenSails()
     {
-        if (isInOcean)
-        {
-            saver.caughtFish = caughtFish;
-        }
-        else
-        {
-            saver.caughtFish = new List<FishType>();
-        }
+        saver.caughtFish = new List<FishType>(caughtFish);
+
         EditorUtility.SetDirty(saver);
     }
 
@@ -96,7 +82,7 @@ public class GameManager : MonoBehaviour
         var playerHealth = instance.player.GetComponent<Health>();
         playerHealth.currentLives = saver.lives;
         playerHealth.maxLives = saver.maxLives;
-        caughtFish = saver.caughtFish;
+        caughtFish = new List<FishType>(saver.caughtFish);
         score = 0;
         foreach (var ft in caughtFish)
             score += ft.fishCost;
@@ -111,7 +97,7 @@ public class GameManager : MonoBehaviour
             avialableFish = new List<FishType>(saver.smallInside);
         }
 
-        FishManager.instance.UpdateFishLists(avialableFish);
+        fishManager.UpdateFishLists(avialableFish);
 
         UpdateUIElements();
     }
@@ -149,7 +135,6 @@ public class GameManager : MonoBehaviour
         SetPause(true);
     }
 
-    private bool curPause;
     public void SetPause(bool pause)
     {
         if (pause)

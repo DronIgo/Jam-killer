@@ -12,13 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79ea8061e9b4d5147add6764e723d432, type: 3}
   m_Name: ShopStateSaver
   m_EditorClassIdentifier: 
-  alreadyBought:
-  - {fileID: 11400000, guid: 307c87386bfb93c4eb7d49abcc4c4bfc, type: 2}
-  - {fileID: 11400000, guid: de1cff91515486f45a15122ed7475287, type: 2}
-  - {fileID: 11400000, guid: cdedbb011eed5194e9a3c8f8b94aa6f6, type: 2}
-  - {fileID: 11400000, guid: 46e8afebcf0f7c2469d6d8cac2e86cdd, type: 2}
-  choosen:
-  - {fileID: 11400000, guid: 307c87386bfb93c4eb7d49abcc4c4bfc, type: 2}
-  - {fileID: 11400000, guid: de1cff91515486f45a15122ed7475287, type: 2}
-  - {fileID: 11400000, guid: cdedbb011eed5194e9a3c8f8b94aa6f6, type: 2}
-  totalMoney: 900
+  alreadyBought: []
+  choosen: []
+  totalMoney: 3

@@ -55,3 +55,4 @@ MonoBehaviour:
   player: {fileID: 0}
   cameraController: {fileID: 0}
   playerCenter: {fileID: 0}
+  fishManager: {fileID: 0}

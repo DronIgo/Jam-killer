@@ -18,7 +18,12 @@ MonoBehaviour:
   baitNum: 5
   shipPrefab: {fileID: 0}
   fishingMinigamePrefab: {fileID: 0}
-  smallOcean: []
-  smallInside: []
-  bigOcean: []
+  smallOcean:
+  - {fileID: 11400000, guid: 9ebd583f40629fa45bb232c45d9e7e81, type: 2}
+  - {fileID: 11400000, guid: 0ba3c64e85336024fbcdc89923ba89c0, type: 2}
+  smallInside:
+  - {fileID: 11400000, guid: 74e913e6f307234409dfffea9173f079, type: 2}
+  - {fileID: 11400000, guid: ba6a0e669ac796344839956403b5fe0b, type: 2}
+  bigOcean:
+  - {fileID: 11400000, guid: 072ce695ee843c44497ccea04ab6778b, type: 2}
   caughtFish: []

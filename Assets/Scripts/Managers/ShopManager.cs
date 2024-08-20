@@ -227,9 +227,9 @@ public class ShopManager : MonoBehaviour
         saver.shipPrefab = defaultValues.shipPrefab;
         saver.fishingMinigamePrefab = defaultValues.fishingMinigamePrefab;
 
-        saver.bigOcean = new List<FishType>();
-        saver.smallOcean = new List<FishType>();
-        saver.smallInside = new List<FishType>();
+        saver.bigOcean = new List<FishType>(defaultValues.bigOcean);
+        saver.smallOcean = new List<FishType>(defaultValues.smallOcean);
+        saver.smallInside = new List<FishType>(defaultValues.smallInside);
 
         if (updateMinigame)
             saver.fishingMinigamePrefab = bonusesSaver.fishingMinigamePrefab;
