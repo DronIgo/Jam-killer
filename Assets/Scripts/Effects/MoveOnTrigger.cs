@@ -19,6 +19,8 @@ public class MoveOnTrigger : MonoBehaviour
 
     public UnityEvent doAfterMovement;
 
+    public bool playBeforeMovement = true;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.TryGetComponent<ShipController>(out ShipController shipController))
@@ -31,6 +33,11 @@ public class MoveOnTrigger : MonoBehaviour
 
     private IEnumerator MoveShip()
     {
+        if (playBeforeMovement)
+        {
+            SoundManager.instance.OnFishGulp();
+        }
+
         ship.enabled = false;
         float timePassed = 0;
         Vector3 endPos;
