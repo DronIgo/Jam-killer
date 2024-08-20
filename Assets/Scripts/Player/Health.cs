@@ -10,6 +10,9 @@ public class Health : MonoBehaviour
     public int maxLives = 4;
 
     public int currentLives = 2;
+
+    public float invincibilityTime = 3f;
+
     //{
     //    get
     //    {
@@ -23,6 +26,12 @@ public class Health : MonoBehaviour
     //}
 
 
+    // The specific game time when the health can be damaged again
+    private float timeToBecomeDamagableAgain = 0;
+    // Whether or not the health is invincible
+    public bool isInvincible = false;
+
+
     void Start()
     {
     }
@@ -30,7 +39,15 @@ public class Health : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        InvincibilityCheck();
+    }
 
+    private void InvincibilityCheck()
+    {
+        if (timeToBecomeDamagableAgain <= Time.time)
+        {
+            isInvincible = false;
+        }
     }
 
     private void CheckDeath()
@@ -48,11 +65,15 @@ public class Health : MonoBehaviour
     {
         Debug.Log("Oww boat get damage!!!");
 
-        if (currentLives <= 0)
+        if (currentLives <= 0 || isInvincible)
             return;
 
         currentLives -= damageAmount;
         
+        Debug.Log("Is not invincible");
+        timeToBecomeDamagableAgain = Time.time + invincibilityTime;
+        isInvincible = true;
+
         CheckDeath();
         GameManager.UpdateUIElements();
         

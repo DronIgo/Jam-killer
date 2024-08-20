@@ -59,6 +59,7 @@ MonoBehaviour:
   fishingAudio: {fileID: 0}
   insideAudio: {fileID: 0}
   pressureAudio: {fileID: 0}
+  currentAudio: {fileID: 0}
 --- !u!1001 &292470581
 PrefabInstance:
   m_ObjectHideFlags: 0
