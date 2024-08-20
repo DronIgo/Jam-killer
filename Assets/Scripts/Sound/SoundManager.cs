@@ -155,7 +155,9 @@ public class SoundManager : MonoBehaviour
 
     public void OnFishGulp()
     {
-        Instantiate(fishGulp);
+        Debug.Log("OnFishGulp!!");
+        GameObject go = Instantiate(fishGulp);
+        DontDestroyOnLoad(go);
     }
 
     public void OnFishUngulp()
