@@ -112,7 +112,9 @@ public class ShopManager : MonoBehaviour
                 updateBigFish = true;
             }
         }
+        #if UNITY_EDITOR
         EditorUtility.SetDirty(bonusesSaver);
+        #endif
     }
 
     bool ContainsName(ShopChooser item, List<ShopChooser> items)
@@ -253,12 +255,16 @@ public class ShopManager : MonoBehaviour
 
             saver.bigOcean = new List<FishType>(fishTypes);
         }
+        #if UNITY_EDITOR
         EditorUtility.SetDirty(saver);
+        #endif
 
         shopStateSaver.alreadyBought = new List<ShopChooser>(bought);
         shopStateSaver.choosen = new List<ShopChooser>(choosen);
         shopStateSaver.totalMoney = money;
+        #if UNITY_EDITOR
         EditorUtility.SetDirty(shopStateSaver);
+        #endif
     }
 
     public void LoadState()
