@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9962ea091933ec94c99ae0afb33a5dc6, type: 3}
   m_Name: Saver
   m_EditorClassIdentifier: 
-  lives: 1
-  maxLives: 2
+  lives: 3
+  maxLives: 3
   score: 0
   baitNum: 5
   shipPrefab: {fileID: 0}
@@ -26,6 +26,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ba6a0e669ac796344839956403b5fe0b, type: 2}
   bigOcean:
   - {fileID: 11400000, guid: 072ce695ee843c44497ccea04ab6778b, type: 2}
-  caughtFish:
-  - {fileID: 11400000, guid: ba6a0e669ac796344839956403b5fe0b, type: 2}
-  - {fileID: 11400000, guid: ba6a0e669ac796344839956403b5fe0b, type: 2}
+  caughtFish: []
