@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c80546209ce21c499320f8a841300d6, type: 3}
   m_Name: Bottle1
   m_EditorClassIdentifier: 
-  shopItemDescription: Good old rum! To protect you from the dangers of the ocean.
+  shopItemDescription: Improve your ability to sustain damage.
   cost: 20
   ItemName: bottle1
   extraLives: 1
@@ -29,3 +29,4 @@ MonoBehaviour:
   newSmallFishInsideList: []
   updateBigFishList: 0
   newBigFishList: []
+  extraCameraSize: 0

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c80546209ce21c499320f8a841300d6, type: 3}
   m_Name: GoodBait1
   m_EditorClassIdentifier: 
-  shopItemDescription: Better bait to attract better fish!
+  shopItemDescription: Catch exotic fish with this rod!
   cost: 40
   ItemName: goodBait1
   extraLives: 0
@@ -35,3 +35,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 79a33e9fb1a7e9446bc50716ebe2d819, type: 2}
   updateBigFishList: 0
   newBigFishList: []
+  extraCameraSize: 0

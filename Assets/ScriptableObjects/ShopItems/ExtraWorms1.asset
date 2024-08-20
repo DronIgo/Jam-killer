@@ -12,8 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c80546209ce21c499320f8a841300d6, type: 3}
   m_Name: ExtraWorms1
   m_EditorClassIdentifier: 
-  shopItemDescription: It's always nice to have some extra bait with you. Just in
-    case sail goes smoothly.
+  shopItemDescription: Increase the amount of bait you have.
   cost: 20
   ItemName: worms1
   extraLives: 0
@@ -30,3 +29,4 @@ MonoBehaviour:
   newSmallFishInsideList: []
   updateBigFishList: 0
   newBigFishList: []
+  extraCameraSize: 0

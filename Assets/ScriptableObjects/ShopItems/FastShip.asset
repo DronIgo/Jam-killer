@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c80546209ce21c499320f8a841300d6, type: 3}
   m_Name: FastShip
   m_EditorClassIdentifier: 
-  shopItemDescription: This ship is made to sail the sea as quickly as possible.
+  shopItemDescription: This ship was made to sail the sea as quickly as possible.
   cost: 150
   ItemName: fasterShip
   extraLives: 0
@@ -29,3 +29,4 @@ MonoBehaviour:
   newSmallFishInsideList: []
   updateBigFishList: 0
   newBigFishList: []
+  extraCameraSize: 0

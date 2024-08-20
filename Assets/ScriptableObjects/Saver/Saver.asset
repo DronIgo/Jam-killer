@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9962ea091933ec94c99ae0afb33a5dc6, type: 3}
   m_Name: Saver
   m_EditorClassIdentifier: 
-  lives: 3
-  maxLives: 4
+  lives: 2
+  maxLives: 2
   score: 0
-  baitNum: 15
-  shipPrefab: {fileID: 8869222956829330098, guid: bee132e5e31c8d24da271f2eef594dc7, type: 3}
+  baitNum: 5
+  shipPrefab: {fileID: 8869222956829330098, guid: 15dd1c738911c014ba182484c6f89a01, type: 3}
   fishingMinigamePrefab: {fileID: 0}
   smallOcean:
   - {fileID: 11400000, guid: 0ba3c64e85336024fbcdc89923ba89c0, type: 2}
@@ -30,8 +30,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f4ee7830c740e304b8b3fce353592e51, type: 2}
   bigOcean:
   - {fileID: 11400000, guid: 072ce695ee843c44497ccea04ab6778b, type: 2}
-  - {fileID: 11400000, guid: b486050cbec4e11418301aad08e6ef1e, type: 2}
-  - {fileID: 11400000, guid: b486050cbec4e11418301aad08e6ef1e, type: 2}
-  - {fileID: 11400000, guid: b486050cbec4e11418301aad08e6ef1e, type: 2}
   caughtFish: []
-  extraCameraSize: 5
+  extraCameraSize: 0
