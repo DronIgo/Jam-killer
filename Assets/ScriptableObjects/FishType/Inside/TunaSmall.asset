@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a036f14e9ba7e5b419d36c90f10ca516, type: 3}
-  m_Name: FishTunaSmall
+  m_Name: TunaSmall
   m_EditorClassIdentifier: 
   size: 2
   fishName: Tuna
-  description: Delicious with the right spices
-  fishCost: 3
+  description: Caught inside a bigger fish!
+  fishCost: 15
   fishIcon: {fileID: 21300000, guid: a6e8d0d1d3a44d641a1b6ae76cc2b540, type: 3}
   fishPrefab: {fileID: 6939232671039847740, guid: 575b3dfc640a51246b331b5ddaa4586d, type: 3}
   attackPrefab: {fileID: 0}
@@ -26,5 +26,5 @@ MonoBehaviour:
   probability: 4
   lifeTime: 20
   speed: 2
-  movementType: {fileID: 11400000, guid: 839df1b1a6975f046aacf3a83f4bce0f, type: 2}
+  movementType: {fileID: 11400000, guid: 925dd07f5f91a4f468cfc327dc3629f4, type: 2}
   behaviourType: {fileID: 11400000, guid: 23a8ebee37aa5b7469d431c8e23ffacb, type: 2}

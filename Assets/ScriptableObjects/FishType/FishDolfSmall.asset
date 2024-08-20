@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a036f14e9ba7e5b419d36c90f10ca516, type: 3}
-  m_Name: FishTunaSmall
+  m_Name: FishDolfSmall
   m_EditorClassIdentifier: 
   size: 2
-  fishName: Tuna
-  description: Delicious with the right spices
-  fishCost: 3
-  fishIcon: {fileID: 21300000, guid: a6e8d0d1d3a44d641a1b6ae76cc2b540, type: 3}
+  fishName: Dolf Fish
+  description: Simply delicious
+  fishCost: 6
+  fishIcon: {fileID: 21300000, guid: e2771f5d4feca854b8f6e095226a4e6c, type: 3}
   fishPrefab: {fileID: 6939232671039847740, guid: 575b3dfc640a51246b331b5ddaa4586d, type: 3}
   attackPrefab: {fileID: 0}
   swimAwayPrefab: {fileID: 0}
-  attackDistance: 3
+  attackDistance: 1
   probabilityOfAttack: 0.4
   probabilityOfBaiting: 0.7
   probability: 4

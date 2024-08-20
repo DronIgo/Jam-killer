@@ -52,7 +52,8 @@ public class FishingMinigame : MonoBehaviour
 
     public void SetParamsFromFish(Fish fish)
     {
-        //TO DO:
+        timerMultiplicator = fish.type.attackDistance;
+        progressSpeed = fish.type.probabilityOfAttack;
     }
         
     private void Resize()
@@ -106,6 +107,10 @@ public class FishingMinigame : MonoBehaviour
             {
                 Lose();
             }
+            if (failTime < defaultFailTime - 1f && hookProgress == 0)
+            {
+                Lose();
+            } 
         }
 
         if (hookProgress >= 1f)
