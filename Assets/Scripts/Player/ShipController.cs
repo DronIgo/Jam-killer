@@ -44,6 +44,21 @@ public class ShipController : MonoBehaviour
         float horizontal = input.horizontalMovement;
         float vertical = input.verticalMovement;
 
+        //check hook thrown
+        if (input.hookThrown)
+        {
+            if (!FishingRod.rodActive)
+            {
+                fishingRod.Throw(new Vector2(0.23f, -1.53f));
+                currentVelocity = Vector2.zero;
+            }
+            else
+                fishingRod.SetActive(false);
+        }
+
+        if (FishingRod.rodActive)
+            return;
+
         // move with acceleration
         if (FishManager.minigameActive)
             return;
@@ -91,21 +106,12 @@ public class ShipController : MonoBehaviour
         {
             shipRenderer.flipX = true;
         }
-
-        //check hook thrown
-        if (input.hookThrown)
-        {
-            if (!FishingRod.rodActive)
-            {
-                fishingRod.Throw(new Vector2(0.23f, -1.53f));
-            }
-            else
-                fishingRod.SetActive(false);
-        }
     }
 
     private void FixedUpdate()
     {
+        if (FishingRod.rodActive)
+            return;
         rb.MovePosition(rb.position + currentVelocity * Time.fixedDeltaTime);
     }
 }
