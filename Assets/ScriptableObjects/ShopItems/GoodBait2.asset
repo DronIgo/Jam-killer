@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: GoodBait2
   m_EditorClassIdentifier: 
   shopItemDescription: Better bait to attract better fish!
-  cost: 25
+  cost: 50
   ItemName: goodBait2
   extraLives: 0
   extraLivesAmount: 1

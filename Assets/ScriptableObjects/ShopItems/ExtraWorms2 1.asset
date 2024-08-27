@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shopItemDescription: It's always nice to have some extra bait with you. Just in
     case sail goes smoothly.
-  cost: 10
+  cost: 20
   ItemName: worms2
   extraLives: 0
   extraLivesAmount: 1

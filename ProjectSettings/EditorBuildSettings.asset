@@ -6,10 +6,10 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/BuildScenes/Shop.unity
+    path: Assets/Scenes/BuildScenes/Shop_Windows.unity
     guid: 3fafa8f210389294cb0ee6df9997aa95
   - enabled: 1
-    path: Assets/Scenes/BuildScenes/Ocean.unity
+    path: Assets/Scenes/BuildScenes/Ocean_Windows.unity
     guid: 64c65c37ff415e24faae633f8a7ef172
   - enabled: 1
     path: Assets/Scenes/BuildScenes/InsideFish.unity

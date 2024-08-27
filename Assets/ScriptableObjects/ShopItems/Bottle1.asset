@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Bottle1
   m_EditorClassIdentifier: 
   shopItemDescription: Improve your ability to sustain damage.
-  cost: 10
+  cost: 30
   ItemName: bottle1
   extraLives: 1
   extraLivesAmount: 1

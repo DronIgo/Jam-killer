@@ -172,6 +172,10 @@ public class GameManager : MonoBehaviour
         SetPause(true);
     }
 
+    public void HidePlayer()
+    {
+        player.SetActive(false);
+    }
     public void SetPause(bool pause)
     {
         if (pause)

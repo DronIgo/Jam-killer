@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ExtraWorms1
   m_EditorClassIdentifier: 
   shopItemDescription: Increase the amount of bait you have.
-  cost: 10
+  cost: 20
   ItemName: worms1
   extraLives: 0
   extraLivesAmount: 1
